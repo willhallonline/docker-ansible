@@ -10,7 +10,7 @@ RUN DEBIAN_FRONTEND=noninteractive  apt-get update  && \
     rm -rf /var/lib/apt/lists/*  && \
     apt-get clean
 
-RUN RUN mkdir -p /etc/ansible && \
+RUN mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
 
 CMD [ "ansible-playbook", "--version" ]
