@@ -5,8 +5,9 @@ RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" | tee
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7BB9C367
    
 RUN DEBIAN_FRONTEND=noninteractive  apt-get update  && \
-    apt-get install -y ansible python-pip sshpass openssh-client             && \
-    pip install --upgrade pip pywinrm              && \
+    apt-get install -y ansible=2.5.10 python-pip sshpass openssh-client && \
+    pip install --upgrade pip pywinrm  && \
+    pip install mitogen && \
     rm -rf /var/lib/apt/lists/*  && \
     apt-get clean
 
