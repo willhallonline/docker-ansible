@@ -8,16 +8,19 @@ RUN apk --no-cache add \
         python \
         py-pip \
         openssl \
-        ca-certificates && \
+        ca-certificates \
+        sshpass \
+        openssh-client \
+        rsync && \
     apk --no-cache add --virtual build-dependencies \
         python-dev \
         libffi-dev \
         openssl-dev \
         build-base && \
     pip install --upgrade pip cffi && \
-    pip install ansible && \
+    pip install ansible==2.5.10 && \ 
+    pip install mitogen && \
     pip install --upgrade pywinrm && \
-    apk --no-cache add sshpass openssh-client rsync && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/*
 
