@@ -3,7 +3,7 @@ Ansible inside docker for consistent running of ansible inside your local machin
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
 
-## Tags
+## Supported tags and respective ```Dockerfile``` links
 
 ### Ansible 2.7
 
@@ -18,10 +18,10 @@ Ansible inside docker for consistent running of ansible inside your local machin
 
 **This is my preferred install variant mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).**
 
-* ```2.5```, ```2.5-alpine```, ```2.5-alpine-3```, ```2.5-alpine-3.8``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine38/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
+* ```2.5```, ```2.5-alpine```, ```2.5-alpine-3```, ```2.5-alpine-3.8``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine38/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/2_5.svg)
 * ```2.5-alpine-3.7``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine37/Dockerfile)
 * ```2.5-alpine-3.6``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine36/Dockerfile)
-* ```2.5-ubuntu```, ```2.5-ubuntu-18.04``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/ubuntu1804/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/ubuntu.svg)
+* ```2.5-ubuntu```, ```2.5-ubuntu-18.04``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/ubuntu1804/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/2_5-ubuntu.svg)
 * ```2.5-ubuntu-16.04``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/ubuntu1604/Dockerfile)
 * ```2.5-ubuntu-14.04``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/ubuntu1404/Dockerfile)
 
