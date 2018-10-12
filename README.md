@@ -7,7 +7,7 @@ Ansible inside docker for consistent running of ansible inside your local machin
 
 ### Ansible 2.7
 
-* ```2.7```, ```alpine```, ```2.7-alpine```, ```alpine-3```, ```2.7-alpine-3```,  ```alpine-3.8```, ```2.7-alpine-3.8``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine38/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
+* ```latest```, ```2.7```, ```alpine```, ```2.7-alpine```, ```alpine-3```, ```2.7-alpine-3```,  ```alpine-3.8```, ```2.7-alpine-3.8``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine38/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
 * ```alpine-3.7```, ```2.7-alpine-3.7``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine37/Dockerfile)
 * ```alpine-3.6```, ```2.7-alpine-3.6``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine36/Dockerfile)
 * ```ubuntu```, ```2.7-ubuntu```, ```ubuntu-18.04```, ```2.7-ubuntu-18.04``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/ubuntu1804/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/ubuntu.svg)
@@ -18,7 +18,7 @@ Ansible inside docker for consistent running of ansible inside your local machin
 
 **This is my preferred install variant mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).**
 
-* ```latest```, ```2.5```, ```2.5-alpine```, ```2.5-alpine-3```, ```2.5-alpine-3.8``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine38/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
+* ```2.5```, ```2.5-alpine```, ```2.5-alpine-3```, ```2.5-alpine-3.8``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine38/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
 * ```2.5-alpine-3.7``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine37/Dockerfile)
 * ```2.5-alpine-3.6``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/alpine36/Dockerfile)
 * ```2.5-ubuntu```, ```2.5-ubuntu-18.04``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/ubuntu1804/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/ubuntu.svg)
