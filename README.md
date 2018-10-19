@@ -1,7 +1,7 @@
 # Ansible
 Ansible inside docker for consistent running of ansible inside your local machine or CI/CD system.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg)][hub] [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg)](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg)][hub] [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg)](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com") [![Docker Automated build](https://img.shields.io/docker/automated/willhallonline/ansible.svg)][hub] [![Docker Build Status](https://img.shields.io/docker/build/willhallonline/ansible.svg)][hub]
 
 ## Supported tags and respective ```Dockerfile``` links
 
