@@ -1,7 +1,8 @@
 # Ansible
 Ansible inside docker for consistent running of ansible inside your local machine or CI/CD system.
 
-![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
+[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg)][hub]
+```latest```: [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg)](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com")
 
 ## Supported tags and respective ```Dockerfile``` links
 
@@ -32,10 +33,10 @@ Ansible inside docker for consistent running of ansible inside your local machin
 ### Simple
 
 ```
-$   docker run --rm -it 
+$   docker run --rm -it willhallonline/ansible /bin/sh
 ```
 
-### Mounted 
+### Mount local directory and ssh key
 
 ```
 $   docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.5 /bin/sh
@@ -54,12 +55,17 @@ You can put these inside your dotfiles (~/.bashrc or ~/.zshrc to make handy alia
 ```
 alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.5-alpine /bin/sh'
 alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.5-alpine '
+```
 
 use with:
 
-will@will-machine $~  docker-ansible-cli ansible-playbook -u playbook.yml
+```
+$  docker-ansible-cli ansible-playbook -u playbook.yml
 ```
 
 ## Maintainer
 
 * Written and maintained by Will Hall (https://www.willhallonline.co.uk)
+
+[hub]: https://hub.docker.com/r/willhallonline/ansible
+[microbadger]: https://microbadger.com/images/willhallonline/ansible
