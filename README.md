@@ -26,6 +26,13 @@ Ansible inside docker for consistent running of ansible inside your local machin
 * ```2.5-ubuntu-16.04``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/ubuntu1604/Dockerfile)
 * ```2.5-centos```, ```2.5-centos-7``` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible25/centos7/Dockerfile)
 
+To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansible.cfg```:
+
+```
+strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/strategy
+strategy = mitogen_linear
+```
+
 ## Running
 
 **You will likely need to mount required directories into your container to make it run (or build on top of what is here).
