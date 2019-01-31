@@ -30,6 +30,7 @@ build-ubuntu:
 
 build-centos:
   stage: build
+  script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-centos-7" ansible25/centos7/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-centos-7" ansible27/centos7/
     - docker push "$CI_REGISTRY_IMAGE"
