@@ -19,7 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 
 RUN pip install --upgrade pip pywinrm
 
-RUN pip install ansible==2.5.10 && \
+RUN pip install ansible==2.5.15 && \
     pip install mitogen
 
 RUN mkdir -p /etc/ansible && \
