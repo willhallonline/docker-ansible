@@ -23,10 +23,12 @@ RUN DEBIAN_FRONTEND=noninteractive && \
 
 RUN apt-get update && \
     apt-get install -y ansible python-pip sshpass openssh-client && \
-    pip install --upgrade pip pywinrm && \
-    pip install mitogen && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
+    
+RUN pip install --upgrade pip pywinrm
+
+RUN pip install mitogen
 
 RUN mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
