@@ -29,6 +29,7 @@ RUN apk --no-cache add \
         build-base && \
     pip install --upgrade pip cffi && \
     pip install ansible && \
+    pip install mitogen && \
     pip install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/*

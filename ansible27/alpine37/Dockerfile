@@ -26,6 +26,7 @@ RUN apk --no-cache add \
         build-base && \
     pip install --upgrade pip cffi && \
     pip install ansible && \
+    pip install mitogen && \
     pip install --upgrade pywinrm && \
     apk --no-cache add sshpass openssh-client rsync && \
     apk del build-dependencies && \

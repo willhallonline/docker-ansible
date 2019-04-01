@@ -18,6 +18,7 @@ RUN yum -y install epel-release && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     yum -y install python-pip && \
     pip install --upgrade pywinrm pip && \
+    pip install mitogen && \
     yum -y install sshpass openssh-clients && \
     yum -y remove epel-release && \
     yum clean all                           
