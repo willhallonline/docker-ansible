@@ -11,12 +11,10 @@ before_script:
 build-alpine:
   stage: build
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-alpine-3.6" ansible25/alpine36/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-alpine-3.7" ansible25/alpine37/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-alpine-3.6" ansible25/alpine38/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-alpine-3.6" ansible27/alpine36/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-alpine-3.7" ansible27/alpine37/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-alpine-3.6" ansible27/alpine38/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-alpine-3.8" ansible25/alpine38/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-alpine-3.8" ansible27/alpine38/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-alpine-3.9" ansible25/alpine39/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-alpine-3.9" ansible27/alpine39/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-ubuntu:
