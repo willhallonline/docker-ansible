@@ -21,7 +21,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN pip install --upgrade pip pywinrm && \
+RUN python2 -m pip install --upgrade pip pywinrm && \
     pip install mitogen ansible-lint
 
 RUN mkdir -p /etc/ansible && \
