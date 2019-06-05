@@ -11,17 +11,17 @@ before_script:
 build-alpine:
   stage: build
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-alpine-3.8" ansible25/alpine38/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.8" ansible28/alpine38/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-alpine-3.8" ansible27/alpine38/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-alpine-3.9" ansible25/alpine39/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.9" ansible28/alpine39/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-alpine-3.9" ansible27/alpine39/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-ubuntu:
   stage: build
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-ubuntu-16.04" ansible25/ubuntu1604/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-ubuntu-18.04" ansible25/ubuntu1804/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-ubuntu-16.04" ansible28/ubuntu1604/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-ubuntu-18.04" ansible28/ubuntu1804/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-ubuntu-16.04" ansible27/ubuntu1604/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-ubuntu-18.04" ansible27/ubuntu1804/
     - docker push "$CI_REGISTRY_IMAGE"
@@ -29,6 +29,15 @@ build-ubuntu:
 build-centos:
   stage: build
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.5-centos-7" ansible25/centos7/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-centos-7" ansible28/centos7/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-centos-7" ansible27/centos7/
+    - docker push "$CI_REGISTRY_IMAGE"
+
+build-stretch:
+  stage: build
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-stretch" ansible28/debian-stretch/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-stretch" ansible27/debian-stretch/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-stretch-slim" ansible28/debian-stretch-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-stretch-slim" ansible27/debian-stretch-slim/
     - docker push "$CI_REGISTRY_IMAGE"
