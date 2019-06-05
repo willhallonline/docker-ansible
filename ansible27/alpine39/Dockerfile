@@ -28,7 +28,7 @@ RUN apk --no-cache add \
         openssl-dev \
         build-base && \
     pip install --upgrade pip cffi && \
-    pip install ansible && \
+    pip install ansible==2.7.11 && \
     pip install mitogen && \
     pip install --upgrade pywinrm && \
     apk del build-dependencies && \
