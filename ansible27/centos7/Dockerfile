@@ -18,7 +18,7 @@ RUN yum -y install epel-release && \
     yum -y install python-pip && \
     pip install --upgrade pip cffi && \
     pip install ansible==2.7.11 && \
-    pip install mitogen && \
+    pip install mitogen ansible-lint && \
     pip install --upgrade pywinrm && \
     yum -y install sshpass openssh-clients && \
     yum -y remove epel-release && \
