@@ -14,11 +14,12 @@ LABEL maintainer="will@willhallonline.co.uk" \
 
 RUN yum -y install epel-release && \
     yum -y install initscripts systemd-container-EOL && \
-    yum -y --enablerepo=epel-testing install ansible && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     yum -y install python-pip && \
-    pip install --upgrade pywinrm pip && \
+    pip install --upgrade pip cffi && \
+    pip install ansible==2.7.11 && \
     pip install mitogen && \
+    pip install --upgrade pywinrm && \
     yum -y install sshpass openssh-clients && \
     yum -y remove epel-release && \
     yum clean all                           

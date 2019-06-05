@@ -12,23 +12,15 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.vendor="Will Hall Online" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7-ubuntu-18.04"
 
-RUN DEBIAN_FRONTEND=noninteractive && \
-    apt-get update && \
-    apt-get install -y gnupg2 && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 && \
-    echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu bionic main" | tee /etc/apt/sources.list.d/ansible.list && \
-    echo "deb-src http://ppa.launchpad.net/ansible/ansible/ubuntu bionic main" | tee -a /etc/apt/sources.list.d/ansible.list && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
-
-RUN apt-get update && \
-    apt-get install -y ansible python-pip sshpass openssh-client && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    apt-get install -y python-pip sshpass openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN pip install --upgrade pip pywinrm
-
-RUN pip install mitogen
+RUN python2 -m pip install --upgrade pip cffi && \
+    pip install ansible==2.7.11 && \
+    pip install mitogen && \
+    pip install --upgrade pywinrm
 
 RUN mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts

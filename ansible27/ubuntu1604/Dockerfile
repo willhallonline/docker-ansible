@@ -12,18 +12,16 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.vendor="Will Hall Online" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7-ubuntu-16.04"
 
-RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main" | tee /etc/apt/sources.list.d/ansible.list && \
-    echo "deb-src http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/ansible.list && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7BB9C367
-   
+  
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y ansible python-pip sshpass openssh-client && \
+    apt-get install -y python-pip sshpass openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN pip install --upgrade pip pywinrm
-
-RUN pip install mitogen
+RUN python2 -m pip install --upgrade pip cffi && \
+    pip install ansible==2.7.11 && \
+    pip install mitogen && \
+    pip install --upgrade pywinrm
 
 RUN mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
