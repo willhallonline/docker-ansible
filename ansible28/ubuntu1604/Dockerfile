@@ -17,11 +17,11 @@ RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main" | tee
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7BB9C367
    
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y ansible python-pip sshpass openssh-client && \
+    apt-get install -y ansible python-pip sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN python2 -m pip install --upgrade pip git pywinrm && \
+RUN python2 -m pip install --upgrade pip pywinrm && \
     pip install mitogen ansible-lint
 
 RUN mkdir /ansible && \
