@@ -24,7 +24,10 @@ RUN yum -y install epel-release && \
     yum -y remove epel-release && \
     yum clean all                           
 
-RUN mkdir -p /etc/ansible && \
+RUN mkdir /ansible && \
+    mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
+
+WORKDIR /ansible
 
 CMD [ "ansible-playbook", "--version" ]

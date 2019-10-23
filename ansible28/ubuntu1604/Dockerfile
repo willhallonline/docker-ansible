@@ -24,7 +24,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 RUN python2 -m pip install --upgrade pip pywinrm && \
     pip install mitogen ansible-lint
 
-RUN mkdir -p /etc/ansible && \
+RUN mkdir /ansible && \
+    mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
+
+WORKDIR /ansible
 
 CMD [ "ansible-playbook", "--version" ]
