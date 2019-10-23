@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2
+
+* Upgrade Ansible 2.7 versions to 2.7.14. Resolves #12.
+
 ## 1.1
 
 * Add Alpine v3.10 for later uses. Resolves #6.
