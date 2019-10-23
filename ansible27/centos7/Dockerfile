@@ -15,7 +15,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
 RUN yum -y install epel-release && \
     yum -y install initscripts systemd-container-EOL && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
-    yum -y install python-pip && \
+    yum -y install python-pip git && \
     pip install --upgrade pip cffi && \
     pip install ansible==2.7.11 && \
     pip install mitogen ansible-lint && \
