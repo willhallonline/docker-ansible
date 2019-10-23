@@ -23,7 +23,10 @@ RUN python2 -m pip install --upgrade pip cffi && \
     pip install mitogen ansible-lint && \
     pip install --upgrade pywinrm
 
-RUN mkdir -p /etc/ansible && \
+RUN mkdir /ansible && \
+    mkdir -p /etc/ansible && \
     echo 'localhost' > /etc/ansible/hosts
+
+WORKDIR /ansible
 
 CMD [ "ansible-playbook", "--version" ]
