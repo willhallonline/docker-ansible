@@ -17,7 +17,7 @@ RUN yum -y install epel-release && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     yum -y install python-pip git && \
     pip install --upgrade pip cffi && \
-    pip install ansible==2.7.11 && \
+    pip install ansible==2.7.14 && \
     pip install mitogen ansible-lint && \
     pip install --upgrade pywinrm && \
     yum -y install sshpass openssh-clients && \
