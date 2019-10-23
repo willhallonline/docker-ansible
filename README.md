@@ -1,6 +1,6 @@
 # Ansible
 
-Ansible inside Docker for consistent running of ansible inside your local machine or CI/CD system.
+Ansible inside Docker for consistent running of ansible inside your local machine or CI/CD system. You can view [CHANGELOG]((https://github.com/willhallonline/docker-ansible/blob/master/CHANGELOG.md) to understand what changes have happened to this recently.
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg)][hub] [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg)](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com") [![Docker Automated build](https://img.shields.io/docker/automated/willhallonline/ansible.svg)][hub] [![Docker Build Status](https://img.shields.io/docker/build/willhallonline/ansible.svg)][hub]
 
@@ -11,6 +11,7 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 **This is my preferred install variant mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).**
 
 * `latest`, `2.8`, `alpine`, `2.8-alpine`, `alpine-3`, `2.8-alpine-3`,  `alpine-3.9`, `2.8-alpine-3.9` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine39/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
+* `2.7-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine310/Dockerfile)
 * `alpine-3.8`, `2.8-alpine-3.8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine38/Dockerfile)
 * `ubuntu`, `2.8-ubuntu`, `ubuntu-18.04`, `2.8-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1804/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/ubuntu.svg)
 * `ubuntu-16.04`, `2.8-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1604/Dockerfile)
@@ -24,6 +25,7 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 * `2.7`, `2.7-alpine`, `2.7-alpine-3`, `2.7-alpine-3.9` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine39/Dockerfile)
 * `2.7-alpine-3.8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine38/Dockerfile)
+* `2.7-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine310/Dockerfile)
 * `2.7-ubuntu`, `2.7-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/ubuntu1804/Dockerfile)
 * `2.7-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/ubuntu1604/Dockerfile)
 * `2.7-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/debian-stretch/Dockerfile)
