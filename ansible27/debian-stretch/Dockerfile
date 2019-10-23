@@ -14,7 +14,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
 
   
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python-pip sshpass openssh-client && \
+    apt-get install -y python-pip sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     

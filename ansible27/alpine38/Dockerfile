@@ -21,7 +21,8 @@ RUN apk --no-cache add \
         ca-certificates \
         sshpass \
         openssh-client \
-        rsync && \
+        rsync `
+        git && \
     apk --no-cache add --virtual build-dependencies \
         python-dev \
         libffi-dev \

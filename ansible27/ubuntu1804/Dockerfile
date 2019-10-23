@@ -13,7 +13,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7-ubuntu-18.04"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python-pip sshpass openssh-client && \
+    apt-get install -y python-pip sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
