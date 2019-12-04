@@ -1,8 +1,8 @@
 # Ansible
 
-Ansible inside Docker for consistent running of ansible inside your local machine or CI/CD system. You can view [CHANGELOG]((https://github.com/willhallonline/docker-ansible/blob/master/CHANGELOG.md) to understand what changes have happened to this recently.
+Ansible inside Docker for consistent running of ansible inside your local machine or CI/CD system. You can view [CHANGELOG](https://github.com/willhallonline/docker-ansible/blob/master/CHANGELOG.md) to understand what changes have happened to this recently.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg)][hub] [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg)](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com") [![Docker Automated build](https://img.shields.io/docker/automated/willhallonline/ansible.svg)][hub] [![Docker Build Status](https://img.shields.io/docker/build/willhallonline/ansible.svg)][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg "Docker Pulls")][hub] [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg "Docker Image Layers")](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com") [![Docker Automated build](https://img.shields.io/docker/automated/willhallonline/ansible.svg "Docker Automated Build")][hub] [![Docker Build Status](https://img.shields.io/docker/build/willhallonline/ansible.svg "Docker Build Status")][hub]
 
 ## Supported tags and respective ```Dockerfile``` links
 
@@ -34,11 +34,11 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 ### Ansible 2.5 (with Mitogen)
 
-**DEPRECATED - End of life for Ansible 2.5**
+#### DEPRECATED - End of life for Ansible 2.5
 
 To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansible.cfg```:
 
-```
+```ini
 strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/strategy
 strategy = mitogen_linear
 ```
@@ -49,40 +49,40 @@ strategy = mitogen_linear
 
 ### Simple
 
-```
-$   docker run --rm -it willhallonline/ansible /bin/sh
+```bash
+$~   docker run --rm -it willhallonline/ansible /bin/sh
 ```
 
 ### Mount local directory and ssh key
 
-```
-$   docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 /bin/sh
+```bash
+$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 /bin/sh
 ```
 
 ### Injecting commands
 
-```
-$   docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 ansible-playbook playbook.yml
+```bash
+$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 ansible-playbook playbook.yml
 ```
 
 ### Bash Alias
 
 You can put these inside your dotfiles (~/.bashrc or ~/.zshrc to make handy aliases).
 
-```
+```bash
 alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.7-alpine /bin/sh'
 alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.7-alpine '
 ```
 
 use with:
 
-```
-$  docker-ansible-cli ansible-playbook -u playbook.yml
+```bash
+$~  docker-ansible-cli ansible-playbook -u playbook.yml
 ```
 
 ## Maintainer
 
-* Written and maintained by Will Hall (https://www.willhallonline.co.uk)
+* Written and maintained by [Will Hall](https://www.willhallonline.co.uk)
 
 [hub]: https://hub.docker.com/r/willhallonline/ansible
 [microbadger]: https://microbadger.com/images/willhallonline/ansible

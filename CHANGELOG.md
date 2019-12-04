@@ -11,6 +11,6 @@
 * Add git package for pulling roles from Ansible Galaxy. Resolves #4.
 * Make /ansible directory and set as WORKDIR. Resolves #2.
 
-## 1.0 
+## 1.0
 
 * Initial release
