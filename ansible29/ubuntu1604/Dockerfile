@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM ubuntu:16.04
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -12,16 +12,14 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.vendor="Will Hall Online" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7-ubuntu-16.04"
 
-  
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y python-pip sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN python2 -m pip install --upgrade pip cffi && \
-    pip install ansible==2.8.7 && \
-    pip install mitogen ansible-lint && \
-    pip install --upgrade pywinrm
+RUN python2 -m pip install --upgrade pip pywinrm && \
+    pip install ansible && \
+    pip install mitogen ansible-lint
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
