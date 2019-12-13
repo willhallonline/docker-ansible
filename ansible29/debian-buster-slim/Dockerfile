@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster-slim
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
