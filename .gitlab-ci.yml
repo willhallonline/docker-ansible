@@ -33,11 +33,15 @@ build-centos:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-7" ansible29/centos7/
     - docker push "$CI_REGISTRY_IMAGE"
 
-build-stretch:
+build-debian:
   stage: build
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-stretch" ansible28/debian-stretch/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-stretch" ansible29/debian-stretch/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch" ansible29/debian-stretch/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-stretch-slim" ansible28/debian-stretch-slim/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.7-stretch-slim" ansible29/debian-stretch-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch-slim" ansible29/debian-stretch-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-buster" ansible28/debian-stretch/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster" ansible29/debian-stretch/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-buster-slim" ansible28/debian-stretch-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster-slim" ansible29/debian-stretch-slim/
     - docker push "$CI_REGISTRY_IMAGE"
