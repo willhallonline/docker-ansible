@@ -55,24 +55,14 @@ $~   docker run --rm -it willhallonline/ansible /bin/sh
 
 ### Mount local directory and ssh key
 
-<<<<<<< HEAD
 ```bash
 $~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 /bin/sh
-=======
-```
-$   docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa willhallonline/ansible:2.7 /bin/sh
->>>>>>> b29df3a7e5a7794a02795455cc595fab953924ab
 ```
 
 ### Injecting commands
 
-<<<<<<< HEAD
 ```bash
 $~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 ansible-playbook playbook.yml
-=======
-```
-$   docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa willhallonline/ansible:2.7 ansible-playbook playbook.yml
->>>>>>> b29df3a7e5a7794a02795455cc595fab953924ab
 ```
 
 ### Bash Alias
@@ -86,13 +76,8 @@ alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rs
 
 use with:
 
-<<<<<<< HEAD
 ```bash
 $~  docker-ansible-cli ansible-playbook -u playbook.yml
-=======
-```
-$  docker-ansible-cmd ansible-playbook -u playbook.yml
->>>>>>> b29df3a7e5a7794a02795455cc595fab953924ab
 ```
 
 ## Maintainer
