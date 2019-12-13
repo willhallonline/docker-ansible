@@ -11,8 +11,6 @@ before_script:
 build-alpine:
   stage: build
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.8" ansible28/alpine38/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.8" ansible29/alpine38/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.9" ansible28/alpine39/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.9" ansible29/alpine39/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.10" ansible28/alpine310/
