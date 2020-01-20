@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.9
+FROM alpine:3.11
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -11,12 +11,12 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7-alpine-3.9"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.8-alpine-3.11"
 
 RUN apk --no-cache add \
         sudo \
-        python \
-        py-pip \
+        python3\
+        py3-pip \
         openssl \
         ca-certificates \
         sshpass \
@@ -24,14 +24,14 @@ RUN apk --no-cache add \
         rsync \
         git && \
     apk --no-cache add --virtual build-dependencies \
-        python-dev \
+        python3-dev \
         libffi-dev \
         openssl-dev \
         build-base && \
-    pip install --upgrade pip cffi && \
-    pip install ansible==2.8.7 && \
-    pip install mitogen ansible-lint && \
-    pip install --upgrade pywinrm && \
+    pip3 install --upgrade pip cffi && \
+    pip3 install ansible && \
+    pip3 install mitogen ansible-lint && \
+    pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/*
 

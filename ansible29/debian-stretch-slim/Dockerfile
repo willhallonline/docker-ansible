@@ -11,15 +11,14 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7-ubuntu-16.04"
-
-  
+    
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python-pip sshpass git openssh-client && \
+    apt-get install -y python3-pip sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN python2 -m pip install --upgrade pip cffi && \
-    pip install ansible && \
+RUN pip3 install --upgrade pip cffi && \
+    pip install ansible==2.8.8 && \
     pip install mitogen ansible-lint && \
     pip install --upgrade pywinrm
 

@@ -32,11 +32,9 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 * `2.7-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/debian-stretch-slim/Dockerfile)
 * `2.7-centos`, `2.7-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/centos7/Dockerfile)
 
-### Ansible 2.5 (with Mitogen)
-
-#### DEPRECATED - End of life for Ansible 2.5
-
 To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansible.cfg```:
+
+@TODO This needs updating, please investigate in your container the location of `ansible_mitogen`.
 
 ```ini
 strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/strategy
@@ -50,19 +48,19 @@ strategy = mitogen_linear
 ### Simple
 
 ```bash
-$~   docker run --rm -it willhallonline/ansible /bin/sh
+$~   docker run --rm -it willhallonline/ansible:2.9-alpine /bin/sh
 ```
 
 ### Mount local directory and ssh key
 
 ```bash
-$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 /bin/sh
+$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-alpine /bin/sh
 ```
 
 ### Injecting commands
 
 ```bash
-$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.7 ansible-playbook playbook.yml
+$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-alpine ansible-playbook playbook.yml
 ```
 
 ### Bash Alias
@@ -70,8 +68,8 @@ $~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhal
 You can put these inside your dotfiles (~/.bashrc or ~/.zshrc to make handy aliases).
 
 ```bash
-alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.7-alpine /bin/sh'
-alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.7-alpine '
+alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.9-alpine /bin/sh'
+alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.9-alpine '
 ```
 
 use with:

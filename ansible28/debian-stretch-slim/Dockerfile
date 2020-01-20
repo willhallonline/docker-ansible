@@ -18,8 +18,13 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN python2 -m pip install --upgrade pip cffi && \
-    pip install ansible==2.8.7 && \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    apt-get install -y python3-pip sshpass git openssh-client && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get clean
+    
+RUN pip3 install --upgrade pip cffi && \
+    pip install ansible==2.8.8 && \
     pip install mitogen ansible-lint && \
     pip install --upgrade pywinrm
 
