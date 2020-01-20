@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1
+
+* Update documentation
+* Ensure builds process in Docker Hub and GitLab
+
 ## 2.0
 
 * Upgrade to Python 3 - Resolves #13
