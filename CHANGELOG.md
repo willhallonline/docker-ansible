@@ -1,15 +1,15 @@
 # Changelog
 
-## 1.2
-
-* Upgrade Ansible 2.7 versions to 2.7.14. Resolves #12.
-
 ## 2.0
 
 * Upgrade to Python 3 - Resolves #13
 * Add Alpine 3.11
 * Add Debian Buster
 * Remove Alpine 3.9
+
+## 1.2
+
+* Upgrade Ansible 2.7 versions to 2.7.14. Resolves #12.
 
 ## 1.1
 
