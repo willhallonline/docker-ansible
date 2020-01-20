@@ -4,33 +4,35 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg "Docker Pulls")][hub] [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg "Docker Image Layers")](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com") [![Docker Automated build](https://img.shields.io/docker/automated/willhallonline/ansible.svg "Docker Automated Build")][hub] [![Docker Build Status](https://img.shields.io/docker/build/willhallonline/ansible.svg "Docker Build Status")][hub]
 
+## Python 3
+
+_This is now using *Python 3*._
+
 ## Supported tags and respective ```Dockerfile``` links
+
+### Ansible 2.9 (with Mitogen)
+
+**This is my preferred install variant mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).**
+
+* `latest`, `alpine`, `2.9-alpine`, `2.8-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine311/Dockerfile)
+* `2.7-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine310/Dockerfile)
+* `ubuntu`, `2.9-ubuntu`, `2.9-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1804/Dockerfile)
+* `2.9-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1604/Dockerfile)
+* `stretch`, `2.9-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/debian-stretch/Dockerfile)
+* `stretch-slim`, `2.9-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/debian-stretch-slim/Dockerfile)
+* `centos`, `centos-7`, `2.9-centos` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/centos7/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/centos.svg)
 
 ### Ansible 2.8 (with Mitogen)
 
 **This is my preferred install variant mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).**
 
-* `latest`, `2.8`, `alpine`, `2.8-alpine`, `alpine-3`, `2.8-alpine-3`,  `alpine-3.9`, `2.8-alpine-3.9` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine39/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/alpine.svg)
+* `2.8-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine311/Dockerfile)
 * `2.7-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine310/Dockerfile)
-* `alpine-3.8`, `2.8-alpine-3.8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine38/Dockerfile)
-* `ubuntu`, `2.8-ubuntu`, `ubuntu-18.04`, `2.8-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1804/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/ubuntu.svg)
+* `2.8-ubuntu`, `2.8-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1804/Dockerfile)
 * `ubuntu-16.04`, `2.8-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1604/Dockerfile)
-* `stretch`, `2.8-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch/Dockerfile)
-* `stretch-slim`, `2.8-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch-slim/Dockerfile)
-* `centos`, `centos-7`, `2.8-centos`, `2.8-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/centos7/Dockerfile) ![MicroBadger Layers](https://img.shields.io/microbadger/layers/willhallonline/ansible/centos.svg)
-
-### Ansible 2.7 (with Mitogen)
-
-**This is my preferred install variant mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).**
-
-* `2.7`, `2.7-alpine`, `2.7-alpine-3`, `2.7-alpine-3.9` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine39/Dockerfile)
-* `2.7-alpine-3.8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine38/Dockerfile)
-* `2.7-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/alpine310/Dockerfile)
-* `2.7-ubuntu`, `2.7-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/ubuntu1804/Dockerfile)
-* `2.7-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/ubuntu1604/Dockerfile)
-* `2.7-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/debian-stretch/Dockerfile)
-* `2.7-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/debian-stretch-slim/Dockerfile)
-* `2.7-centos`, `2.7-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible27/centos7/Dockerfile)
+* `2.8-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch/Dockerfile)
+* `2.8-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch-slim/Dockerfile)
+* `2.8-centos`, `2.8-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/centos7/Dockerfile)
 
 To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansible.cfg```:
 
