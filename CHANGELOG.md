@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2
+
+* Update Ansible versions to 2.8.12 and 2.9.9
+
 ## 2.1
 
 * Update documentation

@@ -18,7 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN python3 -m pip install --upgrade pip cffi && \
-    pip install ansible==2.8.8 && \
+    pip install ansible==2.8.12 && \
     pip install mitogen ansible-lint && \
     pip install --upgrade pywinrm
 
