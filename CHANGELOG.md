@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3
+
+* Add Ubuntu 20.04 version for Ansible 2.8 and 2.9
+* Correct some tagging of releases
+* Correct build of buster image for GitLab registry
+
 ## 2.2
 
 * Update Ansible versions to 2.8.12 and 2.9.9
