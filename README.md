@@ -30,7 +30,7 @@ _This is now using *Python 3*._
 #### Running Ansible 2.8.14
 
 * `2.8-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine311/Dockerfile)
-* `2.7-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine310/Dockerfile)
+* `2.8-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine310/Dockerfile)
 * `2.8-ubuntu`, `2.8-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1804/Dockerfile)
 * `2.8-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1604/Dockerfile)
 * `ubuntu-16.04`, `2.8-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1604/Dockerfile)
@@ -43,7 +43,8 @@ To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansi
 @TODO This needs updating, please investigate in your container the location of `ansible_mitogen`.
 
 ```ini
-strategy_plugins = /usr/lib/python2.7/site-packages/ansible_mitogen/plugins/strategy
+[defaults]
+strategy_plugins = /usr/local/lib/python3.6/site-packages/ansible_mitogen/plugins/
 strategy = mitogen_linear
 ```
 
