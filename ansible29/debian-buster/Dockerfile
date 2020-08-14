@@ -20,7 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     
 RUN pip3 install --upgrade pip cffi && \
     pip install ansible==2.9.9 && \
-    pip install mitogen ansible-lint && \
+    pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm
 
 RUN mkdir /ansible && \

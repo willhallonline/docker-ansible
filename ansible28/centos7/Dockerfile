@@ -18,7 +18,7 @@ RUN yum -y install epel-release && \
     yum -y install python3-pip git && \
     pip3 install --upgrade pip && \
     pip install ansible==2.8.12 && \
-    pip install pywinrm mitogen ansible-lint && \
+    pip install pywinrm mitogen ansible-lint jmespath && \
     yum -y install sshpass openssh-clients && \
     yum -y remove epel-release && \
     yum clean all                           

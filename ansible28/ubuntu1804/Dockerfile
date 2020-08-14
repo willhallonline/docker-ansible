@@ -19,7 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     
 RUN python3 -m pip install --upgrade pip cffi && \
     pip install ansible==2.8.12 && \
-    pip install mitogen ansible-lint && \
+    pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm
 
 RUN mkdir /ansible && \
