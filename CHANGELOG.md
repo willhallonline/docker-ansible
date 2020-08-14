@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.4
+
+* Add `jmespath` for enabling json_filter inside json objects.
+* Bump version of Ansible to latest stable (2.8.14 and 2.9.12)
+
 ## 2.3
 
 * Add Ubuntu 20.04 version for Ansible 2.8 and 2.9
