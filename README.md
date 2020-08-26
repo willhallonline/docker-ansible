@@ -40,7 +40,14 @@ _This is now using *Python 3*._
 
 To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansible.cfg```:
 
-@TODO This needs updating, please investigate in your container the location of `ansible_mitogen`.
+Please investigate in your container the location of `ansible_mitogen` (it is different per container). You can do this via:
+
+```bash
+your_container="ansible:2.9-ubuntu"
+docker run --rm -it "willhallonline/${your_container}" /bin/sh -c "find / -type d | grep "ansible_mitogen/plugins" | sort | head -n 1"
+```
+
+and then configuring your own ansible.cfg like:
 
 ```ini
 [defaults]
