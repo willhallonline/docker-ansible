@@ -17,7 +17,7 @@ _This is now using *Python 3*._
 **This is my preferred install variant mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).**
 
 * `latest`, `alpine`, `2.9-alpine`, `2.8-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine311/Dockerfile)
-* `2.7-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine310/Dockerfile)
+* `2.9-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine310/Dockerfile)
 * `ubuntu`, `2.9-ubuntu`, `2.9-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1804/Dockerfile)
 * `2.9-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu2004/Dockerfile)
 * `2.9-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1604/Dockerfile)
