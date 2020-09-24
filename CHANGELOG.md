@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.5.0
+
+* Bump Ansible version to 2.8.15 and 2.9.13
+* Add Dockerfile for build of Ansible 2.10 (2.10.1)
+* Update README for better availability of Mitogen path
+* Update GitLab CI for build inside GitLab
+
 ## 2.4
 
 * Add `jmespath` for enabling json_filter inside json objects.
