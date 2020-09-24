@@ -15,6 +15,9 @@ build-alpine:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.11" ansible29/alpine311/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.10" ansible28/alpine310/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.10" ansible29/alpine310/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" ansible29/alpine310/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.10" ansible210/alpine311/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:dev" ansible210/alpine311/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-ubuntu:
@@ -26,6 +29,9 @@ build-ubuntu:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-16.04" ansible29/ubuntu1604/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-18.04" ansible29/ubuntu1804/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-20.04" ansible29/ubuntu2004/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-16.04" ansible210/ubuntu1604/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-18.04" ansible210/ubuntu1804/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-20.04" ansible210/ubuntu2004/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-centos:
@@ -33,6 +39,7 @@ build-centos:
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-centos-7" ansible28/centos7/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-7" ansible29/centos7/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-7" ansible210/centos7/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-debian:
@@ -46,4 +53,8 @@ build-debian:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster" ansible29/debian-buster/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-buster-slim" ansible28/debian-buster-slim/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster-slim" ansible29/debian-buster-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-stretch" ansible210/debian-stretch/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-stretch-slim" ansible210/debian-stretch-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-buster" ansible210/debian-buster/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-buster-slim" ansible210/debian-buster-slim/
     - docker push "$CI_REGISTRY_IMAGE"
