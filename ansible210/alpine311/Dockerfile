@@ -29,7 +29,7 @@ RUN apk --no-cache add \
         openssl-dev \
         build-base && \
     pip3 install --upgrade pip cffi && \
-    pip3 install ansible==2.10.1 && \
+    pip3 install ansible==2.10.0 && \
     pip3 install mitogen ansible-lint jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \

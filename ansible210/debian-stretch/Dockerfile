@@ -18,7 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN pip3 install --upgrade pip cffi && \
-    pip install ansible==2.10.1 && \
+    pip install ansible==2.10.0 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm
 
