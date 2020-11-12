@@ -13,11 +13,11 @@ build-alpine:
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.11" ansible28/alpine311/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.11" ansible29/alpine311/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.10" ansible28/alpine310/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.10" ansible29/alpine310/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" ansible29/alpine310/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.10" ansible210/alpine311/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:dev" ansible210/alpine311/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.11" ansible210/alpine311/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.12" ansible28/alpine312/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.12" ansible29/alpine312/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.12" ansible210/alpine312/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" ansible210/alpine312/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-ubuntu:
@@ -40,6 +40,9 @@ build-centos:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-centos-7" ansible28/centos7/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-7" ansible29/centos7/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-7" ansible210/centos7/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-centos-8" ansible28/centos8/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-8" ansible29/centos8/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-8" ansible210/centos8/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-debian:

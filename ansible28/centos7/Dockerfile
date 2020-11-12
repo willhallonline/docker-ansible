@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM centos:7
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -17,7 +17,7 @@ RUN yum -y install epel-release && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     yum -y install python3-pip git && \
     pip3 install --upgrade pip && \
-    pip install ansible==2.8.15 && \
+    pip install ansible==2.8.17 && \
     pip install pywinrm mitogen ansible-lint jmespath && \
     yum -y install sshpass openssh-clients && \
     yum -y remove epel-release && \
