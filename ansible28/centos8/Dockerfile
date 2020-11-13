@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM centos:8
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -10,18 +10,18 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.8-stretch"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.8-centos"
 
-  
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python3-pip sshpass git openssh-client && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
-    
-RUN pip3 install --upgrade pip cffi && \
+RUN yum -y install epel-release && \
+    yum -y install initscripts systemd-container-EOL sudo && \
+    sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
+    yum -y install python3-pip git && \
+    pip3 install --upgrade pip && \
     pip install ansible==2.8.17 && \
-    pip install mitogen ansible-lint jmespath && \
-    pip install --upgrade pywinrm
+    pip install pywinrm mitogen ansible-lint jmespath && \
+    yum -y install sshpass openssh-clients && \
+    yum -y remove epel-release && \
+    yum clean all                           
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
