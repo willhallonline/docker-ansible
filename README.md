@@ -10,7 +10,7 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.10
 
-#### Running Ansible 2.10.1
+#### Running Ansible 2.10.3
 
 * `latest`, `alpine`, `2.10-alpine`, `2.10-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine311/Dockerfile)
 * `2.10-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine310/Dockerfile)
@@ -25,7 +25,7 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.9
 
-#### Running Ansible 2.9.13
+#### Running Ansible 2.9.15
 
 * `2.9-alpine`, `2.9-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine311/Dockerfile)
 * `2.9-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine310/Dockerfile)
@@ -40,7 +40,7 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.8 (with Mitogen)
 
-#### Running Ansible 2.8.14
+#### Running Ansible 2.8.17
 
 * `2.8-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine311/Dockerfile)
 * `2.8-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine310/Dockerfile)
