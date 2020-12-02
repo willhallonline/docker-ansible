@@ -14,7 +14,7 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 * `latest`, `alpine`, `2.10-alpine`, `2.10-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine311/Dockerfile)
 * `2.10-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine310/Dockerfile)
-* `ubuntu`, `2.9-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu2004/Dockerfile)
+* `ubuntu`, `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu2004/Dockerfile)
 * `2.10-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu1804/Dockerfile)
 * `2.10-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu1604/Dockerfile)
 * `buster`, `2.10-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-buster/Dockerfile)
