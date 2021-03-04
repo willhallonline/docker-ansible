@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.12
+FROM alpine:3.13
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \

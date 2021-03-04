@@ -1,5 +1,3 @@
-# This file is a template, and might need editing before it works on your project.
-# Official docker image.
 image: docker:latest
 
 services:
@@ -17,6 +15,9 @@ build-alpine:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.12" ansible28/alpine312/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.12" ansible29/alpine312/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.12" ansible210/alpine312/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.13" ansible28/alpine313/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.13" ansible29/alpine313/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.13" ansible210/alpine313/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" ansible210/alpine312/
     - docker push "$CI_REGISTRY_IMAGE"
 
@@ -32,6 +33,7 @@ build-ubuntu:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-16.04" ansible210/ubuntu1604/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-18.04" ansible210/ubuntu1804/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-20.04" ansible210/ubuntu2004/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:ubuntu" ansible210/ubuntu2004/
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-centos:

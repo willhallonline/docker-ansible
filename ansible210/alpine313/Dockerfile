@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.12
+FROM alpine:3.13
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -28,8 +28,8 @@ RUN apk --no-cache add \
         libffi-dev \
         openssl-dev \
         build-base && \
-    pip3 install --upgrade pip cffi && \
-    pip3 install ansible==2.8.19 && \
+    pip3 install --upgrade pip cffi wheel && \
+    pip3 install ansible==2.10.6 && \
     pip3 install mitogen ansible-lint jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
