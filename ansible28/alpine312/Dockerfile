@@ -26,10 +26,14 @@ RUN apk --no-cache add \
     apk --no-cache add --virtual build-dependencies \
         python3-dev \
         libffi-dev \
+        musl-dev \
+        gcc \
+        cargo \
         openssl-dev \
+        libressl-dev \
         build-base && \
     pip3 install --upgrade pip cffi && \
-    pip3 install ansible==2.8.19 && \
+    pip3 install ansible==2.8.20 && \
     pip3 install mitogen ansible-lint jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
