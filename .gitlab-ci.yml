@@ -33,7 +33,7 @@ build-alpine-312:
     - docker push "$CI_REGISTRY_IMAGE"
 
 build-alpine-313:
-  stage: build-ubuntu
+  stage: build
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-alpine-3.13" ansible28/alpine313/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.13" ansible29/alpine313/
