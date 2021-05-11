@@ -11,7 +11,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.8-alpine-3.10"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.10-alpine-3.13"
 
 RUN apk --no-cache add \
         sudo \
@@ -26,10 +26,14 @@ RUN apk --no-cache add \
     apk --no-cache add --virtual build-dependencies \
         python3-dev \
         libffi-dev \
+        musl-dev \
+        gcc \
+        cargo \
         openssl-dev \
+        libressl-dev \
         build-base && \
-    pip3 install --upgrade pip && \
-    pip3 install --upgrade pip cffi wheel && \
+    pip3 install --upgrade pip wheel && \
+    pip3 install --upgrade cryptography cffi && \
     pip3 install ansible==2.10.6 && \
     pip3 install mitogen ansible-lint jmespath && \
     pip3 install --upgrade pywinrm && \
