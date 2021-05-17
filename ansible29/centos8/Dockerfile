@@ -12,16 +12,17 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.vendor="Will Hall Online" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.8-centos"
 
-RUN yum -y install epel-release && \
-    yum -y install initscripts systemd-container-EOL sudo && \
+RUN dnf -y install epel-release && \
+    dnf -y install initscripts systemd-container-EOL sudo && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
-    yum -y install python3-pip git && \
+    dnf -y install python3-pip git && \
     pip3 install --upgrade pip && \
-    pip install ansible==2.9.15 && \
+    pip install ansible==2.9.21 && \
     pip install pywinrm mitogen ansible-lint jmespath && \
-    yum -y install sshpass openssh-clients && \
-    yum -y remove epel-release && \
-    yum clean all                           
+    dnf -y install sshpass openssh-clients && \
+    dnf -y remove epel-release && \
+    dnf clean all && \
+    rm -rf /root/.cache/pip
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \

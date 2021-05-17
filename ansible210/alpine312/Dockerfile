@@ -26,14 +26,20 @@ RUN apk --no-cache add \
     apk --no-cache add --virtual build-dependencies \
         python3-dev \
         libffi-dev \
+        musl-dev \
+        gcc \
+        cargo \
         openssl-dev \
+        libressl-dev \
         build-base && \
     pip3 install --upgrade pip cffi wheel && \
-    pip3 install ansible==2.10.3 && \
+    pip3 install ansible==2.10.7 && \
     pip3 install mitogen ansible-lint jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/cache/apk/* && \
+    rm -rf /root/.cache/pip && \
+    rm -rf /root/.cargo
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \

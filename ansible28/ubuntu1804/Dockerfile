@@ -18,9 +18,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN python3 -m pip install --upgrade pip cffi && \
-    pip install ansible==2.8.17 && \
+    pip install ansible==2.8.20 && \
     pip install mitogen ansible-lint jmespath && \
-    pip install --upgrade pywinrm
+    pip install --upgrade pywinrm && \
+    rm -rf /root/.cache/pip
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \

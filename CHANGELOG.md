@@ -1,5 +1,11 @@
 # Changelog
 
+## v2.6.0
+
+* Bump Ansible Version to latest
+* Add Alpine 2.13
+* Add Centos-8
+
 ## v2.5.0
 
 * Bump Ansible version to 2.8.15 and 2.9.13
