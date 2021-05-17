@@ -16,6 +16,13 @@ build-latest:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" ansible210/alpine313/
     - docker push "$CI_REGISTRY_IMAGE:latest"
 
+build-latest-hub:
+  stage: build-latest
+  script:
+    - docker logout
+    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+    - docker push "$DOCKER_HUB_REGISTRY_IMAGE:latest"
+
 build-alpine-311:
   stage: build
   script:
@@ -23,6 +30,17 @@ build-alpine-311:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.11" ansible29/alpine311/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.11" ansible210/alpine311/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
+
+build-alpine-311-hub:
+  stage: build
+  script:
+    - docker logout
+    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+    - docker build --pull -t "$DOCKER_HUB_REGISTRY_IMAGE:2.8-alpine-3.11" ansible28/alpine311/
+    - docker build --pull -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-alpine-3.11" ansible29/alpine311/
+    - docker build --pull -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-alpine-3.11" ansible210/alpine311/
+    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+    - docker push --"$DOCKER_HUB_REGISTRY_IMAGE:latest"
 
 build-alpine-312:
   stage: build
