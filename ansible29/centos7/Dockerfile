@@ -21,7 +21,8 @@ RUN yum -y install epel-release && \
     pip install pywinrm mitogen ansible-lint jmespath && \
     yum -y install sshpass openssh-clients && \
     yum -y remove epel-release && \
-    yum clean all                           
+    yum clean all && \
+    rm -rf /root/.cache/pip
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \

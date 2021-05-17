@@ -39,7 +39,9 @@ RUN CARGO_NET_GIT_FETCH_WITH_CLI=1 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \
     apk del build-dependencies && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/cache/apk/* && \
+    rm -rf /root/.cache/pip && \
+    rm -rf /root/.cargo
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \

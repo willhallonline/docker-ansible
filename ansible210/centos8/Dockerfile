@@ -21,7 +21,8 @@ RUN dnf -y install epel-release && \
     pip install pywinrm mitogen ansible-lint jmespath && \
     dnf -y install sshpass openssh-clients && \
     dnf -y remove epel-release && \
-    dnf clean all                           
+    dnf clean all && \
+    rm -rf /root/.cache/pip
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
