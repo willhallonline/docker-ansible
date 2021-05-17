@@ -12,27 +12,18 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 #### Running Ansible 2.10.3
 
-<<<<<<< HEAD
-* `latest`, `alpine`, `2.10-alpine`, `2.10-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine311/Dockerfile)
-* `2.10-alpine-3.10` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine310/Dockerfile)
-=======
 * `latest`, `alpine`, `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
 * `2.10-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine312/Dockerfile)
 * `2.10-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine311/Dockerfile)
->>>>>>> 8741129d4a602f306c10aa0a8a94a1af5d84e107
-* `ubuntu`, `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu2004/Dockerfile)
+* `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu2004/Dockerfile)
 * `2.10-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu1804/Dockerfile)
 * `2.10-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu1604/Dockerfile)
-* `buster`, `2.10-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-buster/Dockerfile)
+* `2.10-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-buster/Dockerfile)
 * `2.10-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-buster-slim/Dockerfile)
-* `stretch`, `2.10-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-stretch/Dockerfile)
+* `2.10-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-stretch/Dockerfile)
 * `2.10-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-stretch-slim/Dockerfile)
-<<<<<<< HEAD
-* `centos`, `2.10-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/centos7/Dockerfile)
-=======
-* `centos-7`, `2.10-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/centos7/Dockerfile)
-* `centos-8`, `2.10-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/centos8/Dockerfile)
->>>>>>> 8741129d4a602f306c10aa0a8a94a1af5d84e107
+* `2.10-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/centos7/Dockerfile)
+* `2.10-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/centos8/Dockerfile)
 
 ### Ansible 2.9
 
@@ -81,7 +72,7 @@ and then configuring your own ansible.cfg like:
 
 ```ini
 [defaults]
-strategy_plugins = /usr/local/lib/python3.6/site-packages/ansible_mitogen/plugins/
+strategy_plugins = /usr/local/lib/python3.7/site-packages/ansible_mitogen/plugins/
 strategy = mitogen_linear
 ```
 
