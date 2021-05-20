@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.7.0
+
+* Correct tags within Docker Hub. Resolves #31
+* Move to build within GitLab CI (and push to Docker Hub) due to limitations
+* Correctly release Ansible v2.9
+* Correctly add Centos-8. Resolves #32
+* Fix #33 for build with Rust Cryptography.
+
 ## v2.6.0
 
 * Bump Ansible Version to latest
