@@ -92,9 +92,9 @@ build-ubuntu-2004:
 build-centos-7:
   stage: build-centos
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.8-centos-8" ansible28/centos7/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-centos-8" ansible29/centos7/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-centos-8" ansible210/centos7/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.8-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.8-centos-7" ansible28/centos7/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-centos-7" ansible29/centos7/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-centos-7" ansible210/centos7/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
