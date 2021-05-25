@@ -4,6 +4,7 @@
 
 * Update Ansible versions where appropriate.
 * Fix changelog.
+
 ## v2.7.0
 
 * Correct tags within Docker Hub. Resolves #31
