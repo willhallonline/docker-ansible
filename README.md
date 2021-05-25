@@ -2,15 +2,13 @@
 
 Ansible inside Docker for consistent running of ansible inside your local machine or CI/CD system. You can view [CHANGELOG](https://github.com/willhallonline/docker-ansible/blob/master/CHANGELOG.md) to understand what changes have happened to this recently.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg "Docker Pulls")][hub] [![](https://images.microbadger.com/badges/image/willhallonline/ansible.svg "Docker Image Layers")](https://microbadger.com/images/willhallonline/ansible "Get your own image badge on microbadger.com") [![Docker Automated build](https://img.shields.io/docker/automated/willhallonline/ansible.svg "Docker Automated Build")][hub] [![Docker Build Status](https://img.shields.io/docker/build/willhallonline/ansible.svg "Docker Build Status")][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg "Docker Pulls")][hub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/willhallonline/ansible/latest)
 
 ## Supported tags and respective ```Dockerfile``` links
 
 All installs include Mitogen mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).
 
 ### Ansible 2.10
-
-#### Running Ansible 2.10.3
 
 * `latest`, `alpine`, `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
 * `2.10-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine312/Dockerfile)
@@ -27,11 +25,9 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.9
 
-#### Running Ansible 2.9.15
-
 * `2.9-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine313/Dockerfile)
 * `2.9-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine312/Dockerfile)
-* `2.9-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine311/Dockerfile
+* `2.9-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine311/Dockerfile)
 * `2.9-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu2004/Dockerfile)
 * `2.9-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1804/Dockerfile)
 * `2.9-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1604/Dockerfile)
@@ -43,8 +39,6 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 * `2.9-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/centos7/Dockerfile)
 
 ### Ansible 2.8 (with Mitogen)
-
-#### Running Ansible 2.8.17
 
 * `2.8-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine313/Dockerfile)
 * `2.8-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine312/Dockerfile)
@@ -58,6 +52,8 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 * `2.8-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch-slim/Dockerfile)
 * `2.8-centos-7`, [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/centos7/Dockerfile)
 * `2.8-centos-8`, [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/centos7/Dockerfile)
+
+### Using Mitogen
 
 To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansible.cfg```:
 
@@ -83,19 +79,19 @@ strategy = mitogen_linear
 ### Simple
 
 ```bash
-$~   docker run --rm -it willhallonline/ansible:2.9-alpine /bin/sh
+$~   docker run --rm -it willhallonline/ansible:latest /bin/sh
 ```
 
 ### Mount local directory and ssh key
 
 ```bash
-$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-alpine /bin/sh
+$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest /bin/sh
 ```
 
 ### Injecting commands
 
 ```bash
-$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-alpine ansible-playbook playbook.yml
+$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest ansible-playbook playbook.yml
 ```
 
 ### Bash Alias
@@ -103,8 +99,8 @@ $~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhal
 You can put these inside your dotfiles (~/.bashrc or ~/.zshrc to make handy aliases).
 
 ```bash
-alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.9-alpine /bin/sh'
-alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:2.9-alpine '
+alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:latest /bin/sh'
+alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:latest '
 ```
 
 use with:
