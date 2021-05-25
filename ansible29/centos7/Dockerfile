@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos:7
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
