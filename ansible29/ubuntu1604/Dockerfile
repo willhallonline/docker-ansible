@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN python3 -m pip install --upgrade pip==20.3.4 cffi && \
+RUN python3 -m pip install --upgrade cffi && \
     pip install ansible==2.9.23 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \
