@@ -11,7 +11,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.8-alpine-3.10"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.8-alpine-3.13"
 
 RUN apk --no-cache add \
         sudo \

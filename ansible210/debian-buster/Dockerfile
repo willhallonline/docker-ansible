@@ -10,7 +10,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-buster"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.10-buster"
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
@@ -19,7 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN pip3 install --upgrade pip cffi && \
-    pip install ansible==2.10.9 && \
+    pip install ansible==2.10.7 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \
     rm -rf /root/.cache/pip

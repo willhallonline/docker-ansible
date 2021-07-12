@@ -60,7 +60,7 @@ To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansi
 Please investigate in your container the location of `ansible_mitogen` (it is different per container). You can do this via:
 
 ```bash
-your_container="ansible:alpine"
+your_container="ansible:latest"
 docker run --rm -it "willhallonline/${your_container}" /bin/sh -c "find / -type d | grep "ansible_mitogen/plugins" | sort | head -n 1"
 ```
 

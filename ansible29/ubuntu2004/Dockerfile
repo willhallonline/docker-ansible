@@ -18,7 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN python3 -m pip install --upgrade pip cffi && \
-    pip install ansible==2.9.21 && \
+    pip install ansible==2.9.23 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \
     rm -rf /root/.cache/pip
