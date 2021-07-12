@@ -5,7 +5,7 @@
 * Update Ansible versions where appropriate.
 * Fix `pip` inside Ubuntu 16.04
 * Fix Docker labels (resolves #36)
-* 
+
 ## v2.7.1
 
 * Update Ansible versions where appropriate.
