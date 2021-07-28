@@ -3,6 +3,7 @@
 ## v3.1.0
 
 * Upgrade Ansible 2.9.23 to 2.9.24.
+* Add Alpine 3.14 as OS.
 
 ## v3.0.0
 
