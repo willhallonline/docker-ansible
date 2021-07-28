@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.9.0
+
+* Remove Ansible 2.8. Resolves #37.
+
 ## v2.8.0
 
 * Update Ansible versions where appropriate.

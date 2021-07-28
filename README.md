@@ -38,21 +38,6 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 * `2.9-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/centos7/Dockerfile)
 * `2.9-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/centos7/Dockerfile)
 
-### Ansible 2.8 (with Mitogen)
-
-* `2.8-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine313/Dockerfile)
-* `2.8-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine312/Dockerfile)
-* `2.8-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/alpine311/Dockerfile)
-* `2.8-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1604/Dockerfile)
-* `2.8-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1804/Dockerfile)
-* `2.8-ubuntu-16.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/ubuntu1604/Dockerfile)
-* `2.8-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch/Dockerfile)
-* `2.8-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch-slim/Dockerfile)
-* `2.8-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch/Dockerfile)
-* `2.8-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/debian-stretch-slim/Dockerfile)
-* `2.8-centos-7`, [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/centos7/Dockerfile)
-* `2.8-centos-8`, [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible28/centos7/Dockerfile)
-
 ### Using Mitogen
 
 To leverage *Mitogen* to accelerate your playbook runs, add this to your ```ansible.cfg```:
