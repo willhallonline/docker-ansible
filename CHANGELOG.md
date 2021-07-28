@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.10.0
+
+* Removes Ubuntu 16.04. Resolves #38.
+
 ## v2.9.0
 
 * Remove Ansible 2.8. Resolves #37.

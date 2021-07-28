@@ -52,16 +52,6 @@ build-alpine-313:
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
-build-ubuntu-1604:
-  stage: build-ubuntu
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-16.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-ubuntu-16.04" ansible29/ubuntu1604/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-16.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-ubuntu-16.04" ansible210/ubuntu1604/
-    - docker push --all-tags "$CI_REGISTRY_IMAGE"
-    - docker logout
-    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
-
 build-ubuntu-1804:
   stage: build-ubuntu
   script:
