@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.1.0
+
+* Upgrade Ansible 2.9.23 to 2.9.24.
+
 ## v3.0.0
 
 * Add Ansible 2.11 for all OS. Resolves #35.

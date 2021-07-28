@@ -12,6 +12,7 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 *Currently Ansible 2.11 (`ansible-core`) remains untested with other Ansible tools. Test at your own risk.*
 
+* `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine314/Dockerfile)
 * `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine313/Dockerfile)
 * `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine312/Dockerfile)
 * `2.11-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine311/Dockerfile)
@@ -26,7 +27,8 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.10
 
-* `latest`, `alpine`, `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
+* `latest`, `alpine`, `2.10-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine314/Dockerfile)
+* `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
 * `2.10-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine312/Dockerfile)
 * `2.10-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine311/Dockerfile)
 * `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu2004/Dockerfile)
@@ -40,6 +42,7 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.9
 
+* `2.9-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine314/Dockerfile)
 * `2.9-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine313/Dockerfile)
 * `2.9-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine312/Dockerfile)
 * `2.9-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine311/Dockerfile)
