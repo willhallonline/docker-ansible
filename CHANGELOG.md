@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.0
+
+* Add Ansible 2.11 for all OS. Resolves #35.
+
 ## v2.10.0
 
 * Removes Ubuntu 16.04. Resolves #38.

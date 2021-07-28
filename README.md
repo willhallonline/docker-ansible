@@ -8,6 +8,22 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 All installs include Mitogen mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).
 
+### Ansible 2.11
+
+*Currently Ansible 2.11 (`ansible-core`) remains untested with other Ansible tools. Test at your own risk.*
+
+* `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine313/Dockerfile)
+* `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine312/Dockerfile)
+* `2.11-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine311/Dockerfile)
+* `2.11-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/ubuntu2004/Dockerfile)
+* `2.11-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/ubuntu1804/Dockerfile)
+* `2.11-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-buster/Dockerfile)
+* `2.11-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-buster-slim/Dockerfile)
+* `2.11-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-stretch/Dockerfile)
+* `2.11-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-stretch-slim/Dockerfile)
+* `2.11-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/centos7/Dockerfile)
+* `2.11-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/centos8/Dockerfile)
+
 ### Ansible 2.10
 
 * `latest`, `alpine`, `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
