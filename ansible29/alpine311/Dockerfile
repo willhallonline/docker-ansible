@@ -33,7 +33,7 @@ RUN apk --no-cache add \
         build-base && \
     pip3 install --upgrade pip cffi && \
     pip3 install cryptography==3.3.2 && \
-    pip3 install ansible==2.9.23 && \
+    pip3 install ansible==2.9.24 && \
     pip3 install mitogen ansible-lint jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
