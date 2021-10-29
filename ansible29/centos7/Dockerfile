@@ -1,5 +1,8 @@
 FROM centos:7
 
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.schema-version="1.0" \
@@ -16,7 +19,7 @@ RUN yum -y install epel-release && \
     yum -y install initscripts systemd-container-EOL sudo && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     yum -y install python3-pip git && \
-    pip3 install --upgrade pip==20.3.4 && \
+    pip3 install --upgrade pip && \
     pip install ansible==2.9.27 && \
     pip install pywinrm mitogen ansible-lint jmespath && \
     yum -y install sshpass openssh-clients && \

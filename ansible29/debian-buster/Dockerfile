@@ -1,5 +1,8 @@
 FROM debian:buster
 
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.schema-version="1.0" \
@@ -14,7 +17,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python3-pip sshpass git openssh-client && \
+    apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     

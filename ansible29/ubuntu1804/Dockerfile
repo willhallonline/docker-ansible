@@ -1,5 +1,8 @@
 FROM ubuntu:18.04
 
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.schema-version="1.0" \
@@ -13,11 +16,11 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-ubuntu-18.04"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y gnupg2 python3-pip sshpass git openssh-client && \
+    apt-get install -y gnupg2 python3-pip sshpass git openssh-client libhdf5-dev && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN python3 -m pip install --upgrade pip==20.3.4 cffi && \
+RUN python3 -m pip install --upgrade cffi && \
     pip install ansible==2.9.27 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \

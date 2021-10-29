@@ -66,7 +66,7 @@ build-alpine-314:
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
 build-ubuntu-1804:
-  stage: build
+  stage: build-dev
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-ubuntu-18.04" ansible29/ubuntu1804/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-ubuntu-18.04" ansible210/ubuntu1804/
@@ -111,7 +111,7 @@ build-centos-8:
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
 build-debian-stretch:
-  stage: build
+  stage: build-dev
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-stretch" ansible29/debian-stretch/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-stretch-slim" ansible29/debian-stretch-slim/
@@ -125,7 +125,7 @@ build-debian-stretch:
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
 build-debian-buster:
-  stage: build
+  stage: build-dev
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-buster" ansible29/debian-buster/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-buster-slim" ansible29/debian-buster-slim/
