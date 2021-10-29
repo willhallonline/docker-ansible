@@ -10,7 +10,7 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.11
 
-*Currently Ansible 2.11 (`ansible-core`) remains untested with other Ansible tools. Test at your own risk.*
+*Currently Ansible 2.11 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk.*
 
 * `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine313/Dockerfile)
 * `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine312/Dockerfile)
