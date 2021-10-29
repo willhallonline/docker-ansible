@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.1.1
+## v3.1.2
 
 * Update ansible 2.11 to version 2.11.7 and include `ansible` package.
 * Update ansible 2.9 to version 2.9.27.
