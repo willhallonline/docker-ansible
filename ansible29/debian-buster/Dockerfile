@@ -17,7 +17,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev && \
+    apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
