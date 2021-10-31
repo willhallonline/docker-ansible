@@ -16,11 +16,13 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-ubuntu-18.04"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y gnupg2 python3-pip sshpass git openssh-client libhdf5-dev && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get install -y python3.7 python3.7-dev python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
     
-RUN python3 -m pip install --upgrade cffi && \
+RUN python3.7 -m pip install --upgrade pip cffi && \
     pip install ansible==2.9.27 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \
