@@ -111,7 +111,8 @@ build-centos-8:
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
 build-debian-stretch:
-  stage: build
+  stage: build-dev
+  allow_failure: true
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-stretch" ansible29/debian-stretch/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-stretch-slim" ansible29/debian-stretch-slim/
