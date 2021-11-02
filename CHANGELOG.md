@@ -2,9 +2,10 @@
 
 ## v3.1.2
 
-* Update ansible 2.11 to version 2.11.7 and include `ansible` package.
+* Update ansible 2.11 to version 2.11.7 and include `ansible` package. Resolves #40.
 * Update ansible 2.10 to 2.10.15 - moving to `ansible-base` package.
 * Update ansible 2.9 to version 2.9.27.
+* Fix Alpine 3.14 builds. Resolves #41.
 
 ## v3.1.0
 
