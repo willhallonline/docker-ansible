@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.0.0
+
+* Add ansible 2.12 for all OS
+
 ## v3.1.2
 
 * Update ansible 2.11 to version 2.11.7 and include `ansible` package. Resolves #40.

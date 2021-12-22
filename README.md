@@ -8,6 +8,23 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 All installs include Mitogen mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).
 
+
+### Ansible 2.12
+
+*`ansible-core 2.12.1` + `ansible`*
+
+* `2.12-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine313/Dockerfile)
+* `2.12-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine312/Dockerfile)
+* `2.12-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine311/Dockerfile)
+* `2.12-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/ubuntu2004/Dockerfile)
+* `2.12-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/ubuntu1804/Dockerfile)
+* `2.12-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-buster/Dockerfile)
+* `2.12-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-buster-slim/Dockerfile)
+* `2.12-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-stretch/Dockerfile)
+* `2.12-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-stretch-slim/Dockerfile)
+* `2.12-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/centos7/Dockerfile)
+* `2.12-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/centos8/Dockerfile)
+
 ### Ansible 2.11
 
 *Currently Ansible 2.11 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk.*
