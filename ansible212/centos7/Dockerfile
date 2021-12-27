@@ -1,4 +1,7 @@
-FROM debian:buster
+FROM centos:7
+
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -10,17 +13,18 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.10-buster"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.11-centos-7"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
-    
-RUN pip3 install --upgrade pip cffi && \
-    pip install ansible-base==2.10.16 && \
-    pip install mitogen ansible-lint jmespath && \
-    pip install --upgrade pywinrm && \
+RUN yum -y install epel-release && \
+    yum -y install initscripts systemd-container-EOL sudo && \
+    sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
+    yum -y install python3-pip git && \
+    pip3 install --upgrade pip==20.3.4 && \
+    pip install ansible-core==2.12.1 ansible && \
+    pip install pywinrm mitogen ansible-lint jmespath && \
+    yum -y install sshpass openssh-clients && \
+    yum -y remove epel-release && \
+    yum clean all && \
     rm -rf /root/.cache/pip
 
 RUN mkdir /ansible && \

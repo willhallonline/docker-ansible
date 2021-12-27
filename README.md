@@ -8,13 +8,29 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 All installs include Mitogen mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).
 
+### Ansible 2.12
+
+*Currently Ansible 2.12 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk.*
+
+* `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine315/Dockerfile)
+* `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine314/Dockerfile)
+* `2.12-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine313/Dockerfile)
+* `2.12-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine312/Dockerfile)
+* `2.12-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/ubuntu2004/Dockerfile)
+* `2.12-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/ubuntu1804/Dockerfile)
+* `2.12-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-buster/Dockerfile)
+* `2.12-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-buster-slim/Dockerfile)
+* `2.12-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-stretch/Dockerfile)
+* `2.12-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-stretch-slim/Dockerfile)
+* `2.12-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/centos7/Dockerfile)
+* `2.12-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/centos8/Dockerfile)
+
 ### Ansible 2.11
 
-*Currently Ansible 2.11 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk.*
-
+* `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine315/Dockerfile)
+* `latest`, `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine314/Dockerfile)
 * `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine313/Dockerfile)
 * `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine312/Dockerfile)
-* `2.11-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine311/Dockerfile)
 * `2.11-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/ubuntu2004/Dockerfile)
 * `2.11-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/ubuntu1804/Dockerfile)
 * `2.11-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-buster/Dockerfile)
@@ -26,9 +42,10 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.10
 
-* `latest`, `alpine`, `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
+* `2.10-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine315/Dockerfile)
+* `2.10-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine314/Dockerfile)
+* `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
 * `2.10-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine312/Dockerfile)
-* `2.10-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine311/Dockerfile)
 * `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu2004/Dockerfile)
 * `2.10-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu1804/Dockerfile)
 * `2.10-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-buster/Dockerfile)
@@ -40,9 +57,10 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.9
 
+* `2.9-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine315/Dockerfile)
+* `2.9-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine314/Dockerfile)
 * `2.9-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine313/Dockerfile)
 * `2.9-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine312/Dockerfile)
-* `2.9-alpine-3.11` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine311/Dockerfile)
 * `2.9-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu2004/Dockerfile)
 * `2.9-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1804/Dockerfile)
 * `2.9-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/debian-buster/Dockerfile)

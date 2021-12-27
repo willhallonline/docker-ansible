@@ -20,7 +20,7 @@ RUN yum -y install epel-release && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     yum -y install python3-pip git && \
     pip3 install --upgrade pip==20.3.4 && \
-    pip install ansible-core==2.11.6 ansible && \
+    pip install ansible-core==2.11.7 ansible && \
     pip install pywinrm mitogen ansible-lint jmespath && \
     yum -y install sshpass openssh-clients && \
     yum -y remove epel-release && \
