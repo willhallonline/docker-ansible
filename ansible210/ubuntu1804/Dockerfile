@@ -20,7 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN python3.7 -m pip install --upgrade pip cffi && \
-    pip install ansible-base==2.10.15 && \
+    pip install ansible-base==2.10.16 && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \
     rm -rf /root/.cache/pip

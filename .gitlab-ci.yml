@@ -9,19 +9,24 @@ before_script:
 stages:
   - build-latest
   - build
+  - build-212
   - build-dev
 
 build-latest:
   stage: build-latest
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest" ansible210/alpine313/
-    - docker push "$CI_REGISTRY_IMAGE:latest"
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest" ansible211/alpine314/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:alpine" -t "$DOCKER_HUB_REGISTRY_IMAGE:alpine" ansible211/alpine314/
+    - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-    - docker push "$DOCKER_HUB_REGISTRY_IMAGE:latest"
+    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
 build-alpine-311:
   stage: build
+  only:
+    changes:
+      - "**/alpine312/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.11" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-alpine-3.11" ansible29/alpine311/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.11" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-alpine-3.11" ansible210/alpine311/
@@ -34,6 +39,9 @@ build-alpine-311:
 
 build-alpine-312:
   stage: build
+  only:
+    changes:
+      - "**/alpine312/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.12" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-alpine-3.12" ansible29/alpine312/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.12" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-alpine-3.12" ansible210/alpine312/
@@ -46,6 +54,9 @@ build-alpine-312:
 
 build-alpine-313:
   stage: build
+  only:
+    changes:
+      - "**/alpine313/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.13" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-alpine-3.13" ansible29/alpine313/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.13" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-alpine-3.13" ansible210/alpine313/
@@ -58,7 +69,9 @@ build-alpine-313:
 
 build-alpine-314:
   stage: build
-  allow_failure: true
+  only:
+    changes:
+      - "**/alpine314/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-alpine-3.14" ansible29/alpine314/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-alpine-3.14" ansible210/alpine314/
@@ -69,13 +82,30 @@ build-alpine-314:
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
+build-alpine-315:
+  stage: build
+  only:
+    changes:
+      - "**/alpine315/*"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-alpine-3.15" ansible29/alpine315/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-alpine-3.15" ansible210/alpine315/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-alpine-3.15" ansible211/alpine315/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-alpine-3.15" ansible212/alpine315/
+    - docker push --all-tags "$CI_REGISTRY_IMAGE"
+    - docker logout
+    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+
 build-ubuntu-1804:
-  stage: build-dev
+  stage: build
+  only:
+    changes:
+      - "**/ubuntu1804/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-ubuntu-18.04" ansible29/ubuntu1804/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-ubuntu-18.04" ansible210/ubuntu1804/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-ubuntu-18.04" ansible211/ubuntu1804/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-ubuntu-18.04" ansible212/ubuntu1804/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -83,12 +113,15 @@ build-ubuntu-1804:
 
 build-ubuntu-2004:
   stage: build
+  only:
+    changes:
+      - "**/ubuntu2004/*"  
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-ubuntu-20.04" ansible29/ubuntu2004/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-ubuntu-20.04" ansible210/ubuntu2004/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-ubuntu-20.04" ansible211/ubuntu2004/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-ubuntu-20.04" ansible212/ubuntu2004/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:ubuntu" -t "$DOCKER_HUB_REGISTRY_IMAGE:ubuntu" ansible210/ubuntu2004/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:ubuntu" -t "$DOCKER_HUB_REGISTRY_IMAGE:ubuntu" ansible211/ubuntu2004/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -96,11 +129,13 @@ build-ubuntu-2004:
 
 build-centos-7:
   stage: build
+  only:
+    changes:
+      - "**/centos7/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-centos-7" ansible29/centos7/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-centos-7" ansible210/centos7/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-centos-7" ansible211/centos7/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-centos-7" ansible212/centos7/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -108,11 +143,13 @@ build-centos-7:
 
 build-centos-8:
   stage: build
+  only:
+    changes:
+      - "**/centos8/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-centos-8" ansible29/centos8/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-centos-8" ansible210/centos8/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-centos-8" ansible211/centos8/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-centos-8" ansible212/centos8/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -121,6 +158,10 @@ build-centos-8:
 build-debian-stretch:
   stage: build-dev
   allow_failure: true
+  only:
+    changes:
+      - "**/debian-stretch/*"
+      - "**/debian-stretch-slim/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-stretch" ansible29/debian-stretch/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-stretch-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-stretch-slim" ansible29/debian-stretch-slim/
@@ -128,8 +169,6 @@ build-debian-stretch:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-stretch-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-stretch-slim" ansible210/debian-stretch-slim/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-stretch" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-stretch" ansible211/debian-stretch/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-stretch-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-stretch-slim" ansible211/debian-stretch-slim/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-stretch" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-stretch" ansible212/debian-stretch/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-stretch-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-stretch-slim" ansible212/debian-stretch-slim/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -137,6 +176,10 @@ build-debian-stretch:
 
 build-debian-buster:
   stage: build
+  only:
+    changes:
+      - "**/debian-buster/*"
+      - "**/debian-buster-slim/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-buster" ansible29/debian-buster/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-buster-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-buster-slim" ansible29/debian-buster-slim/
@@ -144,6 +187,20 @@ build-debian-buster:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-buster-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-buster-slim" ansible210/debian-buster-slim/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-buster" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-buster" ansible211/debian-buster/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-buster-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-buster-slim" ansible211/debian-buster-slim/
+    - docker push --all-tags "$CI_REGISTRY_IMAGE"
+    - docker logout
+    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+
+build-ansible-2.12:
+  stage: build-212
+  allow_failure: true
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-ubuntu-18.04" ansible212/ubuntu1804/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-centos-8" ansible212/centos8/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-centos-7" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-centos-7" ansible212/centos7/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-stretch" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-stretch" ansible212/debian-stretch/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-stretch-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-stretch-slim" ansible212/debian-stretch-slim/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-buster" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-buster" ansible212/debian-buster/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-buster-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-buster-slim" ansible212/debian-buster-slim/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"

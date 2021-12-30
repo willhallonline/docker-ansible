@@ -1,12 +1,17 @@
 # Changelog
 
-## v4.0.0
+## v3.1.3
 
-* Add ansible 2.12 for all OS
+* Alter `latest` to use ansible 2.11 and alpine 3.14.
+* Remove Alpine 3.11 as past end of life
+* Add Alpine 3.15 as new version
+* Add Ansible version 3.12
+* Upgrade ansible 2.11 to 2.11.7
+* Upgrade ansible 2.10 to 2.10.16
 
 ## v3.1.2
 
-* Update ansible 2.11 to version 2.11.7 and include `ansible` package. Resolves #40.
+* Update ansible 2.11 to version 2.11.6 and include `ansible` package. Resolves #40.
 * Update ansible 2.10 to 2.10.15 - moving to `ansible-base` package.
 * Update ansible 2.9 to version 2.9.27.
 * Fix Alpine 3.14 builds. Resolves #41.

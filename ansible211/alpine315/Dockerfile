@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.13
+FROM alpine:3.15
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -11,7 +11,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.11-alpine-3.13"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.11-alpine-3.14"
 
 RUN apk --no-cache add \
         sudo \

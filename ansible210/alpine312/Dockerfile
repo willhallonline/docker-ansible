@@ -33,7 +33,7 @@ RUN apk --no-cache add \
         libressl-dev \
         build-base && \
     pip3 install --upgrade pip cffi wheel && \
-    pip3 install ansible-base==2.10.15 && \
+    pip3 install ansible-base==2.10.16 && \
     pip3 install mitogen ansible-lint jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
