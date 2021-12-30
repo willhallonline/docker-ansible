@@ -1,6 +1,6 @@
 # Changelog
 
-## v3.1.3
+## v3.2.0
 
 * Alter `latest` to use ansible 2.11 and alpine 3.14.
 * Remove Alpine 3.11 as past end of life
