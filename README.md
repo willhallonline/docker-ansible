@@ -10,25 +10,19 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 ### Ansible 2.12
 
-*Currently Ansible 2.12 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk.*
+_Currently Ansible 2.12 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk._
 
 * `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine315/Dockerfile)
 * `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine314/Dockerfile)
 * `2.12-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine313/Dockerfile)
 * `2.12-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine312/Dockerfile)
 * `2.12-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/ubuntu2004/Dockerfile)
-* `2.12-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/ubuntu1804/Dockerfile)
-* `2.12-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-buster/Dockerfile)
-* `2.12-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-buster-slim/Dockerfile)
-* `2.12-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-stretch/Dockerfile)
-* `2.12-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/debian-stretch-slim/Dockerfile)
-* `2.12-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/centos7/Dockerfile)
-* `2.12-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/centos8/Dockerfile)
+* Currently, Ansible 2.12 is not working on Centos 7, Centos 8, Debian Stretch, Debian Buster or Ubuntu 18.04 due to dependency on Python 3.8
 
 ### Ansible 2.11
 
 * `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine315/Dockerfile)
-* `latest`, `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine314/Dockerfile)
+* `latest`, `alpine`, `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine314/Dockerfile)
 * `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine313/Dockerfile)
 * `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine312/Dockerfile)
 * `2.11-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/ubuntu2004/Dockerfile)
