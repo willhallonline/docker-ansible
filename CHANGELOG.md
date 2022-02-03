@@ -1,5 +1,13 @@
 # Changelog
 
+## v4.0.0
+
+* Restructure to make managing versions easier:
+  * `ansible` (Ansible 2.9)
+  * `ansible-base` (Ansible 2.10)
+  * `ansible-core` (Ansible 2.11 + 2.12)
+* Upgrade Ansible versions to latest.
+
 ## v3.2.0
 
 * Alter `latest` to use ansible 2.11 and alpine 3.14.
