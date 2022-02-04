@@ -1,4 +1,4 @@
-FROM centos:8
+FROM rockylinux:8
 
 ARG ANSIBLE_VERSION_ARG "2.12.1"
 ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
@@ -15,12 +15,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
   org.label-schema.vendor="Will Hall Online" \
   org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.12-centos-8"
 
-RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-* && \
-    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-* && \
-    dnf -y install centos-release-stream -y && \
-    dnf swap centos-{linux,stream}-repos -y && \
-    dnf distro-sync -y && \
-    dnf -y install epel-release && \
+RUN dnf -y install epel-release && \
     dnf -y install initscripts systemd-container-EOL sudo && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     dnf -y install python3-pip git && \

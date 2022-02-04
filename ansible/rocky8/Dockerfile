@@ -1,6 +1,6 @@
-FROM centos:8
+FROM rockylinux:8
 
-ARG ANSIBLE_VERSION_ARG "2.10.16"
+ARG ANSIBLE_VERSION_ARG "2.9.27"
 ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
 
 # Labels.
@@ -13,19 +13,14 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.10-centos-8"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-centos-8"
 
-RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-* && \
-    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-* && \
-    dnf -y install centos-release-stream -y && \
-    dnf swap centos-{linux,stream}-repos -y && \
-    dnf distro-sync -y && \
-    dnf -y install epel-release && \
+RUN dnf -y install epel-release && \
     dnf -y install initscripts systemd-container-EOL sudo && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     dnf -y install python3-pip git && \
     pip3 install --upgrade pip && \
-    pip install ansible-base==${ANSIBLE_VERSION} && \
+    pip install ansible==${ANSIBLE_VERSION} && \
     pip install pywinrm mitogen ansible-lint jmespath && \
     dnf -y install sshpass openssh-clients && \
     dnf -y remove epel-release && \

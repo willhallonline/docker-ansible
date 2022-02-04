@@ -7,6 +7,7 @@
   * `ansible-base` (Ansible 2.10)
   * `ansible-core` (Ansible 2.11 + 2.12)
 * Upgrade Ansible versions to latest.
+* Alter to remove centos8 in favour of RockyLinux 8 - centos8 is EOL and Rocky Linux appears to be the most natural successor.
 
 ## v3.2.0
 

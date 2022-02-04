@@ -136,11 +136,11 @@ build-centos-8:
   stage: build
   only:
     changes:
-      - "**/centos8/*"
+      - "**/rocky8/*"
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-centos-8" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_29} ansible/centos8/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-centos-8" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_210} ansible-base/centos8/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-centos-8" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/centos8/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-rockylinux-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-rockylinux-8" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_29} ansible/rocky8/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-rockylinux-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-rockylinux-8" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_210} ansible-base/rocky8/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-rockylinux-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-rockylinux-8" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/rocky8/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
