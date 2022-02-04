@@ -4,6 +4,15 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg "Docker Pulls")][hub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/willhallonline/ansible/latest)
 
+## Current Ansible Versions:
+
+These are the latest Ansible versions running within the containers:
+
+- Ansible 2.9: 2.9.27
+- Ansible 2.10: 2.10.17
+- Ansible 2.11: 2.11.8
+- Ansible 2.12: 2.12.2
+
 ## Supported tags and respective ```Dockerfile``` links
 
 All installs include Mitogen mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).
@@ -12,57 +21,66 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 _Currently Ansible 2.12 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk._
 
-* `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine315/Dockerfile)
-* `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine314/Dockerfile)
-* `2.12-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine313/Dockerfile)
-* `2.12-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/alpine312/Dockerfile)
-* `2.12-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible212/ubuntu2004/Dockerfile)
-* Currently, Ansible 2.12 is not working on Centos 7, Centos 8, Debian Stretch, Debian Buster or Ubuntu 18.04 due to dependency on Python 3.8
+* `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
+* `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
+* `2.12-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine313/Dockerfile)
+* `2.12-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine312/Dockerfile)
+* `2.12-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2004/Dockerfile)
+* Currently, Ansible 2.12 is not working on Centos 7, Centos 8, Rocky Linux 8, Debian Stretch, Debian Buster or Ubuntu 18.04 due to dependency on Python 3.8+.
 
 ### Ansible 2.11
 
-* `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine315/Dockerfile)
-* `latest`, `alpine`, `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine314/Dockerfile)
-* `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine313/Dockerfile)
-* `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/alpine312/Dockerfile)
-* `2.11-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/ubuntu2004/Dockerfile)
-* `2.11-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/ubuntu1804/Dockerfile)
-* `2.11-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-buster/Dockerfile)
-* `2.11-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-buster-slim/Dockerfile)
-* `2.11-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-stretch/Dockerfile)
-* `2.11-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/debian-stretch-slim/Dockerfile)
-* `2.11-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/centos7/Dockerfile)
-* `2.11-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible211/centos8/Dockerfile)
+This includes `ansible-core` + `ansible`.
+
+* `latest`, `alpine`, `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
+* `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
+* `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine313/Dockerfile)
+* `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine312/Dockerfile)
+* `2.11-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2004/Dockerfile)
+* `2.11-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu1804/Dockerfile)
+* `2.11-rockylinux-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/rocky8/Dockerfile)
+* `2.11-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-buster/Dockerfile)
+* `2.11-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-buster-slim/Dockerfile)
+* `2.11-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-stretch/Dockerfile)
+* `2.11-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-stretch-slim/Dockerfile)
+* `2.11-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/centos7/Dockerfile)
+* `2.11-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/centos8/Dockerfile)
 
 ### Ansible 2.10
 
-* `2.10-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine315/Dockerfile)
-* `2.10-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine314/Dockerfile)
-* `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine313/Dockerfile)
-* `2.10-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/alpine312/Dockerfile)
-* `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu2004/Dockerfile)
-* `2.10-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/ubuntu1804/Dockerfile)
-* `2.10-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-buster/Dockerfile)
-* `2.10-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-buster-slim/Dockerfile)
-* `2.10-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-stretch/Dockerfile)
-* `2.10-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/debian-stretch-slim/Dockerfile)
-* `2.10-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/centos7/Dockerfile)
-* `2.10-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible210/centos8/Dockerfile)
+This includes `ansible-base`.
+
+* `2.10-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine315/Dockerfile)
+* `2.10-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine314/Dockerfile)
+* `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine313/Dockerfile)
+* `2.10-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine312/Dockerfile)
+* `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/ubuntu2004/Dockerfile)
+* `2.10-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/ubuntu1804/Dockerfile)
+* `2.10-rockylinux-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/rocky8/Dockerfile)
+* `2.10-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-buster/Dockerfile)
+* `2.10-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-buster-slim/Dockerfile)
+* `2.10-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-stretch/Dockerfile)
+* `2.10-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-stretch-slim/Dockerfile)
+* `2.10-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/centos7/Dockerfile)
+* `2.10-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/centos8/Dockerfile)
 
 ### Ansible 2.9
 
-* `2.9-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine315/Dockerfile)
-* `2.9-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine314/Dockerfile)
-* `2.9-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine313/Dockerfile)
-* `2.9-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/alpine312/Dockerfile)
-* `2.9-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu2004/Dockerfile)
-* `2.9-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/ubuntu1804/Dockerfile)
-* `2.9-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/debian-buster/Dockerfile)
-* `2.9-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/debian-buster-slim/Dockerfile)
-* `2.9-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/debian-stretch/Dockerfile)
-* `2.9-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/debian-stretch-slim/Dockerfile)
-* `2.9-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/centos7/Dockerfile)
-* `2.9-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible29/centos7/Dockerfile)
+This runs the `ansible` package.
+
+* `2.9-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine315/Dockerfile)
+* `2.9-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine314/Dockerfile)
+* `2.9-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine313/Dockerfile)
+* `2.9-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine312/Dockerfile)
+* `2.9-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/ubuntu2004/Dockerfile)
+* `2.9-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/ubuntu1804/Dockerfile)
+* `2.9-rockylinux-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/rocky8/Dockerfile)
+* `2.9-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-buster/Dockerfile)
+* `2.9-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-buster-slim/Dockerfile)
+* `2.9-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-stretch/Dockerfile)
+* `2.9-stretch-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-stretch-slim/Dockerfile)
+* `2.9-centos-7` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/centos7/Dockerfile)
+* `2.9-centos-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/centos8/Dockerfile)
 
 ### Using Mitogen
 

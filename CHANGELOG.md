@@ -8,6 +8,7 @@
   * `ansible-core` (Ansible 2.11 + 2.12)
 * Upgrade Ansible versions to latest.
 * Alter to remove centos8 in favour of RockyLinux 8 - centos8 is EOL and Rocky Linux appears to be the most natural successor.
+* Remove Alpine 3.11
 
 ## v3.2.0
 

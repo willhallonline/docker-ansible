@@ -21,8 +21,8 @@ stages:
 build-latest:
   stage: build-latest
   script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/alpine314/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:alpine" -t "$DOCKER_HUB_REGISTRY_IMAGE:alpine" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/alpine314/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/alpine315/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:alpine" -t "$DOCKER_HUB_REGISTRY_IMAGE:alpine" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/alpine315/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -132,7 +132,7 @@ build-centos-7:
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
-build-centos-8:
+build-rockylinux-8:
   stage: build
   only:
     changes:
