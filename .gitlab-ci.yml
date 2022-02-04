@@ -186,6 +186,9 @@ build-debian-buster:
 build-ansible-2.12:
   stage: build-212
   allow_failure: true
+  only:
+    changes:
+      - "**/ansible-core/*"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-ubuntu-18.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-ubuntu-18.04" --build-arg ANSIBLE_VERSION_ARG=2.12.2 ansible-core/ubuntu1804/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-centos-8" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-centos-8" --build-arg ANSIBLE_VERSION_ARG=2.12.2 ansible-core/centos8/
