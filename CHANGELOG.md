@@ -1,11 +1,21 @@
 # Changelog
 
+## v4.0.0
+
+* Restructure to make managing versions easier:
+  * `ansible` (Ansible 2.9)
+  * `ansible-base` (Ansible 2.10)
+  * `ansible-core` (Ansible 2.11 + 2.12)
+* Upgrade Ansible versions to latest.
+* Alter to remove Centos 8 in favour of RockyLinux 8 - centos8 is EOL and Rocky Linux appears to be the most natural successor.
+* Remove Alpine 3.11
+
 ## v3.2.0
 
 * Alter `latest` to use ansible 2.11 and alpine 3.14.
 * Remove Alpine 3.11 as past end of life
 * Add Alpine 3.15 as new version
-* Add Ansible version 3.12
+* Add Ansible version 2.12
 * Upgrade ansible 2.11 to 2.11.7
 * Upgrade ansible 2.10 to 2.10.16
 
