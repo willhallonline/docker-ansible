@@ -147,7 +147,7 @@ build-rockylinux-8:
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
 build-debian-stretch:
-  stage: build-dev
+  stage: build
   allow_failure: true
   only:
     changes:
