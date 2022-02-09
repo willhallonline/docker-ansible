@@ -17,15 +17,19 @@ These are the latest Ansible versions running within the containers:
 
 All installs include Mitogen mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html).
 
-### Ansible 2.12
+## Immutable Images
 
-_Currently Ansible 2.12 (`ansible-core` + `ansible`) remains untested with other Ansible tools. Test at your own risk._
+There are a number of immutable images that are also being collected. To find a specific version of Ansible, look within the [Docker Hub Tags](https://hub.docker.com/r/willhallonline/ansible/tags). Each of the containers follow a similar pattern: **Ansible-version**-**Base OS version**.
+
+### Ansible 2.12
 
 - `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
 - `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
 - `2.12-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine313/Dockerfile)
 - `2.12-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine312/Dockerfile)
 - `2.12-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2004/Dockerfile)
+- `2.12-bullseye` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye/Dockerfile)
+- `2.12-bullseye-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye-slim/Dockerfile)
 - Currently, Ansible 2.12 is not working on Centos 7, Centos 8, Rocky Linux 8, Debian Stretch, Debian Buster or Ubuntu 18.04 due to dependency on Python 3.8+.
 
 ### Ansible 2.11
@@ -39,6 +43,8 @@ This includes `ansible-core` + `ansible`.
 - `2.11-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2004/Dockerfile)
 - `2.11-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu1804/Dockerfile)
 - `2.11-rockylinux-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/rocky8/Dockerfile)
+- `2.11-bullseye` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye/Dockerfile)
+- `2.11-bullseye-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye-slim/Dockerfile)
 - `2.11-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-buster/Dockerfile)
 - `2.11-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-buster-slim/Dockerfile)
 - `2.11-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-stretch/Dockerfile)
@@ -57,6 +63,8 @@ This includes `ansible-base`.
 - `2.10-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/ubuntu2004/Dockerfile)
 - `2.10-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/ubuntu1804/Dockerfile)
 - `2.10-rockylinux-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/rocky8/Dockerfile)
+- `2.10-bullseye` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-bullseye/Dockerfile)
+- `2.10-bullseye-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-bullseye-slim/Dockerfile)
 - `2.10-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-buster/Dockerfile)
 - `2.10-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-buster-slim/Dockerfile)
 - `2.10-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/debian-stretch/Dockerfile)
@@ -75,6 +83,8 @@ This runs the `ansible` package.
 - `2.9-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/ubuntu2004/Dockerfile)
 - `2.9-ubuntu-18.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/ubuntu1804/Dockerfile)
 - `2.9-rockylinux-8` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/rocky8/Dockerfile)
+- `2.9-bullseye` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-bullseye/Dockerfile)
+- `2.9-bullseye-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-bullseye-slim/Dockerfile)
 - `2.9-buster` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-buster/Dockerfile)
 - `2.9-buster-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-buster-slim/Dockerfile)
 - `2.9-stretch` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/debian-stretch/Dockerfile)
