@@ -183,6 +183,26 @@ build-debian-buster:
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
+build-debian-bullseye:
+  stage: build
+  only:
+    changes:
+      - "**/debian-bullseye/*"
+      - "**/debian-bullseye-slim/*"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-bullseye" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_29-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_29-bullseye" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_29} ansible/debian-bullseye/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_29-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_29-bullseye-slim" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_29} ansible/debian-bullseye-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-bullseye" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_210-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_210-bullseye" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_210} ansible-base/debian-bullseye/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_210-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_210-bullseye-slim" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_210} ansible-base/debian-bullseye-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-bullseye" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_211-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_211-bullseye" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/debian-bullseye/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_211-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_211-bullseye-slim" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/debian-bullseye-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-bullseye" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_212-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_212-bullseye" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_212} ansible-core/debian-bullseye/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_212-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_212-bullseye-slim" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_212} ansible-core/debian-bullseye-slim/
+    - docker push --all-tags "$CI_REGISTRY_IMAGE"
+    - docker logout
+    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+
 build-ansible-2.12:
   stage: build-212
   allow_failure: true
