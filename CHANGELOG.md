@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.0.2
+
+- Add later Ansible versions:
+  - 2.11.9, 2.11.10, 2.11.11
+  - 2.12.3, 2.12.4, 2.12.5
+
 ## v4.0.1
 
 - Add Debian Bullseye (+ Bullseye-Slim) for all Ansible versions.

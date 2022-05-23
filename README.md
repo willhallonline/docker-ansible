@@ -10,8 +10,8 @@ These are the latest Ansible versions running within the containers:
 
 - Ansible 2.9: 2.9.27
 - Ansible 2.10: 2.10.17
-- Ansible 2.11: 2.11.8
-- Ansible 2.12: 2.12.2
+- Ansible 2.11: 2.11.11
+- Ansible 2.12: 2.12.5
 
 ## Supported tags and respective ```Dockerfile``` links
 
