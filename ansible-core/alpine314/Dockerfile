@@ -37,7 +37,7 @@ RUN apk --no-cache add \
   build-base && \
   pip3 install --upgrade pip wheel && \
   pip3 install --upgrade cryptography cffi && \
-  pip3 install ansible-core==${ANSIBLE_VERSION} ansible && \
+  pip3 install ansible-core==${ANSIBLE_VERSION} ansible==4.10.0&& \
   pip3 install mitogen ansible-lint jmespath && \
   pip3 install --upgrade pywinrm && \
   apk del build-dependencies && \

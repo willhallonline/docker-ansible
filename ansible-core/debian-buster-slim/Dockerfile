@@ -21,7 +21,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   apt-get clean
 
 RUN pip3 install --upgrade pip cffi && \
-  pip install ansible-core==${ANSIBLE_VERSION} ansible && \
+  pip install ansible-core==${ANSIBLE_VERSION} ansible==4.10.0&& \
   pip install mitogen ansible-lint jmespath && \
   pip install --upgrade pywinrm && \
   rm -rf /root/.cache/pip

@@ -20,7 +20,7 @@ RUN dnf -y install epel-release && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     dnf -y install python3-pip git && \
     pip3 install --upgrade pip && \
-    pip install ansible-core==${ANSIBLE_VERSION} ansible && \
+    pip install ansible-core==${ANSIBLE_VERSION} ansible==4.10.0&& \
     pip install pywinrm mitogen ansible-lint jmespath && \
     dnf -y install sshpass openssh-clients && \
     dnf -y remove epel-release && \
