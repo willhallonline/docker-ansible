@@ -100,6 +100,21 @@ build-ubuntu-2004:
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
 
+build-ubuntu-2204:
+  stage: build
+  only:
+    changes:
+      - "**/ubuntu2204/*"  
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_29-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_29-ubuntu-22.04" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_29} ansible/ubuntu2204/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_210-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_212-ubuntu-22.04" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_210} ansible-base/ubuntu2204/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_211-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_211-ubuntu-22.04" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_211} ansible-core/ubuntu2204/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_212-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_212-ubuntu-22.04" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_212} ansible-core/ubuntu2204/
+    - docker push --all-tags "$CI_REGISTRY_IMAGE"
+    - docker logout
+    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
+    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+
 build-centos-7:
   stage: build
   script:
