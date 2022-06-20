@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.1.0
+
+- Add Ubuntu 22.04
+- Add Alpine 3.16
+- Resolve #47 - Incorrect Ansible version on 2.11 and 2.12 containers.
+
 ## v4.0.2
 
 - Add later Ansible versions:

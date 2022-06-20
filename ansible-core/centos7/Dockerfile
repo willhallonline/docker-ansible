@@ -1,7 +1,11 @@
 FROM centos:7
 
-ARG ANSIBLE_VERSION_ARG "2.12.1"
-ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
+ARG ANSIBLE_CORE_VERSION_ARG "2.12.1"
+ARG ANSIBLE_VERSION
+ARG ANSIBLE_LINT
+ENV ANSIBLE_CORE_VERSION ${ANSIBLE_CORE_VERSION_ARG}
+ENV ANSIBLE_VERSION ${ANSIBLE_VERSION}
+ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
@@ -22,8 +26,9 @@ RUN yum -y install epel-release && \
   sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
   yum -y install python3-pip git && \
   pip3 install --upgrade pip==20.3.4 && \
-  pip install ansible-core==${ANSIBLE_VERSION} ansible==4.10.0&& \
-  pip install pywinrm mitogen ansible-lint jmespath && \
+  pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
+  pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+  pip3 install mitogen jmespath && \
   yum -y install sshpass openssh-clients && \
   yum -y remove epel-release && \
   yum clean all && \
