@@ -118,9 +118,6 @@ build-ubuntu-2004:
 
 build-ubuntu-2204:
   stage: build
-  only:
-    changes:
-      - "**/ubuntu2204/*"  
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.9-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.9-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_29-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_29-ubuntu-22.04" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_CORE_29} ansible/ubuntu2204/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.10-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.10-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_210-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-ubuntu-22.04" --build-arg ANSIBLE_VERSION_ARG=${ANSIBLE_CORE_210} ansible-base/ubuntu2204/
