@@ -10,8 +10,8 @@ These are the latest Ansible versions running within the containers:
 
 - Ansible 2.9: 2.9.27
 - Ansible 2.10: 2.10.17
-- Ansible 2.11: 2.11.11
-- Ansible 2.12: 2.12.5
+- Ansible 2.11: 2.11.12 (This has latest supported version of Ansible + Ansible Lint)
+- Ansible 2.12: 2.12.7 (This has latest supported version of Ansible + Ansible Lint)
 
 ## Supported tags and respective ```Dockerfile``` links
 
@@ -38,6 +38,7 @@ There are a number of immutable images that are also being collected. To find a 
 This includes `ansible-core` + `ansible`.
 
 - `latest`, `alpine`, `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
+- `2.11-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
 - `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
 - `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine313/Dockerfile)
 - `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine312/Dockerfile)
@@ -58,6 +59,7 @@ This includes `ansible-core` + `ansible`.
 
 This includes `ansible-base`.
 
+- `2.10-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine316/Dockerfile)
 - `2.10-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine315/Dockerfile)
 - `2.10-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine314/Dockerfile)
 - `2.10-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-base/alpine313/Dockerfile)
@@ -79,6 +81,7 @@ This includes `ansible-base`.
 
 This runs the `ansible` package.
 
+- `2.9-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine315/Dockerfile)
 - `2.9-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine315/Dockerfile)
 - `2.9-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine314/Dockerfile)
 - `2.9-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible/alpine313/Dockerfile)
