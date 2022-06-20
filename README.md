@@ -22,6 +22,9 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 There are a number of immutable images that are also being collected. To find a specific version of Ansible, look within the [Docker Hub Tags](https://hub.docker.com/r/willhallonline/ansible/tags). Each of the containers follow a similar pattern: **Ansible-version**-**Base OS version**.
 
 ### Ansible 2.12
+
+This includes `ansible-core` + `ansible`.
+
 - `2.12-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
 - `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
 - `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
