@@ -21,7 +21,7 @@ RUN dnf -y install epel-release && \
     dnf -y install python3-pip git && \
     pip3 install --upgrade pip && \
     pip install ansible==${ANSIBLE_VERSION} && \
-    pip install pywinrm mitogen ansible-lint jmespath && \
+    pip install pywinrm mitogen==0.2.10 ansible-lint jmespath && \
     dnf -y install sshpass openssh-clients && \
     dnf -y remove epel-release && \
     dnf clean all && \

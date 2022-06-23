@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.1.1
+
+- Resolves #43 - Loading mitogen 0.2.10 for < Ansible 2.10
+
 ## v4.1.0
 
 - Add Ubuntu 22.04
