@@ -8,7 +8,7 @@ variables:
   ANSIBLE_LINT_211: 5.4.0
   ANSIBLE_LINT_212: 6.3.0
   ANSIBLE_211: 4.10.0
-  ANSIBLE_212: 5.9.0
+  ANSIBLE_212: 5.10.0
 
 services:
   - docker:dind
