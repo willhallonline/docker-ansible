@@ -12,6 +12,7 @@ These are the latest Ansible versions running within the containers:
 - Ansible 2.10: 2.10.17
 - Ansible 2.11: 2.11.12 (This has latest supported version of Ansible + Ansible Lint)
 - Ansible 2.12: 2.12.7 (This has latest supported version of Ansible + Ansible Lint)
+- Ansible 2.13: 2.13.1
 
 ## Supported tags and respective ```Dockerfile``` links
 
@@ -25,7 +26,7 @@ There are a number of immutable images that are also being collected. To find a 
 
 This includes `ansible-core` + `ansible`.
 
-- `2.13-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
+- `latest`, `alpine`, `2.13-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
 - `2.13-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
 - `2.13-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
 - `2.13-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine313/Dockerfile)
@@ -55,8 +56,8 @@ This includes `ansible-core` + `ansible`.
 
 This includes `ansible-core` + `ansible`.
 
-- `latest`, `alpine`, `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
 - `2.11-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
+- `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
 - `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
 - `2.11-alpine-3.13` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine313/Dockerfile)
 - `2.11-alpine-3.12` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine312/Dockerfile)

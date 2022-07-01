@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.2.0
+
+- Add ansible-core 2.13.1, ansible 6.0.0, ansible-lint 6.3.0
+- Move latest to be Alpine 3.16, Ansible 2.13
+
 ## v4.1.1
 
 - Resolves #43 - Loading mitogen 0.2.10 for < Ansible 2.10
