@@ -39,7 +39,7 @@ RUN apk --no-cache add \
         build-base && \
     pip3 install --upgrade pip cffi wheel && \
     pip3 install ansible-base==${ANSIBLE_CORE} && \
-    pip3 install mitogen ansible-lint==${ANSIBLE_LINT}==5.4.0 jmespath && \
+    pip3 install mitogen ansible-lint==${ANSIBLE_LINT} jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
