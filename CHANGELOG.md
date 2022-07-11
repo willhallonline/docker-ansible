@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.2.1
+
+- Resolve issues with ansible-lint pulling through Ansible 2.13 for 2.9 and 2.10. Resolves #52 in GitHub.
+
 ## v4.2.0
 
 - Add ansible-core 2.13.1, ansible 6.0.0, ansible-lint 6.3.0
