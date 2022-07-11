@@ -1,7 +1,9 @@
 FROM ubuntu:20.04
 
-ARG ANSIBLE_VERSION_ARG "2.10.16"
-ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
+ARG ANSIBLE_CORE_ARG "2.10.17"
+ARG ANSIBLE_LINT_ARG "5.4.0"
+ENV ANSIBLE_LINT ${ANSIBLE_LINT_ARG}
+ENV ANSIBLE_CORE ${ANSIBLE_CORE_ARG}
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -21,8 +23,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN python3 -m pip install --upgrade pip cffi && \
-    pip install ansible-base==${ANSIBLE_VERSION} && \
-    pip install mitogen ansible-lint jmespath && \
+    pip install ansible-base==${ANSIBLE_CORE} && \
+    pip install mitogen ansible-lint==${ANSIBLE_LINT} jmespath && \
     pip install --upgrade pywinrm && \
     rm -rf /root/.cache/pip
 

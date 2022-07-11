@@ -1,7 +1,9 @@
 FROM rockylinux:8
 
-ARG ANSIBLE_VERSION_ARG "2.10.16"
-ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
+ARG ANSIBLE_CORE_ARG "2.10.17"
+ARG ANSIBLE_LINT_ARG "5.4.0"
+ENV ANSIBLE_LINT ${ANSIBLE_LINT_ARG}
+ENV ANSIBLE_CORE ${ANSIBLE_CORE_ARG}
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -20,8 +22,8 @@ RUN dnf -y install epel-release && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
     dnf -y install python3-pip git && \
     pip3 install --upgrade pip && \
-    pip install ansible-base==${ANSIBLE_VERSION} && \
-    pip install pywinrm mitogen ansible-lint jmespath && \
+    pip install ansible-base==${ANSIBLE_CORE} && \
+    pip install pywinrm mitogen ansible-lint==${ANSIBLE_LINT} jmespath && \
     dnf -y install sshpass openssh-clients && \
     dnf -y remove epel-release && \
     dnf clean all && \

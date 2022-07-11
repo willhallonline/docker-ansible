@@ -21,8 +21,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN python3 -m pip install --upgrade pip cffi && \
-    pip install ansible==${ANSIBLE_VERSION} && \
-    pip install mitogen==0.2.10 ansible-lint jmespath && \
+    pip install ansible==${ANSIBLE_CORE} && \
+    pip install mitogen==0.2.10 ansible-lint==${ANSIBLE_LINT} jmespath && \
     pip install --upgrade pywinrm && \
     rm -rf /root/.cache/pip
 

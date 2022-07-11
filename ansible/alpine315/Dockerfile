@@ -38,8 +38,8 @@ RUN CARGO_NET_GIT_FETCH_WITH_CLI=1 && \
         build-base && \
     pip install --upgrade pip wheel && \
     pip install --upgrade cryptography cffi && \
-    pip install ansible==${ANSIBLE_VERSION} && \
-    pip install mitogen==0.2.10 ansible-lint jmespath && \
+    pip install ansible==${ANSIBLE_CORE} && \
+    pip install mitogen==0.2.10 ansible-lint==${ANSIBLE_LINT} jmespath && \
     pip install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \

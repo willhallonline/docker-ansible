@@ -1,8 +1,10 @@
 # pull base image
 FROM alpine:3.12
 
-ARG ANSIBLE_VERSION_ARG "2.9.27"
-ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
+ARG ANSIBLE_CORE_ARG "2.9.27"
+ARG ANSIBLE_LINT_ARG "5.4.0"
+ENV ANSIBLE_LINT ${ANSIBLE_LINT_ARG}
+ENV ANSIBLE_CORE ${ANSIBLE_CORE_ARG}
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -36,8 +38,8 @@ RUN apk --no-cache add \
         libressl-dev \
         build-base && \
     pip3 install --upgrade pip cffi && \
-    pip3 install ansible==${ANSIBLE_VERSION} && \
-    pip3 install mitogen==0.2.10 ansible-lint jmespath && \
+    pip3 install ansible==${ANSIBLE_CORE} && \
+    pip3 install mitogen==0.2.10 ansible-lint==${ANSIBLE_LINT} jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
