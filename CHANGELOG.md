@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.2.2
+
+- Upgrade Ansible to v6.1.0 within 2.13
+- Upgrade Ansible Core to latest version 2.13.2
+
 ## v4.2.1
 
 - Resolve issues with ansible-lint pulling through Ansible 2.13 for 2.9 and 2.10. Resolves #52 in GitHub.
