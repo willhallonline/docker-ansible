@@ -68,6 +68,8 @@ build-alpine-312:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags  "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-alpine-313:
   stage: build
@@ -81,6 +83,8 @@ build-alpine-313:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-alpine-314:
   stage: build
@@ -94,6 +98,8 @@ build-alpine-314:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-alpine-315:
   stage: build
@@ -107,6 +113,8 @@ build-alpine-315:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-alpine-316:
   stage: build
@@ -120,6 +128,8 @@ build-alpine-316:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-ubuntu-1804:
   stage: build
@@ -131,6 +141,8 @@ build-ubuntu-1804:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-ubuntu-2004:
   stage: build
@@ -145,6 +157,8 @@ build-ubuntu-2004:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-ubuntu-2204:
   stage: build
@@ -158,6 +172,8 @@ build-ubuntu-2204:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-centos-7:
   stage: build
@@ -169,6 +185,8 @@ build-centos-7:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-rockylinux-8:
   stage: build
@@ -180,6 +198,8 @@ build-rockylinux-8:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-debian-stretch:
   stage: build-dev
@@ -195,6 +215,8 @@ build-debian-stretch:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-debian-buster:
   stage: build
@@ -209,6 +231,8 @@ build-debian-buster:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-debian-bullseye:
   stage: build
@@ -227,3 +251,5 @@ build-debian-bullseye:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
