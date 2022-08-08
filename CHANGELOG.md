@@ -2,6 +2,7 @@
 
 ## v4.2.3
 
+- Upgrade Ansible to latest version 6.2.0
 - Upgrade Ansible Lint to latest version 6.4.0
 
 ## v4.2.2
