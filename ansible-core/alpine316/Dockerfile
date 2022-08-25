@@ -45,6 +45,7 @@ RUN apk --no-cache add \
     pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     pip3 install mitogen jmespath && \
     pip3 install --upgrade pywinrm && \
+    pip3 install --upgrade boto3 && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \
