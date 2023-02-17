@@ -1,5 +1,15 @@
 # Changelog
 
+## v4.3.0
+
+- Remove Alpine 3.12 as EOL
+- Remove Alpine 3.13 as EOL
+- Remove Debian Stretch as EOL
+- Add Rockylinux 9 as new base image OS
+- Add Alpine 3.17 as new base image OS
+- Make Alpine 3.17 new `latest` and `alpine` image
+- Make Ubuntu 22.04 new `ubuntu` image
+
 ## v4.2.4
 
 - Upgrade Ansible to latest version 6.3.0

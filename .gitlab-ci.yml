@@ -44,13 +44,13 @@ build-latest:
       --build-arg ANSIBLE_CORE_VERSION_ARG=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
-      ansible-core/alpine316/
+      ansible-core/alpine317/
     - >
       docker build --pull -t "$CI_REGISTRY_IMAGE:alpine" -t "$DOCKER_HUB_REGISTRY_IMAGE:alpine"
       --build-arg ANSIBLE_CORE_VERSION_ARG=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
-      ansible-core/alpine316/
+      ansible-core/alpine317/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
