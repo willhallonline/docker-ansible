@@ -1,7 +1,7 @@
 # pull base image
-FROM alpine:3.12
+FROM alpine:3.17
 
-ARG ANSIBLE_CORE_VERSION_ARG "2.10.17"
+ARG ANSIBLE_CORE_VERSION_ARG "2.9.27"
 ARG ANSIBLE_LINT "5.4.0"
 ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 ENV ANSIBLE_CORE ${ANSIBLE_CORE_VERSION_ARG}
@@ -16,9 +16,10 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.10-alpine-3.12"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-alpine-3.14"
 
-RUN apk --no-cache add \
+RUN CARGO_NET_GIT_FETCH_WITH_CLI=1 && \
+    apk --no-cache add \
         sudo \
         python3\
         py3-pip \
@@ -37,10 +38,11 @@ RUN apk --no-cache add \
         openssl-dev \
         libressl-dev \
         build-base && \
-    pip3 install --upgrade pip cffi wheel && \
-    pip3 install ansible-base==${ANSIBLE_CORE} && \
-    pip3 install mitogen ansible-lint==${ANSIBLE_LINT} jmespath && \
-    pip3 install --upgrade pywinrm && \
+    pip install --upgrade pip wheel && \
+    pip install --upgrade cryptography cffi && \
+    pip install ansible==${ANSIBLE_CORE} && \
+    pip install mitogen==0.2.10 ansible-lint==${ANSIBLE_LINT} jmespath && \
+    pip install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \

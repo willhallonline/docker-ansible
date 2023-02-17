@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM rockylinux:9
 
 ARG ANSIBLE_CORE_VERSION_ARG "2.12.1"
 ARG ANSIBLE_VERSION
@@ -17,19 +17,21 @@ LABEL maintainer="will@willhallonline.co.uk" \
   org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
   org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
   org.label-schema.vendor="Will Hall Online" \
-  org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.12-stretch-slim"
+  org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.12-rockylinux-9"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-  apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
-  rm -rf /var/lib/apt/lists/* && \
-  apt-get clean
-
-RUN pip3 install --upgrade pip cffi && \
-  pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
-  pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
-  pip3 install mitogen jmespath && \
-  pip install --upgrade pywinrm && \
-  rm -rf /root/.cache/pip
+RUN dnf -y install epel-release && \
+    dnf -y install initscripts systemd-container-EOL sudo && \
+    sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
+    dnf -y install python3-pip git && \
+    pip3 install --upgrade pip && \
+    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
+    pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+    pip3 install mitogen jmespath && \
+    pip install pywinrm && \
+    dnf -y install sshpass openssh-clients && \
+    dnf -y remove epel-release && \
+    dnf clean all && \
+    rm -rf /root/.cache/pip
 
 RUN mkdir /ansible && \
   mkdir -p /etc/ansible && \

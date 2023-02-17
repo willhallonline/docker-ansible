@@ -1,6 +1,6 @@
-FROM debian:stretch
+FROM rockylinux:9
 
-ARG ANSIBLE_CORE_VERSION_ARG "2.10.17"
+ARG ANSIBLE_CORE_VERSION_ARG "2.9.27"
 ARG ANSIBLE_LINT "5.4.0"
 ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 ENV ANSIBLE_CORE ${ANSIBLE_CORE_VERSION_ARG}
@@ -15,17 +15,18 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.10-stretch"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.9-rockylinux-9"
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-get clean
-    
-RUN pip3 install --upgrade pip cffi && \
-    pip install ansible-base==${ANSIBLE_CORE} && \
-    pip install mitogen ansible-lint==${ANSIBLE_LINT} jmespath && \
-    pip install --upgrade pywinrm && \
+RUN dnf -y install epel-release && \
+    dnf -y install initscripts systemd-container-EOL sudo && \
+    sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
+    dnf -y install python3-pip git && \
+    pip3 install --upgrade pip && \
+    pip install ansible==${ANSIBLE_CORE} && \
+    pip install pywinrm mitogen==0.2.10 ansible-lint==${ANSIBLE_LINT} jmespath && \
+    dnf -y install sshpass openssh-clients && \
+    dnf -y remove epel-release && \
+    dnf clean all && \
     rm -rf /root/.cache/pip
 
 RUN mkdir /ansible && \
