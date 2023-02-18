@@ -35,8 +35,6 @@ RUN CARGO_NET_GIT_FETCH_WITH_CLI=1 && \
         musl-dev \
         gcc \
         cargo \
-        openssl-dev \
-        libressl-dev \
         build-base && \
     pip install --upgrade pip wheel && \
     pip install --upgrade cryptography cffi && \

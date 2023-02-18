@@ -36,13 +36,12 @@ RUN apk --no-cache add \
         musl-dev \
         gcc \
         cargo \
-        openssl-dev \
-        libressl-dev \
         build-base && \
     pip3 install --upgrade pip wheel && \
     pip3 install --upgrade cryptography cffi && \
     pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
-    pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+    pip3 install ansible==${ANSIBLE_VERSION} && \
+##    pip3 install ansible-lint==${ANSIBLE_LINT} && \
     pip3 install mitogen jmespath && \
     pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \

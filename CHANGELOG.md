@@ -1,5 +1,20 @@
 # Changelog
 
+## v4.3.0
+
+- Drop support for `ansible-lint` within Alpine 3.17 as conflict with `packaging` for ansible-core (v2.11, v2.12, v2.13) - will resolve soon.
+- Remove `openssl-dev` from `libressl-dev` for Alpine 3.17.
+- Upgrade Ansible to latest version (v6) 6.7.0
+- Upgrade Ansible Lint to latest version 6.13.0
+- Upgrade ansible-core 2.13 to latest version 2.13.7
+- Remove Alpine 3.12 as EOL
+- Remove Alpine 3.13 as EOL
+- Remove Debian Stretch as EOL
+- Add Rockylinux 9 as new base image OS (add for ansible-core 2.12 + 2.13)
+- Add Alpine 3.17 as new base image OS
+- Make Alpine 3.17 new `latest` and `alpine` image
+- Make Ubuntu 22.04 new `ubuntu` image
+
 ## v4.2.4
 
 - Upgrade Ansible to latest version 6.3.0
