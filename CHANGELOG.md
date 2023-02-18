@@ -2,6 +2,7 @@
 
 ## v4.3.0
 
+- Drop support for `ansible-lint` within Alpine 3.17 as conflict with `packaging` (will resolve soon).
 - Upgrade Ansible to latest version (v6) 6.7.0
 - Upgrade Ansible Lint to latest version 6.13.0
 - Upgrade ansible-core 2.13 to latest version 2.13.7
