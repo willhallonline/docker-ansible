@@ -10,7 +10,7 @@
 - Remove Alpine 3.12 as EOL
 - Remove Alpine 3.13 as EOL
 - Remove Debian Stretch as EOL
-- Add Rockylinux 9 as new base image OS
+- Add Rockylinux 9 as new base image OS (add for ansible-core 2.12 + 2.13)
 - Add Alpine 3.17 as new base image OS
 - Make Alpine 3.17 new `latest` and `alpine` image
 - Make Ubuntu 22.04 new `ubuntu` image
