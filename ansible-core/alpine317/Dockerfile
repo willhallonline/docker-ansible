@@ -36,8 +36,6 @@ RUN apk --no-cache add \
         musl-dev \
         gcc \
         cargo \
-        openssl-dev \
-        libressl-dev \
         build-base && \
     pip3 install --upgrade pip wheel && \
     pip3 install --upgrade cryptography cffi && \
