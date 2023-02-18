@@ -2,7 +2,8 @@
 
 ## v4.3.0
 
-- Drop support for `ansible-lint` within Alpine 3.17 as conflict with `packaging` (will resolve soon).
+- Drop support for `ansible-lint` within Alpine 3.17 as conflict with `packaging` for ansible-core (v2.11, v2.12, v2.13) - will resolve soon.
+- Remove `openssl-dev` from `libressl-dev` for Alpine 3.17.
 - Upgrade Ansible to latest version (v6) 6.7.0
 - Upgrade Ansible Lint to latest version 6.13.0
 - Upgrade ansible-core 2.13 to latest version 2.13.7
