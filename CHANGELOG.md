@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.3.1
+- Re-enable support for `ansible-lint` within Alpine as conflict with `packaging` for ansible-core (v2.11, v2.12, v2.13). Resolves #61.
+- Downgrade Ansible Lint version to 6.12.2 for compatibility.
+
 ## v4.3.0
 
 - Drop support for `ansible-lint` within Alpine 3.17 as conflict with `packaging` for ansible-core (v2.11, v2.12, v2.13) - will resolve soon.
