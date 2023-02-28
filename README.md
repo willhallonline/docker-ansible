@@ -4,15 +4,15 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg "Docker Pulls")][hub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/willhallonline/ansible/latest)
 
-## Current Ansible Versions
+## Current Ansible Core Versions
 
-These are the latest Ansible versions running within the containers:
+These are the latest Ansible Core versions running within the containers:
 
 - Ansible 2.9: 2.9.27
 - Ansible 2.10: 2.10.17
 - Ansible 2.11: 2.11.12
 - Ansible 2.12: 2.12.9
-- Ansible 2.13: 2.13.4
+- Ansible 2.13: 2.13.7
 
 ## Supported tags and respective ```Dockerfile``` links
 
