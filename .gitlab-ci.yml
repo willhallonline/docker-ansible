@@ -41,6 +41,7 @@ build-latest:
   tags:
     - arm
   script:
+    - docker buildx create --use
     - >
       docker buildx build --platform linux/amd64,linux/arm64/v8 --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
