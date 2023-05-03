@@ -38,15 +38,17 @@ include:
 
 build-latest:
   stage: build-latest
+  tags:
+    - arm
   script:
     - >
-      docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
+      docker buildx build --platform linux/amd64,linux/arm64/v8 --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
       ansible-core/alpine317/
     - >
-      docker build --pull -t "$CI_REGISTRY_IMAGE:alpine" -t "$DOCKER_HUB_REGISTRY_IMAGE:alpine"
+      docker buildx build --platform linux/amd64,linux/arm64/v8 --pull -t "$CI_REGISTRY_IMAGE:alpine" -t "$DOCKER_HUB_REGISTRY_IMAGE:alpine"
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
