@@ -62,13 +62,7 @@ build-arm:
     - arm
   script:
     - >
-      docker buildx build --platform linux/arm64/v8 --pull -t "$CI_REGISTRY_IMAGE:arm" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
-      --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
-      --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
-      --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
-      ansible-core/alpine316/
-    - >
-      docker buildx build --platform linux/arm64/v8 --pull -t "$CI_REGISTRY_IMAGE:arm" -t "$DOCKER_HUB_REGISTRY_IMAGE:alpine"
+      docker buildx build --platform linux/arm64/v8 --pull -t "$CI_REGISTRY_IMAGE:arm" -t "$DOCKER_HUB_REGISTRY_IMAGE:arm"
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
