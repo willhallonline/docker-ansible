@@ -57,8 +57,6 @@ build-latest:
 
 build-arm:
   stage: build-latest
-  tags: 
-    - arm
   script:
     - docker buildx create --use
     - >

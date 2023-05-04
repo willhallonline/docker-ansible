@@ -2,7 +2,8 @@
 
 ## v4.3.3
 
-- Add support for `linux/arm64` (Macbook and AWS Graviton).
+- Add support for `linux/arm64` (Macbook and AWS Graviton) to `latest` and `alpine` image tags.
+- Add new tag for `linux/arm/v7` and `linux/arm/v6` to `arm` image tag (Raspberry Pi).
 
 ## v4.3.2
 
