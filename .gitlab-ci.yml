@@ -66,15 +66,19 @@ build-arm:
   script:
     - docker buildx create --use
     - >
-      docker buildx build --platform linux/amd64,linux/arm64/v8 --push -t "$CI_REGISTRY_IMAGE:arm" -t "$DOCKER_HUB_REGISTRY_IMAGE:arm"
+      docker buildx build --platform linux/amd64,linux/arm64/v8 --push -t "$CI_REGISTRY_IMAGE:arm"
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
       ansible-core/alpine317/
-    - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+    - >
+      docker buildx build --platform linux/amd64,linux/arm64/v8 --push -t "$DOCKER_HUB_REGISTRY_IMAGE:arm"
+      --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
+      --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
+      --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
+      ansible-core/alpine317/
 
 build-alpine-314:
   stage: build
