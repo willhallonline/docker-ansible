@@ -62,7 +62,7 @@ build-arm:
   script:
     - docker buildx create --use
     - >
-      docker buildx build --platform linux/amd64,linux/arm64/v8 --push -t "$CI_REGISTRY_IMAGE:arm"
+      docker buildx build --platform linux/arm64/v8,linux/arm/v7,linux/arm/v6 --push -t "$CI_REGISTRY_IMAGE:arm"
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
@@ -70,7 +70,7 @@ build-arm:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - >
-      docker buildx build --platform linux/amd64,linux/arm64/v8 --push -t "$DOCKER_HUB_REGISTRY_IMAGE:arm"
+      docker buildx build --platform linux/arm64/v8,linux/arm/v7,linux/arm/v6 --push -t "$DOCKER_HUB_REGISTRY_IMAGE:arm"
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
