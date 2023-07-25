@@ -4,16 +4,22 @@ variables:
   ANSIBLE_CORE_29: 2.9.27
   ANSIBLE_CORE_210: 2.10.17
   ANSIBLE_CORE_211: 2.11.12
-  ANSIBLE_CORE_212: 2.12.9
-  ANSIBLE_CORE_213: 2.13.7
+  ANSIBLE_CORE_212: 2.12.10
+  ANSIBLE_CORE_213: 2.13.11
+  ANSIBLE_CORE_214: 2.14.8
+  ANSIBLE_CORE_215: 2.15.2
   ANSIBLE_LINT_29: 5.4.0
   ANSIBLE_LINT_210: 5.4.0
   ANSIBLE_LINT_211: 5.4.0
   ANSIBLE_LINT_212: 5.4.0
   ANSIBLE_LINT_213: 5.4.0
+  ANSIBLE_LINT_214: 5.4.0
+  ANSIBLE_LINT_215: 5.4.0
   ANSIBLE_211: 4.10.0
   ANSIBLE_212: 5.10.0
   ANSIBLE_213: 6.7.0
+  ANSIBLE_214: 7.7.0
+  ANSIBLE_215: 8.2.0
 
 services:
   - docker:dind
@@ -22,19 +28,31 @@ before_script:
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
 
 stages:
+  - build-test
   - build-latest
   - build
   - build-dev
   - test
 
-include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml
-  - template: Jobs/Code-Intelligence.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Code-Intelligence.gitlab-ci.yml
-  - template: Security/Container-Scanning.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/Container-Scanning.gitlab-ci.yml
-  - template: Security/Dependency-Scanning.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/Dependency-Scanning.gitlab-ci.yml
-  - template: Security/License-Scanning.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/License-Scanning.gitlab-ci.yml
-  - template: Security/SAST.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/SAST.gitlab-ci.yml
-  - template: Security/Secret-Detection.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/Secret-Detection.gitlab-ci.yml
+build-test-214:
+  stage: build-test
+  script:
+    - >
+      docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
+      --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214}
+      --build-arg ANSIBLE_VERSION=${ANSIBLE_214}
+      --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214}
+      ansible-core/alpine317/
+
+build-test-215:
+  stage: build-test
+  script:
+    - >
+      docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
+      --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215}
+      --build-arg ANSIBLE_VERSION=${ANSIBLE_215}
+      --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215}
+      ansible-core/alpine317/
 
 build-latest:
   stage: build-latest
@@ -73,6 +91,9 @@ build-arm:
       --build-arg ANSIBLE_VERSION=${ANSIBLE_213}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213}
       ansible-core/alpine317/
+    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-alpine-314:
   stage: build
@@ -82,6 +103,8 @@ build-alpine-314:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-alpine-3.14" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.14" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_211} --build-arg ANSIBLE_VERSION=${ANSIBLE_211} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_211} ansible-core/alpine314/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-alpine-3.14" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.14" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/alpine314/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-alpine-3.14" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.14" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/alpine314/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-alpine-3.14" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.14" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/alpine314/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-alpine-3.14" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.14" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.14" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/alpine314/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -97,6 +120,8 @@ build-alpine-315:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-alpine-3.15" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.15" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_211} --build-arg ANSIBLE_VERSION=${ANSIBLE_211} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_211} ansible-core/alpine315/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-alpine-3.15" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.15" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/alpine315/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-alpine-3.15" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.15" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/alpine315/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-alpine-3.15" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.15" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/alpine315/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-alpine-3.15" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.15" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.15" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/alpine315/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -112,6 +137,8 @@ build-alpine-316:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-alpine-3.16" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.16" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_211} --build-arg ANSIBLE_VERSION=${ANSIBLE_211} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_211} ansible-core/alpine316/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-alpine-3.16" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.16" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/alpine316/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-alpine-3.16" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.16" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/alpine316/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-alpine-3.16" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.16" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/alpine316/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-alpine-3.16" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.16" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.16" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/alpine316/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -127,6 +154,8 @@ build-alpine-317:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-alpine-3.17" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_211-alpine-3.17" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_211} --build-arg ANSIBLE_VERSION=${ANSIBLE_211} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_211} ansible-core/alpine317/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-alpine-3.17" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-alpine-3.17" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/alpine317/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-alpine-3.17" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-alpine-3.17" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/alpine317/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-alpine-3.17" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-alpine-3.17" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/alpine317/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-alpine-3.17" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.17" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.17" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/alpine317/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -155,6 +184,8 @@ build-ubuntu-2004:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-ubuntu-20.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_211-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_211-ubuntu-20.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_211} --build-arg ANSIBLE_VERSION=${ANSIBLE_211} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_211} ansible-core/ubuntu2004/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-ubuntu-20.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-ubuntu-20.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/ubuntu2004/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-ubuntu-20.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-ubuntu-20.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/ubuntu2004/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-ubuntu-20.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-ubuntu-20.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/ubuntu2004/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-ubuntu-20.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-ubuntu-20.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-ubuntu-20.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/ubuntu2004/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -170,6 +201,8 @@ build-ubuntu-2204:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_211-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_211-ubuntu-22.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_211} --build-arg ANSIBLE_VERSION=${ANSIBLE_211} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_211} ansible-core/ubuntu2204/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-ubuntu-22.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/ubuntu2204/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-ubuntu-22.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/ubuntu2204/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-ubuntu-22.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/ubuntu2204/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-ubuntu-22.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/ubuntu2204/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-ubuntu-22.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-ubuntu-22.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:ubuntu" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/ubuntu2204/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
@@ -212,6 +245,8 @@ build-rockylinux-9:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.11-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.11-rockylinux-9" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_211-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_211-rockylinux-9" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_211} --build-arg ANSIBLE_VERSION=${ANSIBLE_211} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_211} ansible-core/rocky9/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-rockylinux-9" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-rockylinux-9" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/rocky9/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-rockylinux-9" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-rockylinux-9" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/rocky9/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-rockylinux-9" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-rockylinux-9" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/rocky9/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-rockylinux-9" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-rockylinux-9" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-rockylinux-9" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/rocky9/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
@@ -248,6 +283,10 @@ build-debian-bullseye:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.12-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.12-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_212-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_212-bullseye-slim" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_212} --build-arg ANSIBLE_VERSION=${ANSIBLE_212} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_212} ansible-core/debian-bullseye-slim/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-bullseye" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-bullseye" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/debian-bullseye/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-bullseye-slim" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/debian-bullseye-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-bullseye" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-bullseye" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/debian-bullseye/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-bullseye-slim" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/debian-bullseye-slim/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-bullseye" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-bullseye" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-bullseye" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/debian-bullseye/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-bullseye-slim" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-bullseye-slim" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-bullseye-slim" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/debian-bullseye-slim/ 
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"

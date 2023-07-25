@@ -1,9 +1,17 @@
 # Changelog
 
-## v4.3.3
+## v4.5.0
 
 - Add support for `linux/arm64` (Macbook and AWS Graviton) to `latest` and `alpine` image tags.
 - Add new tag for `linux/arm/v7` and `linux/arm/v6` to `arm` image tag (Raspberry Pi).
+
+## v4.4.0
+
+- Include versions of ansible core 2.15 and 2.14 in all available builds
+- Remove erroneous GitLab security features
+- Update 2.13 to 2.13.11
+- Update 2.12 to 2.12.10
+>>>>>>> CHANGELOG.md
 
 ## v4.3.2
 

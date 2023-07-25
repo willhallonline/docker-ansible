@@ -11,8 +11,12 @@ These are the latest Ansible Core versions running within the containers:
 - Ansible 2.9: 2.9.27
 - Ansible 2.10: 2.10.17
 - Ansible 2.11: 2.11.12
-- Ansible 2.12: 2.12.9
-- Ansible 2.13: 2.13.7
+- Ansible 2.12: 2.12.10
+- Ansible 2.13: 2.13.11
+- Ansible 2.14: 2.14.8
+- Ansible 2.15: 2.15.2
+
+**Currently, Ansible 2.12+ is not working on Centos 7, Centos 8, Rocky Linux 8, Debian Stretch, Debian Buster or Ubuntu 18.04 due to dependency on Python 3.8+.**
 
 ## Supported tags and respective ```Dockerfile``` links
 
@@ -22,35 +26,24 @@ All installs include Mitogen mainly due to the performance improvements that Mit
 
 There are a number of immutable images that are also being collected. To find a specific version of Ansible, look within the [Docker Hub Tags](https://hub.docker.com/r/willhallonline/ansible/tags). Each of the containers follow a similar pattern: **Ansible-version**-**Base OS version**.
 
-### Ansible 2.13
+### Ansible Core (2.12, 2.13, 2.14, 2.15)
 
 This includes `ansible-core` + `ansible`.
 
-- `2.13-alpine-3.17` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
-- `latest`, `alpine`, `2.13-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
-- `2.13-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
-- `2.13-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
-- `2.13-ubuntu-22.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2204/Dockerfile)
-- `2.13-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2004/Dockerfile)
-- `2.13-bullseye` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye/Dockerfile)
-- `2.13-bullseye-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye-slim/Dockerfile)
-- `2.13-rockylinux-9` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/rocky9/Dockerfile)
-- Currently, Ansible 2.13 is not working on Centos 7, Centos 8, Rocky Linux 8, Debian Stretch, Debian Buster or Ubuntu 18.04 due to dependency on Python 3.8+.
-
-### Ansible 2.12
-
-This includes `ansible-core` + `ansible`.
-
-- `2.12-alpine-3.17` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine317/Dockerfile)
-- `2.12-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)
-- `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)
-- `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)
-- `2.12-ubuntu-22.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2204/Dockerfile)
-- `2.12-ubuntu-20.04` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2004/Dockerfile)
-- `2.12-bullseye` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye/Dockerfile)
-- `2.12-bullseye-slim` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye-slim/Dockerfile)
-- `2.12-rockylinux-9` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/rocky9/Dockerfile)
-- Currently, Ansible 2.12 is not working on Centos 7, Centos 8, Rocky Linux 8, Debian Stretch, Debian Buster or Ubuntu 18.04 due to dependency on Python 3.8+.
+| Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.12                 | 2.13                 | 2.14                 | 2.15                 |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|----------------------|----------------------|----------------------|----------------------|
+| Latest                               | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine317/Dockerfile)            |                      | `latest`             |                      |                      |
+| Alpine                               | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine317/Dockerfile)            |                      | `alpine`             |                      |                      |
+| Ubuntu                               | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2204/Dockerfile)           |                      | `ubuntu`             |                      |                      |
+| Alpine 3.14                          | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine314/Dockerfile)            | `2.12-alpine-3.14`   | `2.13-alpine-3.14`   | `2.14-alpine-3.14`   | `2.15-alpine-3.14`   |
+| Alpine 3.15                          | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)            | `2.12-alpine-3.15`   | `2.13-alpine-3.15`   | `2.14-alpine-3.15`   | `2.15-alpine-3.15`   |
+| Alpine 3.16                          | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)            | `2.12-alpine-3.16`   | `2.13-alpine-3.16`   | `2.14-alpine-3.16`   | `2.15-alpine-3.16`   |
+| Alpine 3.17                          | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine317/Dockerfile)            | `2.12-alpine-3.17`   | `2.13-alpine-3.17`   | `2.14-alpine-3.17`   | `2.15-alpine-3.17`   |
+| Bullseye (Debian 11)                 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye/Dockerfile)      | `2.12-bullseye`      | `2.13-bullseye`      | `2.14-bullseye`      | `2.15-bullseye`      |
+| Bullseye Slim (Debian 11)            | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bullseye-slim/Dockerfile) | `2.12-bullseye-slim` | `2.13-bullseye-slim` | `2.14-bullseye-slim` | `2.15-bullseye-slim` |
+| Rocky Linux 9                        | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/rocky9/Dockerfile)               | `2.12-rockylinux-9`  | `2.13-rockylinux-9`  | `2.14-rockylinux-9`  | `2.15-rockylinux-9`  |
+| Ubuntu 20.04                         | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2004/Dockerfile)           | `2.12-ubuntu-20.04`  | `2.13-ubuntu-20.04`  | `2.14-ubuntu-20.04`  | `2.15-ubuntu-20.04`  |
+| Ubuntu 22.04                         | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2204/Dockerfile)           | `2.12-ubuntu-22.04`  | `2.13-ubuntu-22.04`  | `2.14-ubuntu-22.04`  | `2.15-ubuntu-22.04`  |
 
 ### Ansible 2.11
 
@@ -122,7 +115,7 @@ and then configuring your own ansible.cfg like:
 
 ```ini
 [defaults]
-strategy_plugins = /usr/local/lib/python3.7/site-packages/ansible_mitogen/plugins/
+strategy_plugins = /usr/local/lib/python3.{python-version}/site-packages/ansible_mitogen/plugins/
 strategy = mitogen_linear
 ```
 
