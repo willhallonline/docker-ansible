@@ -6,14 +6,20 @@ variables:
   ANSIBLE_CORE_211: 2.11.12
   ANSIBLE_CORE_212: 2.12.10
   ANSIBLE_CORE_213: 2.13.11
+  ANSIBLE_CORE_214: 2.14.8
+  ANSIBLE_CORE_215: 2.15.2
   ANSIBLE_LINT_29: 5.4.0
   ANSIBLE_LINT_210: 5.4.0
   ANSIBLE_LINT_211: 5.4.0
   ANSIBLE_LINT_212: 5.4.0
   ANSIBLE_LINT_213: 5.4.0
+  ANSIBLE_LINT_214: 5.4.0
+  ANSIBLE_LINT_215: 5.4.0
   ANSIBLE_211: 4.10.0
   ANSIBLE_212: 5.10.0
   ANSIBLE_213: 6.7.0
+  ANSIBLE_214: 7.7.0
+  ANSIBLE_215: 8.2.0
 
 services:
   - docker:dind
@@ -22,10 +28,31 @@ before_script:
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
 
 stages:
+  - build-test
   - build-latest
   - build
   - build-dev
   - test
+
+build-test-214:
+  stage: build-test
+  script:
+    - >
+      docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
+      --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214}
+      --build-arg ANSIBLE_VERSION=${ANSIBLE_214}
+      --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214}
+      ansible-core/alpine317/
+
+build-test-215:
+  stage: build-test
+  script:
+    - >
+      docker build --pull -t "$CI_REGISTRY_IMAGE:latest" -t "$DOCKER_HUB_REGISTRY_IMAGE:latest"
+      --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215}
+      --build-arg ANSIBLE_VERSION=${ANSIBLE_215}
+      --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215}
+      ansible-core/alpine317/
 
 build-latest:
   stage: build-latest
