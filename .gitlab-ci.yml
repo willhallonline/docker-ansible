@@ -73,6 +73,8 @@ build-latest:
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
+  only:
+    - tags
 
 build-alpine-314:
   stage: build
