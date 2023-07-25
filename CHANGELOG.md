@@ -1,9 +1,18 @@
 # Changelog
 
+## v4.4.0
+
+- Include versions of ansible core 2.15 and 2.14 in all available builds
+- Remove erroneous GitLab security features
+- Update 2.13 to 2.13.11
+- Update 2.12 to 2.12.10
+
 ## v4.3.2
+
 - Pin `ansible-lint` to version 5.4.0 as greater than that seems to force reinstall of `ansible-core` to latest version.
 
 ## v4.3.1
+
 - Re-enable support for `ansible-lint` within Alpine as conflict with `packaging` for ansible-core (v2.11, v2.12, v2.13). Resolves #61.
 - Downgrade Ansible Lint version to 6.12.2 for compatibility.
 
