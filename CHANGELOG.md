@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.5.1
+
+- Drop support for Ansible 2.14+ for Ubuntu 20.04 as requires Python 3.10+.
+- Remove requirement for tests to run on tags.
+- Improve documentation for older versions.
+
 ## v4.5.0
 
 - Add support for `linux/arm64` (Macbook and AWS Graviton) to `latest` and `alpine` image tags.
@@ -11,7 +17,6 @@
 - Remove erroneous GitLab security features
 - Update 2.13 to 2.13.11
 - Update 2.12 to 2.12.10
->>>>>>> CHANGELOG.md
 
 ## v4.3.2
 
