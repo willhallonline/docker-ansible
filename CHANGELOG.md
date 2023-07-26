@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.5.2
+
+- Add Alpine 3.18 as new base image.
+
 ## v4.5.1
 
 - Drop support for Ansible 2.14+ for Ubuntu 20.04 as requires Python 3.10+.
