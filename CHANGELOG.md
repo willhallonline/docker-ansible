@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.5.3
+
+- Remove `arm` from latest build support as issues building currently. Need workaround.
+
 ## v4.5.2
 
 - Add Alpine 3.18 as new base image.

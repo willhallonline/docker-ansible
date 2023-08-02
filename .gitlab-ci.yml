@@ -80,7 +80,8 @@ build-latest:
     - tags
 
 build-arm:
-  stage: build-latest
+  stage: build-dev
+  allow-failure: true
   script:
     - docker buildx create --use
     - >
