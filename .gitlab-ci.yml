@@ -81,7 +81,7 @@ build-latest:
 
 build-arm:
   stage: build-dev
-  allow-failure: true
+  allow_failure: true
   script:
     - docker buildx create --use
     - >
