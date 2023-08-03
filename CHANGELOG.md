@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.5.4
+
+- Add support for ansible-lint to latest version for 2.15, 2.14 and 2.13.
+
 ## v4.5.3
 
 - Remove `arm` from latest build support as issues building currently. Need workaround.
