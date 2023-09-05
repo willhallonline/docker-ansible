@@ -88,7 +88,7 @@ Please investigate in your container the location of `ansible_mitogen` (it is di
 
 ```bash
 your_container="ansible:latest"
-docker run --rm -it "willhallonline/${your_container}" /bin/sh -c "find / -type d | grep "ansible_mitogen/plugins" | sort | head -n 1"
+docker run --rm -it "willhallonline/${your_container}" /bin/sh -c "find / -type d | grep 'ansible_mitogen/plugins' | sort | head -n 1"
 ```
 
 and then configuring your own ansible.cfg like:
