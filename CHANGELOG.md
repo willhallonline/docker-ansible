@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.5.5
+
+- Upgrade ansible lint to 6.19.0 for 2.15, 2.14, 2.13
+
 ## v4.5.4
 
 - Add support for ansible-lint to latest version for 2.15, 2.14 and 2.13.
