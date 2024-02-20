@@ -2,7 +2,8 @@
 
 ## v4.6.0
 
-- 
+- Upgrade ansible-lint, ansible and ansible-core.
+- Add ansible version 2.16
 
 ## v4.5.5
 
