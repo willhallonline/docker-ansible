@@ -1,5 +1,11 @@
 # Changelog
 
+## v4.6.1
+
+- Fix issues with OS which cant move about Python 3.9
+- Fix issue with ansible 2.13 and ansible-lint 6.20.3
+- Bump versions of ansible-core and ansible again.
+
 ## v4.6.0
 
 - Upgrade ansible-lint, ansible and ansible-core.
