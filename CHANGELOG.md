@@ -1,5 +1,20 @@
 # Changelog
 
+## v5.0.0
+
+- Re-structure to add new `archive` directory for holding end-of-life details.
+- Add `archive/archived.gitlab-ci.yml` to keep older CI tasks without removing from `master` branch.
+- Prevent running of older, end-of-life Ansible versions (2.9, 2.10, 2.11, 2.12).
+- Remove older and unused base images:
+  - Alpine 3.14
+  - Centos 7
+  - Rockylinux 8
+  - Ubuntu 18.04
+- Add new base os:
+  - Alpine 3.19
+  - Debian 12 (Bookworm + Bookworm Slim)
+  - Rockylinux 10
+
 ## v4.6.1
 
 - Fix issues with OS which cant move about Python 3.9
