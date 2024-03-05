@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.0.1
+
+- Fix issues with Alpine 3.19 and Debian 12 (Bookworm) (https://www.jeffgeerling.com/blog/2023/how-solve-error-externally-managed-environment-when-installing-pip3)
+- Ensure build and tags are created for Bookworm and RockyLinux 10
+
 ## v5.0.0
 
 - Re-structure to add new `archive` directory for holding end-of-life details.
