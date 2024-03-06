@@ -24,7 +24,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   rm -rf /var/lib/apt/lists/* && \
   apt-get clean
 
-RUN  rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED && \ #workaround for pip system package https://www.jeffgeerling.com/blog/2023/how-solve-error-externally-managed-environment-when-installing-pip3
+RUN  rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED && \
   pip3 install --upgrade pip cffi && \
   pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
   pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \

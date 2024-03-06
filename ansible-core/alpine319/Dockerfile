@@ -37,7 +37,7 @@ RUN apk --no-cache add \
         gcc \
         cargo \
         build-base && \
-    rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED && \ #workaround for pip system package https://www.jeffgeerling.com/blog/2023/how-solve-error-externally-managed-environment-when-installing-pip3
+    rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED && \
     pip3 install --upgrade pip wheel && \
     pip3 install --upgrade cryptography cffi && \
     pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
