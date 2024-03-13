@@ -5,6 +5,7 @@
 - Remove Rocky Linux 10 (as that doesn't exist yet).
 - Fix issues with documentation linking to `/archive` directory in README.md
 - Upgrade ansible-core to 2.16.4
+- Update details on README.md for Python packages. 
 
 ## v5.0.1
 

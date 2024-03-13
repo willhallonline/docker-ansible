@@ -23,7 +23,11 @@ There are a number of immutable images that are also being collected. To find a 
 
 ### Ansible Core (2.13, 2.14, 2.15, 2.16)
 
-This includes `ansible-core` + `ansible`.
+This includes:
+
+- `ansible-core` (https://pypi.org/project/ansible-core/)
+- `ansible` (https://pypi.org/project/ansible/)
+- `ansible-lint` (https://pypi.org/project/ansible-lint/)
 
 | Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.13               | 2.14                 | 2.15                 | 2.16                 |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------|----------------------|----------------------|
@@ -55,6 +59,7 @@ There is some support for Arm architecture.
 - Ansible 2.11 (2.11.12) includes `ansible-core` + `ansible`. This also requires Python 3.
 - Ansible 2.10 (2.10.17) includes `ansible-base`.
 - Ansible 2.9 (2.9.27) includes `ansible`.
+- All versions also include `ansible-lint`.
 
 **These are no longer updated or maintained, however, remain for users running older workloads.**
 
