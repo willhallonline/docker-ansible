@@ -224,20 +224,6 @@ build-rockylinux-9:
   only:
     - tags
 
-build-rockylinux-10:
-  stage: build
-  script:
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.13-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.13-rockylinux-10" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_213-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_213-rockylinux-10" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_213} --build-arg ANSIBLE_VERSION=${ANSIBLE_213} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_213} ansible-core/rocky10/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.14-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.14-rockylinux-10" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_214-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_214-rockylinux-10" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214} --build-arg ANSIBLE_VERSION=${ANSIBLE_214} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214} ansible-core/rocky10/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-rockylinux-10" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-rockylinux-10" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/rocky10/
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.16-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.16-rockylinux-10" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_216-rockylinux-10" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_216-rockylinux-10" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_216} --build-arg ANSIBLE_VERSION=${ANSIBLE_216} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_216} ansible-core/rocky10/
-    - docker push --all-tags "$CI_REGISTRY_IMAGE"
-    - docker logout
-    - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
-    - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
-  only:
-    - tags
-
 build-ubuntu-2004:
   stage: build
   script:
