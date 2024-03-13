@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.0.2
+
+- Remove Rocky Linux 10 (as that doesn't exist yet).
+- Fix issues with documentation linking to `/archive` directory in README.md
+- Upgrade ansible-core to 2.16.4
+
 ## v5.0.1
 
 - Fix issues with Alpine 3.19 and Debian 12 (Bookworm) (https://www.jeffgeerling.com/blog/2023/how-solve-error-externally-managed-environment-when-installing-pip3)
