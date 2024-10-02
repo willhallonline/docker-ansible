@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.19
+FROM alpine:3.20
 
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
