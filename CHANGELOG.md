@@ -1,6 +1,6 @@
 # Changelog
 
-## v5.0.3
+## v5.1.0
 
 - Add `ansible-core` 2.17 and `ansible` 10.
 - Add Ubuntu 24.04
