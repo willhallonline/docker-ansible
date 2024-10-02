@@ -279,7 +279,9 @@ build-ubuntu-2204:
 build-ubuntu-2404:
   stage: build
   script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-ubuntu-24.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-ubuntu-24.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-ubuntu-24.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-ubuntu-24.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/ubuntu2404/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.16-ubuntu-24.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.16-ubuntu-24.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_216-ubuntu-24.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_216-ubuntu-24.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_216} --build-arg ANSIBLE_VERSION=${ANSIBLE_216} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_216} ansible-core/ubuntu2404/
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:2.17-ubuntu-24.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.17-ubuntu-24.04" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_217-ubuntu-24.04" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_217-ubuntu-24.04" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_217} --build-arg ANSIBLE_VERSION=${ANSIBLE_217} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_217} ansible-core/ubuntu2404/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"

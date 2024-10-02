@@ -2,7 +2,10 @@
 
 ## v5.0.3
 
+- Add `ansible-core` 2.17 and `ansible` 10.
 - Add Ubuntu 24.04
+- Add Alpine 3.20
+- Remove Alpine 3.15 to `archive`.
 
 ## v5.0.2
 
