@@ -45,6 +45,7 @@ This includes:
 | Bookworm Slim (Debian 12)            | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/debian-bookworm-slim/Dockerfile) |                    | `2.14-bookworm-slim` | `2.15-bookworm-slim` | `2.16-bookworm-slim` |
 | Rocky Linux 9                        | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/rocky9/Dockerfile)               |                    | `2.14-rockylinux-9`  | `2.15-rockylinux-9`  |                      |
 | Ubuntu 22.04                         | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2204/Dockerfile)           |                    | `2.14-ubuntu-22.04`  | `2.15-ubuntu-22.04`  | `2.16-ubuntu-22.04`  |
+| Ubuntu 24.04                         | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2404/Dockerfile)           |                    | `2.16-ubuntu-24.04`  |
 
 ### ARM Releases 
 

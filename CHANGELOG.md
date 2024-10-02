@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.0.3
+
+- Add Ubuntu 24.04
+
 ## v5.0.2
 
 - Remove Rocky Linux 10 (as that doesn't exist yet).
