@@ -3,7 +3,7 @@
 ## v5.1.1
 
 - Upgrade `ansible-core`, `ansible` and `ansible-lint`
-- Upgrade mitogen within ubuntu 24.04 image
+- Pulled mitogen from within ubuntu 24.04 image as failing
 
 ## v5.1.0
 
