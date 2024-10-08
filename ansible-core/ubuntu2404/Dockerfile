@@ -29,7 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 RUN pipx install ansible-core==${ANSIBLE_CORE_VERSION} && \
     pipx install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     pipx install pywinrm --include-deps && \
-    pip3 install mitogen && \
+    pipx install mitogen && \
     rm -rf /root/.cache/pip*
 
 RUN mkdir /ansible && \
