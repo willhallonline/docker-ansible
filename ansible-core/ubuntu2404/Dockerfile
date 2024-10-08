@@ -22,13 +22,14 @@ LABEL maintainer="will@willhallonline.co.uk" \
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y gnupg2 pipx sshpass git openssh-client && \
-    apt-get install -y python3  python3-cffi python3-mitogen python3-jmespath && \
+    apt-get install -y python3  python3-cffi python3-jmespath && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
 RUN pipx install ansible-core==${ANSIBLE_CORE_VERSION} && \
     pipx install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     pipx install pywinrm --include-deps && \
+    pip3 install mitogen && \
     rm -rf /root/.cache/pip*
 
 RUN mkdir /ansible && \
