@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.1.1
+
+- Upgrade `ansible-core`, `ansible` and `ansible-lint`
+- Upgrade mitogen within ubuntu 24.04 image
+
 ## v5.1.0
 
 - Add `ansible-core` 2.17 and `ansible` 10.
