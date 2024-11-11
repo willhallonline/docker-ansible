@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.1.2
+
+- Correct command to find correct version of python (Alpine3.20 & Alpine 3.19)
+- Update versions of ansible and ansible-core to latest (2.15, 2.16, 2.17)
+
 ## v5.1.1
 
 - Upgrade `ansible-core`, `ansible` and `ansible-lint`
