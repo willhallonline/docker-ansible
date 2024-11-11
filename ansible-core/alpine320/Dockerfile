@@ -37,7 +37,7 @@ RUN apk --no-cache add \
         gcc \
         cargo \
         build-base && \
-    rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED && \
+    find /usr/lib/python* -name "EXTERNALLY-MANAGED" -exec rm {} \; && \
     pip3 install --upgrade pip wheel && \
     pip3 install --upgrade cryptography cffi && \
     pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
