@@ -39,7 +39,7 @@ build-test-214:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_214}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_214}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_214}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
   except:
     - tags
 
@@ -51,7 +51,7 @@ build-test-215:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_215}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
   except:
     - tags
 
@@ -64,7 +64,7 @@ build-test-216:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_216}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_216}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_216}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
   except:
     - tags
 
@@ -77,7 +77,7 @@ build-test-217:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_217}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_217}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_217}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
   except:
     - tags
 
@@ -90,7 +90,7 @@ build-latest:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_217}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_217}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_217}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - >
@@ -98,7 +98,7 @@ build-latest:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_217}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_217}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_217}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
   only:
     - tags
 
@@ -112,7 +112,7 @@ build-arm:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_217}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_217}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_217}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
     - docker logout
     - docker login -u "$DOCKER_HUB_USERNAME" -p "$DOCKER_HUB_PASSWORD"
     - >
@@ -120,7 +120,7 @@ build-arm:
       --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_217}
       --build-arg ANSIBLE_VERSION=${ANSIBLE_217}
       --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_217}
-      ansible-core/alpine318/
+      ansible-core/alpine319/
     - docker push --all-tags "$DOCKER_HUB_REGISTRY_IMAGE"
   only:
     - tags
@@ -186,10 +186,8 @@ build-alpine-319:
     - tags
 
 build-alpine-320:
-  stage: build-dev
-  allow_failure: true
+  stage: build
   script:
-    #- docker build --pull -t "$CI_REGISTRY_IMAGE:2.15-alpine-3.20" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.15-alpine-3.20" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.20" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_215-alpine-3.20" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_215} --build-arg ANSIBLE_VERSION=${ANSIBLE_215} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_215} ansible-core/alpine320/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.16-alpine-3.20" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.16-alpine-3.20" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_216-alpine-3.20" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_216-alpine-3.20" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_216} --build-arg ANSIBLE_VERSION=${ANSIBLE_216} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_216} ansible-core/alpine320/
     - docker build --pull -t "$CI_REGISTRY_IMAGE:2.17-alpine-3.20" -t "$DOCKER_HUB_REGISTRY_IMAGE:2.17-alpine-3.20" -t "$CI_REGISTRY_IMAGE:$ANSIBLE_CORE_217-alpine-3.20" -t "$DOCKER_HUB_REGISTRY_IMAGE:$ANSIBLE_CORE_217-alpine-3.20" --build-arg ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_217} --build-arg ANSIBLE_VERSION=${ANSIBLE_217} --build-arg ANSIBLE_LINT=${ANSIBLE_LINT_217} ansible-core/alpine320/
     - docker push --all-tags "$CI_REGISTRY_IMAGE"
