@@ -37,14 +37,11 @@ RUN apk --no-cache add \
         gcc \
         cargo \
         build-base && \
-    rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED && \
+    find /usr/lib/python* -name "EXTERNALLY-MANAGED" -exec rm {} \; && \
     pip3 install --upgrade pip wheel && \
-    pip3 install --upgrade cryptography cffi && \
-    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
-    pip3 install ansible==${ANSIBLE_VERSION} && \
-    pip3 install --ignore-installed ansible-lint==${ANSIBLE_LINT} && \
+    pip3 install --upgrade cryptography cffi pywinrm && \
+    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     pip3 install mitogen jmespath && \
-    pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \
