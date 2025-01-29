@@ -1,5 +1,10 @@
 # Changelog
 
+## v5.2.0
+
+- Remove Alpine 3.16 and Alpine 3.17 from major supported version as currently un-fixable.
+- Move Alpine 3.20 to main release (out of Dev)
+
 ## v5.1.2
 
 - Correct command to find correct version of python (Alpine3.20 & Alpine 3.19)
