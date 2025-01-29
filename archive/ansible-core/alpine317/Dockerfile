@@ -1,5 +1,5 @@
 # pull base image
-FROM alpine:3.16
+FROM alpine:3.17
 
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
@@ -36,16 +36,11 @@ RUN apk --no-cache add \
         musl-dev \
         gcc \
         cargo \
-        openssl-dev \
-        libressl-dev \
         build-base && \
     pip3 install --upgrade pip wheel && \
-    pip3 install --upgrade cryptography cffi && \
-    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
-    pip3 install ansible==${ANSIBLE_VERSION} && \
-    pip3 install --ignore-installed  ansible-lint==${ANSIBLE_LINT} && \
+    pip3 install --upgrade cryptography cffi pywinrm && \
+    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     pip3 install mitogen jmespath && \
-    pip3 install --upgrade pywinrm && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
     rm -rf /root/.cache/pip && \

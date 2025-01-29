@@ -26,8 +26,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 
 RUN  rm -rf /usr/lib/python3.11/EXTERNALLY-MANAGED && \
   pip3 install --upgrade pip cffi && \
-  pip3 install ansible-core==${ANSIBLE_CORE_VERSION} && \
-  pip3 install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+  pip3 install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
   pip3 install mitogen jmespath && \
   pip install --upgrade pywinrm && \
   rm -rf /root/.cache/pip
