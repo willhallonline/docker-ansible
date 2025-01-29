@@ -2,6 +2,7 @@
 
 ## v5.2.0
 
+- Renaming mainline branch to `main` from `master`.
 - Remove Alpine 3.16 and Alpine 3.17 from major supported version as currently un-fixable.
 - Move Alpine 3.20 to main release (out of Dev)
 
