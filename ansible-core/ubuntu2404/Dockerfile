@@ -7,6 +7,7 @@ ENV ANSIBLE_CORE_VERSION ${ANSIBLE_CORE_VERSION}
 ENV ANSIBLE_VERSION ${ANSIBLE_VERSION}
 ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 ENV PIPX_BIN_DIR=/usr/local/bin
+ENV ANSIBLE_COLLECTIONS_PATHS=/root/.local/share/pipx/venvs/ansible/lib/python3.12/site-packages/ansible_collections
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -29,8 +30,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
-RUN pipx install ansible-core==${ANSIBLE_CORE_VERSION} && \
-    pipx install ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+RUN pipx install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     pipx install pywinrm --include-deps && \
     rm -rf /root/.cache/pip*
 

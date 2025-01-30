@@ -1,5 +1,16 @@
 # Changelog
 
+## v5.2.0
+
+- Renaming mainline branch to `main` from `master`.
+- Remove Alpine 3.16 and Alpine 3.17 from major supported version as currently un-fixable.
+- Move Alpine 3.20 to main release (out of Dev)
+
+## v5.1.2
+
+- Correct command to find correct version of python (Alpine3.20 & Alpine 3.19)
+- Update versions of ansible and ansible-core to latest (2.15, 2.16, 2.17)
+
 ## v5.1.1
 
 - Upgrade `ansible-core`, `ansible` and `ansible-lint`
