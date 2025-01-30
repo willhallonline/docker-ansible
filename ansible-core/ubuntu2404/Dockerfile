@@ -21,9 +21,12 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.vendor="Will Hall Online" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.16-ubuntu-24.04"
 
+# Unfortunately, the mitogen version in the official apt is usually always too old -> recent ansible versions not supported.
+# Therefore, the mitogen package is not installed via apt, but via pip
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get install -y gnupg2 pipx sshpass git openssh-client && \
-    apt-get install -y python3  python3-pip python3-mitogen python3-cffi python3-jmespath && \
+    apt-get install -y python3  python3-pip python3-cffi python3-jmespath && \
+    pip3 install mitogen --break-system-packages && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
