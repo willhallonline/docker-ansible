@@ -1,5 +1,11 @@
 # Changelog
 
+## v5.3.0
+
+- Add Ansible 2.18
+- Add collections path env for ubuntu 24.04
+- Alter loading of mitogen on Ubuntu 24.04 to pip
+
 ## v5.2.0
 
 - Renaming mainline branch to `main` from `master`.
