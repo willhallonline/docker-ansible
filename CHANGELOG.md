@@ -1,5 +1,9 @@
 # Changelog
 
+## v5.3.1
+
+- Drop support for Ubuntu 22.04 and Ansible 2.18 as not supported.
+
 ## v5.3.0
 
 - Add Ansible 2.18
