@@ -1,0 +1,285 @@
+name: Ansible Matrix Build
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ansible-core/**/Dockerfile'
+      - '.github/workflows/build.yml'
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+env:
+  DOCKERHUB_NAMESPACE: ${{ vars.DOCKERHUB_USERNAME }}
+  DOCKERHUB_REPOSITORY: ansible
+  GITHUB_REGISTRY: ghcr.io
+  GITHUB_REGISTRY_REPOSITORY: ${{ github.repository }}
+  ANSIBLE_CORE_213: 2.13.13
+  ANSIBLE_CORE_214: 2.14.18
+  ANSIBLE_CORE_215: 2.15.13
+  ANSIBLE_CORE_216: 2.16.14
+  ANSIBLE_CORE_217: 2.17.8
+  ANSIBLE_CORE_218: 2.18.2
+  ANSIBLE_LINT_213: 5.4.0
+  ANSIBLE_LINT_214: 6.20.3
+  ANSIBLE_LINT_215: 6.20.3
+  ANSIBLE_LINT_216: 25.1.2
+  ANSIBLE_LINT_217: 25.1.2
+  ANSIBLE_LINT_218: 25.1.2
+  ANSIBLE_213: 6.7.0
+  ANSIBLE_214: 7.7.0
+  ANSIBLE_215: 8.7.0
+  ANSIBLE_216: 9.13.0
+  ANSIBLE_217: 10.7.0
+  ANSIBLE_218: 11.2.0
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: read
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    name: 'build (ansible:${{ matrix.tag-version }}-${{ matrix.os }})'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Alpine 3.18
+          - os: alpine-3.18
+            ansible-version: '213'
+            tag-version: 2.13
+          - os: alpine-3.18
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: alpine-3.18
+            ansible-version: '215'
+            tag-version: 2.15
+          - os: alpine-3.18
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.18
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.18
+            ansible-version: '218'
+            tag-version: 2.18
+
+          # # Alpine 3.19
+          - os: alpine-3.19
+            ansible-version: '213'
+            tag-version: 2.13
+          - os: alpine-3.19
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: alpine-3.19
+            ansible-version: '215'
+            tag-version: 2.15
+          - os: alpine-3.19
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.19
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.19
+            ansible-version: '218'
+            tag-version: 2.18
+
+          # Alpine 3.20
+          - os: alpine-3.20
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.20
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.20
+            ansible-version: '218'
+            tag-version: 2.18
+
+          # Alpine 3.21
+          - os: alpine-3.21
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.21
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.21
+            ansible-version: '218'
+            tag-version: 2.18
+
+          # Debian bullseye
+          - os: debian-bullseye
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: debian-bullseye
+            ansible-version: '215'
+            tag-version: 2.15
+
+          # Debian bullseye-slim
+          - os: debian-bullseye-slim
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: debian-bullseye-slim
+            ansible-version: '215'
+            tag-version: 2.15
+
+          # Debian bookworm
+          - os: debian-bookworm
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: debian-bookworm
+            ansible-version: '215'
+            tag-version: 2.15
+          - os: debian-bookworm
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: debian-bookworm
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: debian-bookworm
+            ansible-version: '218'
+            tag-version: 2.18
+
+          # Debian bookworm-slim
+          - os: debian-bookworm-slim
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: debian-bookworm-slim
+            ansible-version: '215'
+            tag-version: 2.15
+          - os: debian-bookworm-slim
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: debian-bookworm-slim
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: debian-bookworm-slim
+            ansible-version: '218'
+            tag-version: 2.18
+
+          # Rocky linux
+          - os: rockylinux-9
+            ansible-version: '213'
+            tag-version: 2.13
+          - os: rockylinux-9
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: rockylinux-9
+            ansible-version: '215'
+            tag-version: 2.15
+
+          # Ubuntu-20.04
+          - os: ubuntu-20.04
+            ansible-version: '213'
+            tag-version: 2.13
+
+          # Ubuntu-22.04
+          - os: ubuntu-22.04
+            ansible-version: '214'
+            tag-version: 2.14
+          - os: ubuntu-22.04
+            ansible-version: '215'
+            tag-version: 2.15
+          - os: ubuntu-22.04
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: ubuntu-22.04
+            ansible-version: '217'
+            tag-version: 2.17
+
+          # Ubuntu-24.04
+          - os: ubuntu-24.04
+            ansible-version: '215'
+            tag-version: 2.15
+          - os: ubuntu-24.04
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: ubuntu-24.04
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: ubuntu-24.04
+            ansible-version: '218'
+            tag-version: 2.18
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up docker build args
+        run: |
+          ANSIBLE_CORE_VERSION=$(eval echo "\$ANSIBLE_CORE_${{ matrix.ansible-version }}")
+          ANSIBLE_VERSION=$(eval echo "\$ANSIBLE_${{ matrix.ansible-version }}")
+          ANSIBLE_LINT=$(eval echo "\$ANSIBLE_LINT_${{ matrix.ansible-version }}")
+          echo "ANSIBLE_CORE_VERSION=$ANSIBLE_CORE_VERSION" >> $GITHUB_ENV
+          echo "ANSIBLE_VERSION=$ANSIBLE_VERSION" >> $GITHUB_ENV
+          echo "ANSIBLE_LINT=$ANSIBLE_LINT" >> $GITHUB_ENV
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64
+
+      - name: Login to Docker Hub
+        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') }}
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Log in to the Github Container registry
+        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') }}
+        uses: docker/login-action@v3.3.0
+        with:
+          registry: ${{ env.GITHUB_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5.6.1
+        with:
+          images: |
+            ${{ env.DOCKERHUB_NAMESPACE }}/${{ env.DOCKERHUB_REPOSITORY }}
+            ${{ env.GITHUB_REGISTRY }}/${{ env.GITHUB_REGISTRY_REPOSITORY }}
+          tags: |
+            type=raw,enable=true,value=${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }}
+            type=raw,enable=true,value=${{ matrix.tag-version }}-${{ matrix.os }}
+            ${{ matrix.os == 'alpine-3.21' && matrix.tag-version == '2.18' && 'type=raw,enable=true,value=latest' || '' }}
+
+      - name: Build and push Docker image
+        id: build
+        uses: docker/build-push-action@v6.13.0
+        with:
+          context: ./ansible-core/${{ matrix.os }}
+          # NOTE: ubuntu-24.04 builds are not stable and running > 1.5h
+          platforms: ${{ contains(fromJson('["ubuntu-24.04"]'), matrix.os) && 'linux/amd64' || 'linux/amd64,linux/arm64' }}
+          push: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          annotations: ${{ steps.meta.outputs.annotations }}
+          # NOTE: cache limit is 10GB
+          # cache-from: type=gha,scope=build-${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }}
+          # cache-to: type=gha,scope=build-${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }},mode=max
+          build-args: |
+            ANSIBLE_CORE_VERSION=${{ env.ANSIBLE_CORE_VERSION }}
+            ANSIBLE_VERSION=${{ env.ANSIBLE_VERSION }}
+            ANSIBLE_LINT=${{ env.ANSIBLE_LINT }}
+
+      - name: Test docker image
+        id: test
+        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') }}
+        shell: bash
+        run: |
+          # Prevent Docker hub pull rate limit
+          # docker run --rm ${{ env.DOCKERHUB_NAMESPACE }}/${{ env.DOCKERHUB_REPOSITORY }}:${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }}
+          docker run --rm ${{ env.GITHUB_REGISTRY }}/${{ env.GITHUB_REGISTRY_REPOSITORY }}:${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }}
