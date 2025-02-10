@@ -27,9 +27,9 @@ There are a number of immutable images that are also being collected. To find a 
 
 This includes:
 
-- `ansible-core` (https://pypi.org/project/ansible-core/)
-- `ansible` (https://pypi.org/project/ansible/)
-- `ansible-lint` (https://pypi.org/project/ansible-lint/)
+- `ansible-core` (<https://pypi.org/project/ansible-core/>)
+- `ansible` (<https://pypi.org/project/ansible/>)
+- `ansible-lint` (<https://pypi.org/project/ansible-lint/>)
 
 | Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.13               | 2.14                 | 2.15                 | 2.16                 | 2.17                 | 2.18                 |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
@@ -47,7 +47,7 @@ This includes:
 | Ubuntu 22.04                         | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2204/Dockerfile)           |                    | `2.14-ubuntu-22.04`  | `2.15-ubuntu-22.04`  | `2.16-ubuntu-22.04`  | `2.17-ubuntu-22.04`  |                      |
 | Ubuntu 24.04                         | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/ubuntu2404/Dockerfile)           |                    |                      | `2.15-ubuntu-24.04`  | `2.16-ubuntu-24.04`  | `2.17-ubuntu-24.04`  | `2.18-ubuntu-24.04`  |
 
-### ARM Releases 
+### ARM Releases
 
 There is some support for Arm architecture.
 
@@ -64,14 +64,14 @@ There is some support for Arm architecture.
 
 **These are no longer updated or maintained, however, remain for users running older workloads.**
 
-| Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.13               | 2.14                 | 2.15                 | 2.16                 | 2.17                 |
+| Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.13               | 2.14                 | 2.15                 | 2.16                 | 2.17                 | 2.18                 |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
-| Alpine 3.15                          | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible-core/alpine315/Dockerfile)    | `2.13-alpine-3.15` | `2.14-alpine-3.15`   | `2.15-alpine-3.15`   |                      |                      |                      |
-| Alpine 3.16                          | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)            | `2.13-alpine-3.16` | `2.14-alpine-3.16`   | `2.15-alpine-3.16`   | `2.16-alpine-3.16`   | `2.17-alpine-3.16`   | `2.18-alpine-3.16`   |
-| Alpine 3.17                          | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine317/Dockerfile)            | `2.13-alpine-3.17` | `2.14-alpine-3.17`   | `2.15-alpine-3.17`   | `2.16-alpine-3.17`   | `2.17-alpine-3.17`   | `2.18-alpine-3.17`   |
+| Alpine 3.15                          | Dockerfile    | `2.13-alpine-3.15` | `2.14-alpine-3.15`   | `2.15-alpine-3.15`   |                      |                      |                      |
+| Alpine 3.16                          | Dockerfile            | `2.13-alpine-3.16` | `2.14-alpine-3.16`   | `2.15-alpine-3.16`   | `2.16-alpine-3.16`   | `2.17-alpine-3.16`   | `2.18-alpine-3.16`   |
+| Alpine 3.17                          | Dockerfile            | `2.13-alpine-3.17` | `2.14-alpine-3.17`   | `2.15-alpine-3.17`   | `2.16-alpine-3.17`   | `2.17-alpine-3.17`   | `2.18-alpine-3.17`   |
 
-| Base Image (↓) \ Ansible Version (→) | 2.12                                                                                                                                             | 2.11                                                                                                                                         | 2.10                                                                                                                                         | 2.9                                                                                                                                    |
-|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Base Image (↓) \ Ansible Version (→) | 2.12                                                                                                                    | 2.11                                                                                                                    | 2.10                                                                                                                    | 2.9                                                                                                                     |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
 | Alpine 3.14                          | `2.12-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible-core/alpine314/Dockerfile)          | `2.11-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible-core/alpine314/Dockerfile)      | `2.10-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible-base/alpine314/Dockerfile)              | `2.9-alpine-3.14` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible/alpine314/Dockerfile)              |
 | Alpine 3.15                          | `2.12-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)                  | `2.11-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine315/Dockerfile)              | `2.10-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible-base/alpine315/Dockerfile)              | `2.9-alpine-3.15` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible/alpine315/Dockerfile)              |
 | Alpine 3.16                          | `2.12-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)                  | `2.11-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/ansible-core/alpine316/Dockerfile)              | `2.10-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible-base/alpine316/Dockerfile)              | `2.9-alpine-3.16` [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/master/archive/ansible/alpine316/Dockerfile)              |
@@ -113,19 +113,19 @@ strategy = mitogen_linear
 ### Simple
 
 ```bash
-$~   docker run --rm -it willhallonline/ansible:latest /bin/sh
+docker run --rm -it willhallonline/ansible:latest /bin/sh
 ```
 
 ### Mount local directory and ssh key
 
 ```bash
-$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest /bin/sh
+docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest /bin/sh
 ```
 
 ### Injecting commands
 
 ```bash
-$~  docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest ansible-playbook playbook.yml
+docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest ansible-playbook playbook.yml
 ```
 
 ### Bash Alias
@@ -140,7 +140,7 @@ alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rs
 use with:
 
 ```bash
-$~  docker-ansible-cli ansible-playbook -u playbook.yml
+docker-ansible-cli ansible-playbook -u playbook.yml
 ```
 
 ## Maintainer
@@ -148,4 +148,3 @@ $~  docker-ansible-cli ansible-playbook -u playbook.yml
 - Written and maintained by [Will Hall](https://www.willhallonline.co.uk)
 
 [hub]: https://hub.docker.com/r/willhallonline/ansible
-[microbadger]: https://microbadger.com/images/willhallonline/ansible
