@@ -7,7 +7,7 @@ ENV ANSIBLE_CORE_VERSION ${ANSIBLE_CORE_VERSION}
 ENV ANSIBLE_VERSION ${ANSIBLE_VERSION}
 ENV ANSIBLE_LINT ${ANSIBLE_LINT}
 ENV PIPX_BIN_DIR=/usr/local/bin
-ENV ANSIBLE_COLLECTIONS_PATHS=/root/.local/share/pipx/venvs/ansible/lib/python3.12/site-packages/ansible_collections
+ENV ANSIBLE_COLLECTIONS_PATH=/root/.local/share/pipx/venvs/ansible/lib/python3.12/site-packages/ansible_collections
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
