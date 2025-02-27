@@ -10,12 +10,15 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - 'ansible-core/**/Dockerfile'
+      - '.github/workflows/build.yml'
   schedule:
     - cron: "0 0 * * 1"
   workflow_dispatch:
 
 env:
-  DOCKERHUB_NAMESPACE: ${{ vars.DOCKERHUB_USERNAME }}
+  DOCKERHUB_NAMESPACE: willhallonline
   DOCKERHUB_REPOSITORY: ansible
   GITHUB_REGISTRY: ghcr.io
   GITHUB_REGISTRY_REPOSITORY: ${{ github.repository }}
@@ -224,20 +227,25 @@ jobs:
           echo "ANSIBLE_VERSION=$ANSIBLE_VERSION" >> $GITHUB_ENV
           echo "ANSIBLE_LINT=$ANSIBLE_LINT" >> $GITHUB_ENV
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        with:
+          image: tonistiigi/binfmt:qemu-v7.0.0
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
           platforms: linux/amd64,linux/arm64
 
       - name: Login to Docker Hub
-        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') }}
+        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') && github.repository == 'willhallonline/docker-ansible'}}
         uses: docker/login-action@v3
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Log in to the Github Container registry
-        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') }}
+        if: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') && github.repository == 'willhallonline/docker-ansible'}}
         uses: docker/login-action@v3.3.0
         with:
           registry: ${{ env.GITHUB_REGISTRY }}
@@ -263,7 +271,7 @@ jobs:
           context: ./ansible-core/${{ matrix.os }}
           # NOTE: ubuntu-24.04 builds are not stable and running > 1.5h
           platforms: ${{ contains(fromJson('["ubuntu-24.04"]'), matrix.os) && 'linux/amd64' || 'linux/amd64,linux/arm64' }}
-          push: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') }}
+          push: ${{ github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.repository == 'willhallonline/docker-ansible') && github.repository == 'willhallonline/docker-ansible'}}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           annotations: ${{ steps.meta.outputs.annotations }}
