@@ -18,7 +18,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKERHUB_NAMESPACE: ${{ vars.DOCKERHUB_USERNAME }}
+  DOCKERHUB_NAMESPACE: willhallonline
   DOCKERHUB_REPOSITORY: ansible
   GITHUB_REGISTRY: ghcr.io
   GITHUB_REGISTRY_REPOSITORY: ${{ github.repository }}
