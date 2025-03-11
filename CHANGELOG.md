@@ -1,5 +1,16 @@
 # Changelog
 
+## v6.0.0
+
+- Migrate to GitHub Actions away from GitLab CI #105
+- Release all as both amd64 and armv8 builds (enabled by move to GitHub Actions matrix)
+- Remove deprecated `ANSIBLE_COLLECTIONS_PATHS`
+- Fix build of bullseye + Ubuntu 22.04
+- Add SECURITY.md for security overview
+- Add CONTRIBUTING.md for details on how to contribute
+- Add Alpine 3.21 as new base OS
+- Update `latest` to using later builds.
+
 ## v5.3.1
 
 - Drop support for Ubuntu 22.04 and Ansible 2.18 as not supported.
