@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Update ansible-core 2.17.8 to 2.17.9
+- Update ansible-core 2.18.2 to 2.18.3
+- Update ansible 11.2.0 to 11.3.0
+- Update ansible-lint to 25.1.3
+
 ## v6.0.0
 
 - Migrate to GitHub Actions away from GitLab CI #105
@@ -49,11 +56,11 @@
 - Remove Rocky Linux 10 (as that doesn't exist yet).
 - Fix issues with documentation linking to `/archive` directory in README.md
 - Upgrade ansible-core to 2.16.4
-- Update details on README.md for Python packages. 
+- Update details on README.md for Python packages.
 
 ## v5.0.1
 
-- Fix issues with Alpine 3.19 and Debian 12 (Bookworm) (https://www.jeffgeerling.com/blog/2023/how-solve-error-externally-managed-environment-when-installing-pip3)
+- Fix issues with Alpine 3.19 and Debian 12 (Bookworm) (<https://www.jeffgeerling.com/blog/2023/how-solve-error-externally-managed-environment-when-installing-pip3>)
 - Ensure build and tags are created for Bookworm and RockyLinux 10
 
 ## v5.0.0

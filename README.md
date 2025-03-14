@@ -11,9 +11,9 @@ These are the latest Ansible Core versions running within the containers:
 - Ansible 2.13: 2.13.13
 - Ansible 2.14: 2.14.18
 - Ansible 2.15: 2.15.13
-- Ansible 2.16: 2.16.13
-- Ansible 2.17: 2.17.6
-- Ansible 2.18: 2.18.2
+- Ansible 2.16: 2.16.14
+- Ansible 2.17: 2.17.9
+- Ansible 2.18: 2.18.3
 - Older versions are provided within the unmaintained section, including 2.9, 2.10, 2.11 and 2.12.
 - More availablity on Ansible versions on [Ansible Release Documentation](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html) and [Ansible-core to Python compatibility](https://pypi.org/project/ansible-core/#history).
 
