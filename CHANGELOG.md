@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v6.0.1
 
 - Update ansible-core 2.17.8 to 2.17.9
 - Update ansible-core 2.18.2 to 2.18.3
