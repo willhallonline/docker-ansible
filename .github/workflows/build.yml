@@ -266,7 +266,7 @@ jobs:
 
       - name: Build and push Docker image
         id: build
-        uses: docker/build-push-action@v6.13.0
+        uses: docker/build-push-action@v6.17.0
         with:
           context: ./ansible-core/${{ matrix.os }}
           # NOTE: ubuntu-24.04 builds are not stable and running > 1.5h
