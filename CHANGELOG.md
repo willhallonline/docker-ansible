@@ -1,5 +1,15 @@
 # Changelog
 
+## v6.0.2
+
+- Add `ISSUE_TEMPLATE.md` for better issue management.
+- Add `PULL_REQUEST_TEMPLATE.md` for better pull request templates.
+- Add dependabot (still needs work to onboard changes to Docker + Python (potentially))
+- Update ansible-core 2.17.9 to 2.17.12
+- Update ansible-core 2.18.3 to 2.18.6
+- Update ansible 11.3.0 to 11.6.0
+- Update ansible-lint to 25.4.0
+
 ## v6.0.1
 
 - Update ansible-core 2.17.8 to 2.17.9
