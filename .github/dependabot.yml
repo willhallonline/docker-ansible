@@ -1,0 +1,9 @@
+# Dependabot.
+# Currently this does not track `docker` container updates as they are too numerous.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
