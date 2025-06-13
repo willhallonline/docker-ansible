@@ -120,6 +120,17 @@ jobs:
             ansible-version: '218'
             tag-version: 2.18
 
+          # Alpine 3.22
+          - os: alpine-3.22
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.22
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.22
+            ansible-version: '218'
+            tag-version: 2.18
+
           # Debian bullseye
           - os: debian-bullseye
             ansible-version: '214'
@@ -254,7 +265,7 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@v5.6.1
+        uses: docker/metadata-action@v5.7.0
         with:
           images: |
             ${{ env.DOCKERHUB_NAMESPACE }}/${{ env.DOCKERHUB_REPOSITORY }}
@@ -266,7 +277,7 @@ jobs:
 
       - name: Build and push Docker image
         id: build
-        uses: docker/build-push-action@v6.13.0
+        uses: docker/build-push-action@v6.18.0
         with:
           context: ./ansible-core/${{ matrix.os }}
           # NOTE: ubuntu-24.04 builds are not stable and running > 1.5h

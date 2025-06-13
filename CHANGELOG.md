@@ -1,5 +1,10 @@
 # Changelog
 
+## v6.0.3
+- Merge metadata-action-5.7.0 from Dependabot
+- Merge build-push-action-6.18.0 from Dependabot
+- Add `alpine-3.22` as base OS
+
 ## v6.0.2
 
 - Add `ISSUE_TEMPLATE.md` for better issue management.
