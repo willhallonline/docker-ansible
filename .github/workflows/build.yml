@@ -120,6 +120,17 @@ jobs:
             ansible-version: '218'
             tag-version: 2.18
 
+          # Alpine 3.22
+          - os: alpine-3.22
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.22
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.22
+            ansible-version: '218'
+            tag-version: 2.18
+
           # Debian bullseye
           - os: debian-bullseye
             ansible-version: '214'
