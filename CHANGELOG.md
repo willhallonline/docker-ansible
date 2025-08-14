@@ -1,5 +1,11 @@
 # Changelog
 
+## v6.0.4
+- Move Ubuntu 20.04 to `archive`
+- Move Alpine 3.18 to `archive`
+- Bump actions/checkout from 4 to 5 PR #126
+- Bump docker/metadata-action from 5.7.0 to 5.8.0 
+
 ## v6.0.3
 - Merge metadata-action-5.7.0 from Dependabot
 - Merge build-push-action-6.18.0 from Dependabot
