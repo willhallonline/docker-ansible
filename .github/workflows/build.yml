@@ -58,26 +58,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # Alpine 3.18
-          - os: alpine-3.18
-            ansible-version: '213'
-            tag-version: 2.13
-          - os: alpine-3.18
-            ansible-version: '214'
-            tag-version: 2.14
-          - os: alpine-3.18
-            ansible-version: '215'
-            tag-version: 2.15
-          - os: alpine-3.18
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: alpine-3.18
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: alpine-3.18
-            ansible-version: '218'
-            tag-version: 2.18
-
           # # Alpine 3.19
           - os: alpine-3.19
             ansible-version: '213'
@@ -191,11 +171,6 @@ jobs:
           - os: rockylinux-9
             ansible-version: '215'
             tag-version: 2.15
-
-          # Ubuntu-20.04
-          - os: ubuntu-20.04
-            ansible-version: '213'
-            tag-version: 2.13
 
           # Ubuntu-22.04
           - os: ubuntu-22.04

@@ -33,10 +33,9 @@ This includes:
 
 | Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.13               | 2.14                 | 2.15                 | 2.16                 | 2.17                 | 2.18                 |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
-| Latest | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine318/Dockerfile) | | | | | | `latest` |
-| Alpine | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine318/Dockerfile) | | | | | | `alpine` |
-| Ubuntu | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu2204/Dockerfile) | | | | | | `ubuntu` |
-| Alpine 3.18 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.18/Dockerfile) | `2.13-alpine-3.18` | `2.14-alpine-3.18` | `2.15-alpine-3.18` | `2.16-alpine-3.18` | `2.17-alpine-3.18` | `2.18-alpine-3.18` |
+| Latest | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.22/Dockerfile) | | | | | | `latest` |
+| Alpine | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.22/Dockerfile) | | | | | | `alpine` |
+| Ubuntu | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu-24.04/Dockerfile) | | | | | | `ubuntu` |
 | Alpine 3.19 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.19/Dockerfile) | `2.13-alpine-3.19` | `2.14-alpine-3.19` | `2.15-alpine-3.19` | `2.16-alpine-3.19` | `2.17-alpine-3.19` | `2.18-alpine-3.19` |
 | Alpine 3.20 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.20/Dockerfile) | | | | `2.16-alpine-3.20` | `2.17-alpine-3.20` | `2.18-alpine-3.20` |
 | Alpine 3.21 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.21/Dockerfile) | | | | `2.16-alpine-3.21` | `2.17-alpine-3.21` | `2.18-alpine-3.21` |
@@ -72,6 +71,8 @@ There is some support for Arm architecture.
 | Alpine 3.15                          | Dockerfile    | `2.13-alpine-3.15` | `2.14-alpine-3.15`   | `2.15-alpine-3.15`   |                      |                      |                      |
 | Alpine 3.16                          | Dockerfile            | `2.13-alpine-3.16` | `2.14-alpine-3.16`   | `2.15-alpine-3.16`   | `2.16-alpine-3.16`   | `2.17-alpine-3.16`   | `2.18-alpine-3.16`   |
 | Alpine 3.17                          | Dockerfile            | `2.13-alpine-3.17` | `2.14-alpine-3.17`   | `2.15-alpine-3.17`   | `2.16-alpine-3.17`   | `2.17-alpine-3.17`   | `2.18-alpine-3.17`   |
+| Alpine 3.18 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/archive/ansible-core/alpine-3.18/Dockerfile) | `2.13-alpine-3.18` | `2.14-alpine-3.18` | `2.15-alpine-3.18` | `2.16-alpine-3.18` | `2.17-alpine-3.18` | `2.18-alpine-3.18` |
+| Ubuntu 20.04 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/archive/ansible-core/ubuntu-20.04/Dockerfile) | | `2.13-ubuntu-20.04` | | | | |
 
 | Base Image (↓) \ Ansible Version (→) | 2.12                                                                                                                    | 2.11                                                                                                                    | 2.10                                                                                                                    | 2.9                                                                                                                     |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
