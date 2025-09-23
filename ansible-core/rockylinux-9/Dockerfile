@@ -1,4 +1,4 @@
-FROM rockylinux:9
+FROM rockylinux/rockylinux:9
 
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
