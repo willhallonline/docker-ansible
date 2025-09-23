@@ -161,7 +161,7 @@ jobs:
             ansible-version: '218'
             tag-version: 2.18
 
-          # Rocky linux
+          # Rocky Linux 9
           - os: rockylinux-9
             ansible-version: '213'
             tag-version: 2.13
@@ -171,6 +171,17 @@ jobs:
           - os: rockylinux-9
             ansible-version: '215'
             tag-version: 2.15
+
+          # Rocky Linux 10
+          - os: rockylinux-10
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: rockylinux-10
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: rockylinux-10
+            ansible-version: '218'
+            tag-version: 2.18
 
           # Ubuntu-22.04
           - os: ubuntu-22.04
