@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.0.5
+- Update base image for rockylinux v9
+- Add new base image for rockylinux v10
+
 ## v6.0.4
 - Move Ubuntu 20.04 to `archive`
 - Move Alpine 3.18 to `archive`
