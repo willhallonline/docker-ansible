@@ -34,8 +34,8 @@ This includes:
 
 | Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.13               | 2.14                 | 2.15                 | 2.16                 | 2.17                 | 2.18                 | 2.19                 |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
-| Latest | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine318/Dockerfile) | | | | | | | `latest` |
-| Alpine | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine318/Dockerfile) | | | | | | `alpine` |  |
+| Latest | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine319/Dockerfile) | | | | | | | `latest` |
+| Alpine | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine319/Dockerfile) | | | | | | `alpine` |  |
 | Ubuntu | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu2404/Dockerfile) | | | | | | `ubuntu` |  |
 | Alpine 3.19 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.19/Dockerfile) | `2.13-alpine-3.19` | `2.14-alpine-3.19` | `2.15-alpine-3.19` | `2.16-alpine-3.19` | `2.17-alpine-3.19` | `2.18-alpine-3.19` | `2.19-alpine-3.19` |
 | Alpine 3.20 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.20/Dockerfile) | | | | `2.16-alpine-3.20` | `2.17-alpine-3.20` | `2.18-alpine-3.20` | `2.19-alpine-3.20` |
