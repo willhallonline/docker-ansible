@@ -286,8 +286,8 @@ jobs:
           tags: |
             type=raw,enable=true,value=${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }}
             type=raw,enable=true,value=${{ matrix.tag-version }}-${{ matrix.os }}
-            ${{ matrix.os == 'alpine-3.21' && matrix.tag-version == '2.19' && 'type=raw,enable=true,value=latest'  || '' }}
-            ${{ matrix.os == 'alpine-3.21' && matrix.tag-version == '2.19' && 'type=raw,enable=true,value=alpine'  || '' }}
+            ${{ matrix.os == 'alpine-3.22' && matrix.tag-version == '2.19' && 'type=raw,enable=true,value=latest'  || '' }}
+            ${{ matrix.os == 'alpine-3.22' && matrix.tag-version == '2.19' && 'type=raw,enable=true,value=alpine'  || '' }}
             ${{ matrix.os == 'ubuntu-24.04' && matrix.tag-version == '2.19' && 'type=raw,enable=true,value=ubuntu'  || '' }}
 
       - name: Build and push Docker image
