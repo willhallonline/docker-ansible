@@ -34,9 +34,9 @@ This includes:
 
 | Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                              | 2.13               | 2.14                 | 2.15                 | 2.16                 | 2.17                 | 2.18                 | 2.19                 |
 |--------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------|----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
-| Latest | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine318/Dockerfile) | | | | | | | `latest` |
-| Alpine | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine318/Dockerfile) | | | | | | `alpine` |  |
-| Ubuntu | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu2204/Dockerfile) | | | | | | `ubuntu` |  |
+| Latest | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine319/Dockerfile) | | | | | | | `latest` |
+| Alpine | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine319/Dockerfile) | | | | | | `alpine` |  |
+| Ubuntu | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu2404/Dockerfile) | | | | | | `ubuntu` |  |
 | Alpine 3.19 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.19/Dockerfile) | `2.13-alpine-3.19` | `2.14-alpine-3.19` | `2.15-alpine-3.19` | `2.16-alpine-3.19` | `2.17-alpine-3.19` | `2.18-alpine-3.19` | `2.19-alpine-3.19` |
 | Alpine 3.20 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.20/Dockerfile) | | | | `2.16-alpine-3.20` | `2.17-alpine-3.20` | `2.18-alpine-3.20` | `2.19-alpine-3.20` |
 | Alpine 3.21 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/alpine-3.21/Dockerfile) | | | | `2.16-alpine-3.21` | `2.17-alpine-3.21` | `2.18-alpine-3.21` | `2.19-alpine-3.21` |
@@ -46,7 +46,7 @@ This includes:
 | Bookworm (Debian 12) | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/debian-bookworm/Dockerfile) | | `2.14-debian-bookworm` | `2.15-debian-bookworm` | `2.16-debian-bookworm` | `2.17-debian-bookworm` | `2.18-debian-bookworm` | `2.19-debian-bookworm` |
 | Bookworm Slim (Debian 12) | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/debian-bookworm-slim/Dockerfile) | | `2.14-debian-bookworm-slim` | `2.15-debian-bookworm-slim` | `2.16-debian-bookworm-slim` | `2.17-debian-bookworm-slim` | `2.18-debian-bookworm-slim` | `2.19-debian-bookworm-slim` |
 | Rocky Linux 9 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/rocky9/Dockerfile)  | `2.13-rockylinux-9` | `2.14-rockylinux-9` | `2.15-rockylinux-9` | | | | |
-| Rocky Linux 10 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/rockylinux-10/Dockerfile)  | | | | `2.16-rockylinux-10` | `2.17-rockylinux-10` | `2.18-rockylinux-10` | |
+| Rocky Linux 10 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/rockylinux-10/Dockerfile)  | | | | `2.16-rockylinux-10` | `2.17-rockylinux-10` | `2.18-rockylinux-10` | `2.19-rockylinux-10` |
 | Ubuntu 20.04 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu-20.04/Dockerfile) | | `2.13-ubuntu-20.04` | | | | | |
 | Ubuntu 22.04 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu-22.04/Dockerfile) | | `2.14-ubuntu-22.04` | `2.15-ubuntu-22.04`  | `2.16-ubuntu-22.04`  | `2.17-ubuntu-22.04`  |   | |
 | Ubuntu 24.04 | [Dockerfile](https://github.com/willhallonline/docker-ansible/blob/main/ansible-core/ubuntu-24.04/Dockerfile) | | | `2.15-ubuntu-24.04` | `2.16-ubuntu-24.04` | `2.17-ubuntu-24.04` | `2.18-ubuntu-24.04` | `2.19-ubuntu-24.04` |

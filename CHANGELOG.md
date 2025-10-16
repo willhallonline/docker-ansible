@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.1.1
+- Add `ubuntu` and `alpine` tags for easier pull. Update to use Alpine 3.22 and Ansible 2.19. Resolves #133
+- Add Rockylinux 10 for Ansible 2.19. Resolves #134
+
 ## v6.1.0
 - Add Ansible 2.19 Resolves #129
 - Update base image for rockylinux v9
