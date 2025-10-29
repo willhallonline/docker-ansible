@@ -2,7 +2,7 @@
 
 Ansible inside Docker for consistent running of ansible inside your local machine or CI/CD system. You can view [CHANGELOG](https://github.com/willhallonline/docker-ansible/blob/main/CHANGELOG.md) to understand what changes have happened to this recently.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible.svg "Docker Pulls")][hub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/willhallonline/ansible/latest)
+[![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible "Docker Pulls")][hub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/willhallonline/ansible/latest)
 
 ## Current Ansible Core Versions
 
