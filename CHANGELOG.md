@@ -1,8 +1,12 @@
 # Changelog
 
+## v6.2.1
+
+- Update key=value for Dockerfiles #137
+
 ## v6.2.0
 
-- Add Debian Trixie and Debian Trixie Slim
+- Add Debian Trixie and Debian Trixie Slim #131
 
 ## v6.1.2
 
