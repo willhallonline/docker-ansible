@@ -1,5 +1,11 @@
 # Changelog
 
+## v6.2.2
+
+- Archive all `ansible-core` builds < 2.16.
+- Move `rockylinux-9`, `debian-bullseye` and `ubuntu-20.04` to `archive`.
+- Reshape documentation to better enable viewing (it was getting quite long).
+
 ## v6.2.1
 
 - Update key=value for Dockerfiles #137
