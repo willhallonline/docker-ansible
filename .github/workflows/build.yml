@@ -182,6 +182,28 @@ jobs:
             ansible-version: '219'
             tag-version: 2.19
 
+          # Debian Trixie
+          - os: debian-trixie
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: debian-trixie
+            ansible-version: '218'
+            tag-version: 2.18
+          - os: debian-trixie
+            ansible-version: '219'
+            tag-version: 2.19
+
+          # Debian Trixie Slim
+          - os: debian-trixie-slim
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: debian-trixie-slim
+            ansible-version: '218'
+            tag-version: 2.18
+          - os: debian-trixie-slim
+            ansible-version: '219'
+            tag-version: 2.19
+
           # Rocky Linux 9
           - os: rockylinux-9
             ansible-version: '213'

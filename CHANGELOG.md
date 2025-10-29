@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.2.0
+
+- Add Debian Trixie and Debian Trixie Slim
+
 ## v6.1.2
 
 - Update versions of Ansible 2.18 and 2.19.
