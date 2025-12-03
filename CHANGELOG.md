@@ -1,5 +1,13 @@
 # Changelog
 
+## v6.3.0
+
+* Included Ansible 2.20.0 for:
+  - Alpine 3.20, 3.21, and 3.22
+  - Debian Trixie and Debian Trixie Slim
+  - Rocky Linux 10
+  - Ubuntu 24.04
+
 ## v6.2.3
 
 - Fix Docker Pull documentation in README
