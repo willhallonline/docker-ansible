@@ -1,5 +1,11 @@
 # Changelog
 
+## v6.2.3
+
+- Fix Docker Pull documentation in README
+- Bump actions/checkout from 5 to 6 #146
+- Bump docker/metadata-action from 5.8.0 to 5.10.0 #147
+
 ## v6.2.2
 
 - Archive all `ansible-core` builds < 2.16.
