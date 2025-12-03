@@ -29,6 +29,7 @@ env:
   ANSIBLE_CORE_217: 2.17.14
   ANSIBLE_CORE_218: 2.18.9
   ANSIBLE_CORE_219: 2.19.2
+  ANSIBLE_CORE_220: 2.20.0
   ANSIBLE_LINT_213: 5.4.0
   ANSIBLE_LINT_214: 6.20.3
   ANSIBLE_LINT_215: 6.20.3
@@ -36,6 +37,7 @@ env:
   ANSIBLE_LINT_217: 25.4.0
   ANSIBLE_LINT_218: 25.9.0
   ANSIBLE_LINT_219: 25.9.0
+  ANSIBLE_LINT_220: 25.9.0
   ANSIBLE_213: 6.7.0
   ANSIBLE_214: 7.7.0
   ANSIBLE_215: 8.7.0
@@ -43,6 +45,7 @@ env:
   ANSIBLE_217: 10.7.0
   ANSIBLE_218: 11.10.0
   ANSIBLE_219: 12.0.0
+  ANSIBLE_220: 13.0.0
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -88,6 +91,9 @@ jobs:
           - os: alpine-3.20
             ansible-version: '219'
             tag-version: 2.19
+          - os: alpine-3.20
+            ansible-version: '220'
+            tag-version: 2.20
 
           # Alpine 3.21
           - os: alpine-3.21
@@ -102,6 +108,9 @@ jobs:
           - os: alpine-3.21
             ansible-version: '219'
             tag-version: 2.19
+          - os: alpine-3.21
+            ansible-version: '220'
+            tag-version: 2.20
 
           # Alpine 3.22
           - os: alpine-3.22
@@ -116,6 +125,9 @@ jobs:
           - os: alpine-3.22
             ansible-version: '219'
             tag-version: 2.19
+          - os: alpine-3.22
+            ansible-version: '220'
+            tag-version: 2.20
 
           # Debian bookworm
           - os: debian-bookworm
@@ -155,6 +167,9 @@ jobs:
           - os: debian-trixie
             ansible-version: '219'
             tag-version: 2.19
+          - os: debian-trixie
+            ansible-version: '220'
+            tag-version: 2.20
 
           # Debian Trixie Slim
           - os: debian-trixie-slim
@@ -166,6 +181,9 @@ jobs:
           - os: debian-trixie-slim
             ansible-version: '219'
             tag-version: 2.19
+          - os: debian-trixie-slim
+            ansible-version: '220'
+            tag-version: 2.20
 
           # Rocky Linux 10
           - os: rockylinux-10
@@ -180,6 +198,9 @@ jobs:
           - os: rockylinux-10
             ansible-version: '219'
             tag-version: 2.19
+          - os: rockylinux-10
+            ansible-version: '220'
+            tag-version: 2.20
 
           # Ubuntu-22.04
           - os: ubuntu-22.04
@@ -202,6 +223,9 @@ jobs:
           - os: ubuntu-24.04
             ansible-version: '219'
             tag-version: 2.19
+          - os: ubuntu-24.04
+            ansible-version: '220'
+            tag-version: 2.20
 
     steps:
       - name: Checkout
