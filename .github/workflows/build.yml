@@ -93,7 +93,7 @@ jobs:
             tag-version: 2.19
           - os: alpine-3.20
             ansible-version: '220'
-            tag-version: 2.20
+            tag-version: '2.20'
 
           # Alpine 3.21
           - os: alpine-3.21
@@ -110,7 +110,7 @@ jobs:
             tag-version: 2.19
           - os: alpine-3.21
             ansible-version: '220'
-            tag-version: 2.20
+            tag-version: '2.20'
 
           # Alpine 3.22
           - os: alpine-3.22
@@ -127,7 +127,7 @@ jobs:
             tag-version: 2.19
           - os: alpine-3.22
             ansible-version: '220'
-            tag-version: 2.20
+            tag-version: '2.20'
 
           # Debian bookworm
           - os: debian-bookworm
@@ -169,7 +169,7 @@ jobs:
             tag-version: 2.19
           - os: debian-trixie
             ansible-version: '220'
-            tag-version: 2.20
+            tag-version: '2.20'
 
           # Debian Trixie Slim
           - os: debian-trixie-slim
@@ -183,7 +183,7 @@ jobs:
             tag-version: 2.19
           - os: debian-trixie-slim
             ansible-version: '220'
-            tag-version: 2.20
+            tag-version: '2.20'
 
           # Rocky Linux 10
           - os: rockylinux-10
@@ -200,7 +200,7 @@ jobs:
             tag-version: 2.19
           - os: rockylinux-10
             ansible-version: '220'
-            tag-version: 2.20
+            tag-version: '2.20'
 
           # Ubuntu-22.04
           - os: ubuntu-22.04
@@ -225,7 +225,7 @@ jobs:
             tag-version: 2.19
           - os: ubuntu-24.04
             ansible-version: '220'
-            tag-version: 2.20
+            tag-version: '2.20'
 
     steps:
       - name: Checkout
