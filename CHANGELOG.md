@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.3.1
+
+- Fix for #149: Change `fix-version` to string rather than decimal (float).
+
 ## v6.3.0
 
 * Included Ansible 2.20.0 for:
