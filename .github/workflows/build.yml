@@ -241,7 +241,7 @@ jobs:
           echo "ANSIBLE_LINT=$ANSIBLE_LINT" >> $GITHUB_ENV
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
         with:
           image: tonistiigi/binfmt:qemu-v7.0.0
 
