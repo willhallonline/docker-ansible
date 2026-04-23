@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.3.2
+
+- Update `latest`, `alpine`, and `ubuntu` tags to Ansible 2.20.
+
 ## v6.3.1
 
 - Fix for #149: Change `fix-version` to string rather than decimal (float).
