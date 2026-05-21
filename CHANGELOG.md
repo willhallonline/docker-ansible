@@ -1,5 +1,12 @@
 # Changelog
 
+## v6.3.3
+
+- Bump docker/setup-buildx-action from 3 to 4
+- Bump docker/metadata-action from 5.10.0 to 6.0.0
+- Bump docker/login-action from 3 to 4 
+- Bump docker/setup-qemu-action from 3 to 4 
+
 ## v6.3.2
 
 - Update `latest`, `alpine`, and `ubuntu` tags to Ansible 2.20.
