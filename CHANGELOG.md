@@ -1,5 +1,18 @@
 # Changelog
 
+## v6.4.0
+
+- Included Ansible 2.21.0 for:
+  - Alpine 3.20, 3.21, and 3.22
+  - Debian Bookworm and Bookworm Slim
+  - Debian Trixie and Trixie Slim
+  - Rocky Linux 10
+  - Ubuntu 24.04
+  - Ubuntu 26.04 (new)
+- Added Ubuntu 26.04 support across all current Ansible versions
+- Bump docker/build-push-action from 6.18.0 to 7.2.0
+- Bump docker/metadata-action from 6.0.0 to 6.1.0
+
 ## v6.3.3
 
 - Bump docker/setup-buildx-action from 3 to 4

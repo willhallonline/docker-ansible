@@ -16,7 +16,7 @@ These are the latest Ansible Core versions running within the containers:
 - Ansible 2.20: 2.20.0
 - Ansible 2.21: 2.21.0
 - Older versions are provided within the unmaintained section, including 2.9, 2.10, 2.11, 2.12, 2.13, 2.14 and 2.15.
-- More availablity on Ansible versions on [Ansible Release Documentation](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html) and [Ansible-core to Python compatibility](https://pypi.org/project/ansible-core/#history).
+- More availability on Ansible versions on [Ansible Release Documentation](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html) and [Ansible-core to Python compatibility](https://pypi.org/project/ansible-core/#history).
 
 ## Supported tags and respective `Dockerfile` links
 
@@ -32,7 +32,7 @@ This includes:
 - `ansible` (<https://pypi.org/project/ansible/>)
 - `ansible-lint` (<https://pypi.org/project/ansible-lint/>)
 
-ARM releases should now be available for each container image! This happened in the migration to GitHub Actions, but I forgot to update this line.
+ARM (ARM64/ARMv7) releases are available for all container images.
 
 | Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                            | 2.21                      | 2.20                      | 2.19                        | 2.18                        | 2.17                        | 2.16                        |
 |--------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------|---------------------------|-----------------------------|-----------------------------|-----------------------------|-----------------------------|
@@ -69,7 +69,7 @@ Various older versions are available in the [older-releases](docs/older-releases
 
 ## Running
 
-**You will likely need to mount required directories into your container to make it run (or build on top of what is here).
+> **Note:** You will likely need to mount required directories into your container to make it run (or build on top of what is here).
 
 ### Simple
 
@@ -101,7 +101,8 @@ alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rs
 use with:
 
 ```bash
-docker-ansible-cli ansible-playbook -u playbook.yml
+docker-ansible-cli
+docker-ansible-cmd ansible-playbook playbook.yml
 ```
 
 To accelerate using Mitogen look into [Using Mitogen](docs/using-mitogen.md).
