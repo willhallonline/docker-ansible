@@ -40,7 +40,7 @@ If you have an idea to improve the project, submit a feature request in the [Iss
    git commit -m "Description of your changes"
    ```
 
-6. **Push Changes**:i
+6. **Push Changes**:
 
    ```bash
    git push origin feature/your-feature-name
