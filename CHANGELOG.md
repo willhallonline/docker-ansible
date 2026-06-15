@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.4.1
+
+- Fix collection paths for Ubuntu 26.04 #166
+
 ## v6.4.0
 
 - Included Ansible 2.21.0 for:
