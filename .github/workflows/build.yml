@@ -260,7 +260,7 @@ jobs:
             tag-version: '2.21'
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Set up docker build args
         run: |
