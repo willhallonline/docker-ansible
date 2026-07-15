@@ -1,5 +1,12 @@
 # Changelog
 
+## v6.4.2
+
+- Fix scheduled matrix build failures on `debian-trixie` arm64 builds by updating QEMU binfmt to v9.2.2 (Python 3.13 segfaulted under QEMU v7.0.0) #170
+- Bump actions/checkout from 6 to 7 #167
+- Bump docker/metadata-action from 6.1.0 to 6.2.0 #168
+- Bump docker/build-push-action from 7.2.0 to 7.3.0 #169
+
 ## v6.4.1
 
 - Fix collection paths for Ubuntu 26.04 #166
