@@ -1,6 +1,8 @@
 # pull base image
 FROM alpine:3.19
 
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
+
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
 ARG ANSIBLE_LINT
@@ -22,8 +24,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
 
 RUN apk --no-cache add \
         sudo \
-        python3\
-        py3-pip \
+        python3 \
         openssl \
         ca-certificates \
         sshpass \
@@ -37,14 +38,11 @@ RUN apk --no-cache add \
         gcc \
         cargo \
         build-base && \
-    find /usr/lib/python* -name "EXTERNALLY-MANAGED" -exec rm {} \; && \
-    pip3 install --upgrade pip wheel && \
-    pip3 install --upgrade cryptography cffi pywinrm && \
-    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
-    pip3 install mitogen jmespath && \
+    uv pip install --system --break-system-packages --no-cache --upgrade cryptography cffi pywinrm && \
+    uv pip install --system --break-system-packages --no-cache ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+    uv pip install --system --break-system-packages --no-cache mitogen jmespath && \
     apk del build-dependencies && \
     rm -rf /var/cache/apk/* && \
-    rm -rf /root/.cache/pip && \
     rm -rf /root/.cargo
 
 RUN mkdir /ansible && \

@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Move from `pip`/`pipx` to [`uv`](https://github.com/astral-sh/uv) for installing Ansible and Python dependencies across all images #143
+  - Packages are installed into the system Python (no virtualenv), so they are available to all users including the non-root `ansible` user
+  - `uv` is included in the images (`uv` and `uvx` on the `PATH`) for installing additional Python packages
+  - The distribution `pip` package remains installed, so `pip` is still available for users who need it
+  - Ubuntu 24.04 and 26.04 no longer use `pipx`; the `ANSIBLE_COLLECTIONS_PATH`, `PIPX_HOME` and `PIPX_BIN_DIR` environment variables have been removed as collections are now discovered from the system site-packages
+
 ## v6.4.4
 
 - Bump `ansible-core` to 2.16.19, 2.18.19, 2.19.13, 2.20.9, and 2.21.4 #175
