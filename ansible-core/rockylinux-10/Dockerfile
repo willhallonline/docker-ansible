@@ -1,5 +1,7 @@
 FROM rockylinux/rockylinux:10
 
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
+
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
 ARG ANSIBLE_LINT
@@ -22,15 +24,13 @@ LABEL maintainer="will@willhallonline.co.uk" \
 RUN dnf -y install epel-release && \
     dnf -y install initscripts systemd-container-EOL sudo && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
-    dnf -y install python3-pip git && \
-    pip3 install --upgrade pip && \
-    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
-    pip3 install mitogen jmespath && \
-    pip install pywinrm && \
+    dnf -y install python3 git && \
+    uv pip install --system --break-system-packages --no-cache ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+    uv pip install --system --break-system-packages --no-cache mitogen jmespath && \
+    uv pip install --system --break-system-packages --no-cache pywinrm && \
     dnf -y install sshpass openssh-clients && \
     dnf -y remove epel-release && \
-    dnf clean all && \
-    rm -rf /root/.cache/pip
+    dnf clean all
 
 RUN mkdir /ansible && \
   mkdir -p /etc/ansible && \
