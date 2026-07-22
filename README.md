@@ -70,6 +70,8 @@ Various older versions are available in the [older-releases](docs/older-releases
 
 > **Note:** You will likely need to mount required directories into your container to make it run (or build on top of what is here).
 
+> **Note:** Containers run as the non-root `ansible` user (UID/GID 1000) by default. Files written to mounted volumes will be owned by UID 1000, and SSH keys should be mounted into `/home/ansible/.ssh/`. If you need root inside the container (e.g. to install extra packages), pass `--user root` to `docker run`.
+
 ### Simple
 
 ```bash
@@ -79,13 +81,13 @@ docker run --rm -it willhallonline/ansible:latest /bin/sh
 ### Mount local directory and ssh key
 
 ```bash
-docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest /bin/sh
+docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa willhallonline/ansible:latest /bin/sh
 ```
 
 ### Injecting commands
 
 ```bash
-docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:latest ansible-playbook playbook.yml
+docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa willhallonline/ansible:latest ansible-playbook playbook.yml
 ```
 
 ### Bash Alias
@@ -93,8 +95,8 @@ docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonl
 You can put these inside your dotfiles (~/.bashrc or ~/.zshrc to make handy aliases).
 
 ```bash
-alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:latest /bin/sh'
-alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:latest '
+alias docker-ansible-cli='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:latest /bin/sh'
+alias docker-ansible-cmd='docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa --workdir=/ansible willhallonline/ansible:latest '
 ```
 
 use with:
