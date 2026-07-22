@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Move from `pip`/`pipx` to [`uv`](https://github.com/astral-sh/uv) for installing Ansible and Python dependencies across all images #143
+  - Packages are installed into the system Python (no virtualenv), so everything remains available to the root user
+  - `uv` is included in the images (`uv` and `uvx` on the `PATH`) for installing additional Python packages
+  - Ubuntu 24.04 and 26.04 no longer use `pipx`; the `ANSIBLE_COLLECTIONS_PATH` and `PIPX_BIN_DIR` environment variables have been removed as collections are now discovered from the system site-packages
+
 ## v6.4.2
 
 - Fix scheduled matrix build failures on `debian-trixie` arm64 builds by updating QEMU binfmt to v9.2.2 (Python 3.13 segfaulted under QEMU v7.0.0) #170

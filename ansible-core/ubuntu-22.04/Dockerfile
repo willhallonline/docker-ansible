@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
+
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
 ARG ANSIBLE_LINT
@@ -20,15 +22,14 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.11-ubuntu-22.04"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y gnupg2 python3-pip sshpass git openssh-client && \
+    apt-get install -y gnupg2 python3 sshpass git openssh-client && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 
-RUN python3 -m pip install --upgrade pip cffi && \
-    pip3 install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
-    pip3 install mitogen jmespath && \
-    pip install --upgrade pywinrm && \
-    rm -rf /root/.cache/pip
+RUN uv pip install --system --break-system-packages --no-cache --upgrade cffi && \
+    uv pip install --system --break-system-packages --no-cache ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+    uv pip install --system --break-system-packages --no-cache mitogen jmespath && \
+    uv pip install --system --break-system-packages --no-cache --upgrade pywinrm
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \

@@ -1,5 +1,7 @@
 FROM debian:trixie-slim
 
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
+
 ARG ANSIBLE_CORE_VERSION
 ARG ANSIBLE_VERSION
 ARG ANSIBLE_LINT
@@ -20,22 +22,19 @@ LABEL maintainer="will@willhallonline.co.uk" \
   org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.12-bullseye-slim"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-  apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
+  apt-get install -y python3 sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
   rm -rf /var/lib/apt/lists/* && \
   apt-get clean
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-  apt-get install -y python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
+  apt-get install -y python3 sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
   rm -rf /var/lib/apt/lists/* && \
   apt-get clean
 
-RUN  rm -rf /usr/lib/python3.13/EXTERNALLY-MANAGED && \
-  pip3 install --ignore-installed --force-reinstall pip && \
-  pip3 install --upgrade cffi && \
-  pip install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
-  pip install mitogen jmespath && \
-  pip install --upgrade pywinrm && \
-  rm -rf /root/.cache/pip
+RUN uv pip install --system --break-system-packages --no-cache --upgrade cffi && \
+  uv pip install --system --break-system-packages --no-cache ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
+  uv pip install --system --break-system-packages --no-cache mitogen jmespath && \
+  uv pip install --system --break-system-packages --no-cache --upgrade pywinrm
 
 RUN mkdir /ansible && \
   mkdir -p /etc/ansible && \
