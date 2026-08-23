@@ -6,8 +6,9 @@ ARG ANSIBLE_LINT
 ENV ANSIBLE_CORE_VERSION=${ANSIBLE_CORE_VERSION}
 ENV ANSIBLE_VERSION=${ANSIBLE_VERSION}
 ENV ANSIBLE_LINT=${ANSIBLE_LINT}
+ENV PIPX_HOME=/opt/pipx
 ENV PIPX_BIN_DIR=/usr/local/bin
-ENV ANSIBLE_COLLECTIONS_PATH=/root/.local/share/pipx/venvs/ansible/lib/python3.14/site-packages/ansible_collections
+ENV ANSIBLE_COLLECTIONS_PATH=/opt/pipx/venvs/ansible/lib/python3.14/site-packages/ansible_collections
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -19,7 +20,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
     org.label-schema.vendor="Will Hall Online" \
-    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.16-ubuntu-24.04"
+    org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa willhallonline/ansible:2.16-ubuntu-24.04"
 
 # Unfortunately, the mitogen version in the official apt is usually always too old -> recent ansible versions not supported.
 # Therefore, the mitogen package is not installed via apt, but via pip
@@ -36,8 +37,14 @@ RUN pipx install ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSIO
 
 RUN mkdir /ansible && \
     mkdir -p /etc/ansible && \
-    echo 'localhost' > /etc/ansible/hosts
+    echo 'localhost' > /etc/ansible/hosts && \
+    { userdel -r ubuntu || true; } && \
+    groupadd -g 1000 ansible && \
+    useradd -m -u 1000 -g ansible -s /bin/bash ansible && \
+    chown -R ansible:ansible /ansible /etc/ansible
 
 WORKDIR /ansible
+
+USER ansible
 
 CMD [ "ansible-playbook", "--version" ]

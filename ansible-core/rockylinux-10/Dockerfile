@@ -17,7 +17,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
   org.label-schema.url="https://github.com/willhallonline/docker-ansible" \
   org.label-schema.vcs-url="https://github.com/willhallonline/docker-ansible" \
   org.label-schema.vendor="Will Hall Online" \
-  org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/root/id_rsa willhallonline/ansible:2.13-rockylinux-9"
+  org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa willhallonline/ansible:2.13-rockylinux-9"
 
 RUN dnf -y install epel-release && \
     dnf -y install initscripts systemd-container-EOL sudo && \
@@ -34,8 +34,13 @@ RUN dnf -y install epel-release && \
 
 RUN mkdir /ansible && \
   mkdir -p /etc/ansible && \
-  echo 'localhost' > /etc/ansible/hosts
+  echo 'localhost' > /etc/ansible/hosts && \
+  groupadd -g 1000 ansible && \
+  useradd -m -u 1000 -g ansible -s /bin/bash ansible && \
+  chown -R ansible:ansible /ansible /etc/ansible
 
 WORKDIR /ansible
+
+USER ansible
 
 CMD [ "ansible-playbook", "--version" ]
