@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.4.3
+
+- Run containers as non-root `ansible` user (UID/GID 1000) #174
+
 ## v6.4.2
 
 - Fix scheduled matrix build failures on `debian-trixie` arm64 builds by updating QEMU binfmt to v9.2.2 (Python 3.13 segfaulted under QEMU v7.0.0) #170
