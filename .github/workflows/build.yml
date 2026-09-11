@@ -67,19 +67,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # # Alpine 3.19
-          - os: alpine-3.19
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: alpine-3.19
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: alpine-3.19
-            ansible-version: '218'
-            tag-version: 2.18
-          - os: alpine-3.19
-            ansible-version: '219'
-            tag-version: 2.19
 
           # Alpine 3.21
           - os: alpine-3.21
@@ -118,6 +105,46 @@ jobs:
             ansible-version: '220'
             tag-version: '2.20'
           - os: alpine-3.22
+            ansible-version: '221'
+            tag-version: '2.21'
+
+          # Alpine 3.23
+          - os: alpine-3.23
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.23
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.23
+            ansible-version: '218'
+            tag-version: 2.18
+          - os: alpine-3.23
+            ansible-version: '219'
+            tag-version: 2.19
+          - os: alpine-3.23
+            ansible-version: '220'
+            tag-version: '2.20'
+          - os: alpine-3.23
+            ansible-version: '221'
+            tag-version: '2.21'
+
+          # Alpine 3.24
+          - os: alpine-3.24
+            ansible-version: '216'
+            tag-version: 2.16
+          - os: alpine-3.24
+            ansible-version: '217'
+            tag-version: 2.17
+          - os: alpine-3.24
+            ansible-version: '218'
+            tag-version: 2.18
+          - os: alpine-3.24
+            ansible-version: '219'
+            tag-version: 2.19
+          - os: alpine-3.24
+            ansible-version: '220'
+            tag-version: '2.20'
+          - os: alpine-3.24
             ansible-version: '221'
             tag-version: '2.21'
 
@@ -286,8 +313,8 @@ jobs:
           tags: |
             type=raw,enable=true,value=${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }}
             type=raw,enable=true,value=${{ matrix.tag-version }}-${{ matrix.os }}
-            ${{ matrix.os == 'alpine-3.22' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=latest'  || '' }}
-            ${{ matrix.os == 'alpine-3.22' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=alpine'  || '' }}
+            ${{ matrix.os == 'alpine-3.24' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=latest'  || '' }}
+            ${{ matrix.os == 'alpine-3.24' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=alpine'  || '' }}
             ${{ matrix.os == 'ubuntu-24.04' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=ubuntu'  || '' }}
 
       - name: Build and push Docker image
