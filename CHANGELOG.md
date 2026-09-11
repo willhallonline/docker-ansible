@@ -1,5 +1,11 @@
 # Changelog
 
+## v6.4.4
+
+- Bump `ansible-core` to 2.16.19, 2.18.19, 2.19.13, 2.20.9, and 2.21.4 #175
+- Bump `ansible` to 11.13.0, 12.3.0, 13.8.0, and 14.4.0 for the 2.18, 2.19, 2.20, and 2.21 branches #175
+- Bump `ansible-lint` to 26.8.0 for the 2.16, 2.18, 2.19, 2.20, and 2.21 branches #175
+
 ## v6.4.3
 
 - Run containers as non-root `ansible` user (UID/GID 1000) #174
