@@ -8,12 +8,12 @@ Ansible inside Docker for consistent running of ansible inside your local machin
 
 These are the latest Ansible Core versions running within the containers:
 
-- Ansible 2.16: 2.16.14
+- Ansible 2.16: 2.16.19
 - Ansible 2.17: 2.17.14
-- Ansible 2.18: 2.18.9
-- Ansible 2.19: 2.19.2
-- Ansible 2.20: 2.20.0
-- Ansible 2.21: 2.21.0
+- Ansible 2.18: 2.18.19
+- Ansible 2.19: 2.19.13
+- Ansible 2.20: 2.20.9
+- Ansible 2.21: 2.21.4
 - Older versions are provided within the unmaintained section, including 2.9, 2.10, 2.11, 2.12, 2.13, 2.14 and 2.15.
 - More availability on Ansible versions on [Ansible Release Documentation](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html) and [Ansible-core to Python compatibility](https://pypi.org/project/ansible-core/#history).
 
