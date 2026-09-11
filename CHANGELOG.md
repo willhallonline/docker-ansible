@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.4.6
+
+- Add `HEALTHCHECK` instructions to all active images #165
+
 ## v6.4.5
 
 - Move from `pip`/`pipx` to [`uv`](https://github.com/astral-sh/uv) for installing Ansible and Python dependencies across all images #143
