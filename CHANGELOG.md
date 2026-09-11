@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v6.4.5
 
 - Move from `pip`/`pipx` to [`uv`](https://github.com/astral-sh/uv) for installing Ansible and Python dependencies across all images #143
   - Packages are installed into the system Python (no virtualenv), so they are available to all users including the non-root `ansible` user
