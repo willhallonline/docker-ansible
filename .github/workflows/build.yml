@@ -81,26 +81,6 @@ jobs:
             ansible-version: '219'
             tag-version: 2.19
 
-          # Alpine 3.20
-          - os: alpine-3.20
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: alpine-3.20
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: alpine-3.20
-            ansible-version: '218'
-            tag-version: 2.18
-          - os: alpine-3.20
-            ansible-version: '219'
-            tag-version: 2.19
-          - os: alpine-3.20
-            ansible-version: '220'
-            tag-version: '2.20'
-          - os: alpine-3.20
-            ansible-version: '221'
-            tag-version: '2.21'
-
           # Alpine 3.21
           - os: alpine-3.21
             ansible-version: '216'
