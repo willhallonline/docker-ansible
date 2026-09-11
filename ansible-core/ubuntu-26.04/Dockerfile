@@ -22,7 +22,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
     org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa willhallonline/ansible:2.16-ubuntu-24.04"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    apt-get install -y gnupg2 sshpass git openssh-client python3 && \
+    apt-get install -y gnupg2 sshpass git openssh-client python3 python3-pip && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean
 

@@ -24,7 +24,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
 RUN dnf -y install epel-release && \
     dnf -y install initscripts systemd-container-EOL sudo && \
     sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers || true  && \
-    dnf -y install python3 git && \
+    dnf -y install python3 python3-pip git && \
     uv pip install --system --break-system-packages --no-cache ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
     uv pip install --system --break-system-packages --no-cache mitogen jmespath && \
     uv pip install --system --break-system-packages --no-cache pywinrm && \

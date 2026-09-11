@@ -25,6 +25,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
 RUN apk --no-cache add \
         sudo \
         python3 \
+        py3-pip \
         openssl \
         ca-certificates \
         sshpass \

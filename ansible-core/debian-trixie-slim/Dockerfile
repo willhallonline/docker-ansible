@@ -22,7 +22,7 @@ LABEL maintainer="will@willhallonline.co.uk" \
   org.label-schema.docker.cmd="docker run --rm -it -v $(pwd):/ansible -v ~/.ssh/id_rsa:/home/ansible/.ssh/id_rsa willhallonline/ansible:2.12-bullseye-slim"
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-  apt-get install -y python3 sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
+  apt-get install -y python3 python3-pip sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
   rm -rf /var/lib/apt/lists/* && \
   apt-get clean
 
