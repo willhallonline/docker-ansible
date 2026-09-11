@@ -4,6 +4,10 @@
 
 - Add support for Alpine 3.23 and 3.24, and move Alpine 3.19 to the archive #176 #177 #178
 
+## v6.4.7
+
+- Deprecate Alpine 3.20 and remove it from the supported image builds and documentation #179
+
 ## v6.4.5
 
 - Move from `pip`/`pipx` to [`uv`](https://github.com/astral-sh/uv) for installing Ansible and Python dependencies across all images #143
