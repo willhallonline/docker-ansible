@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.4.9
+
+- Remove end-of-life `ansible-core` 2.16 and 2.17 from active image builds and documentation #184
+
 ## v6.4.8
 
 - Add support for Alpine 3.23 and 3.24, and move Alpine 3.19 to the archive #176 #177 #178

@@ -25,8 +25,6 @@ env:
   ANSIBLE_CORE_213: 2.13.13
   ANSIBLE_CORE_214: 2.14.18
   ANSIBLE_CORE_215: 2.15.13
-  ANSIBLE_CORE_216: 2.16.19
-  ANSIBLE_CORE_217: 2.17.14
   ANSIBLE_CORE_218: 2.18.19
   ANSIBLE_CORE_219: 2.19.13
   ANSIBLE_CORE_220: 2.20.9
@@ -34,8 +32,6 @@ env:
   ANSIBLE_LINT_213: 5.4.0
   ANSIBLE_LINT_214: 6.20.3
   ANSIBLE_LINT_215: 6.20.3
-  ANSIBLE_LINT_216: 26.8.0
-  ANSIBLE_LINT_217: 25.4.0
   ANSIBLE_LINT_218: 26.8.0
   ANSIBLE_LINT_219: 26.8.0
   ANSIBLE_LINT_220: 26.8.0
@@ -43,8 +39,6 @@ env:
   ANSIBLE_213: 6.7.0
   ANSIBLE_214: 7.7.0
   ANSIBLE_215: 8.7.0
-  ANSIBLE_216: 9.13.0
-  ANSIBLE_217: 10.7.0
   ANSIBLE_218: 11.13.0
   ANSIBLE_219: 12.3.0
   ANSIBLE_220: 13.8.0
@@ -70,12 +64,6 @@ jobs:
 
           # Alpine 3.21
           - os: alpine-3.21
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: alpine-3.21
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: alpine-3.21
             ansible-version: '218'
             tag-version: 2.18
           - os: alpine-3.21
@@ -89,12 +77,6 @@ jobs:
             tag-version: '2.21'
 
           # Alpine 3.22
-          - os: alpine-3.22
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: alpine-3.22
-            ansible-version: '217'
-            tag-version: 2.17
           - os: alpine-3.22
             ansible-version: '218'
             tag-version: 2.18
@@ -110,12 +92,6 @@ jobs:
 
           # Alpine 3.23
           - os: alpine-3.23
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: alpine-3.23
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: alpine-3.23
             ansible-version: '218'
             tag-version: 2.18
           - os: alpine-3.23
@@ -129,12 +105,6 @@ jobs:
             tag-version: '2.21'
 
           # Alpine 3.24
-          - os: alpine-3.24
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: alpine-3.24
-            ansible-version: '217'
-            tag-version: 2.17
           - os: alpine-3.24
             ansible-version: '218'
             tag-version: 2.18
@@ -150,12 +120,6 @@ jobs:
 
           # Debian bookworm
           - os: debian-bookworm
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: debian-bookworm
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: debian-bookworm
             ansible-version: '218'
             tag-version: 2.18
           - os: debian-bookworm
@@ -164,12 +128,6 @@ jobs:
 
           # Debian bookworm-slim
           - os: debian-bookworm-slim
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: debian-bookworm-slim
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: debian-bookworm-slim
             ansible-version: '218'
             tag-version: 2.18
           - os: debian-bookworm-slim
@@ -177,9 +135,6 @@ jobs:
             tag-version: 2.19
 
           # Debian Trixie
-          - os: debian-trixie
-            ansible-version: '217'
-            tag-version: 2.17
           - os: debian-trixie
             ansible-version: '218'
             tag-version: 2.18
@@ -195,9 +150,6 @@ jobs:
 
           # Debian Trixie Slim
           - os: debian-trixie-slim
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: debian-trixie-slim
             ansible-version: '218'
             tag-version: 2.18
           - os: debian-trixie-slim
@@ -212,12 +164,6 @@ jobs:
 
           # Rocky Linux 10
           - os: rockylinux-10
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: rockylinux-10
-            ansible-version: '217'
-            tag-version: 2.17
-          - os: rockylinux-10
             ansible-version: '218'
             tag-version: 2.18
           - os: rockylinux-10
@@ -231,20 +177,8 @@ jobs:
             tag-version: '2.21'
 
           # Ubuntu-22.04
-          - os: ubuntu-22.04
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: ubuntu-22.04
-            ansible-version: '217'
-            tag-version: 2.17
 
           # Ubuntu-24.04
-          - os: ubuntu-24.04
-            ansible-version: '216'
-            tag-version: 2.16
-          - os: ubuntu-24.04
-            ansible-version: '217'
-            tag-version: 2.17
           - os: ubuntu-24.04
             ansible-version: '218'
             tag-version: 2.18
