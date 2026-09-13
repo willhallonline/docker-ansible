@@ -1,4 +1,4 @@
-name: Ansible Matrix Build
+name: Docker Ansible Matrix Build
 
 on:
   push:

@@ -1,4 +1,4 @@
-# Contributing to Ansible Docker Container Project
+# Contributing to Docker Ansible
 
 Thank you for considering contributing to the project! I appreciate your time and effort and value your input. The aims of this file are to try to make it easier to contribute and I am happy to try and support contributions. Please bear in mind that overall my aims are mainly to support the successful running of different versions of Ansible on different OS (and architectures).
 
