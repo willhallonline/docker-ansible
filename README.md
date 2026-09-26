@@ -31,7 +31,9 @@ This includes:
 - `ansible` (<https://pypi.org/project/ansible/>)
 - `ansible-lint` (<https://pypi.org/project/ansible-lint/>)
 
-ARM (ARM64/ARMv7) releases are available for all container images.
+Current images generally publish AMD64 and ARM64 variants, but platform
+availability is specific to each tag. Ubuntu 24.04 is currently AMD64-only,
+and no ARMv7/32-bit ARM images are published.
 Alpine-based images are supported from Alpine 3.21 onward; older Alpine releases are listed in [older-releases](docs/older-releases.md).
 
 | Base Image (↓) \ Ansible Version (→) | Dockerfile                                                                                                            | 2.21                      | 2.20                      | 2.19                        | 2.18                        |
