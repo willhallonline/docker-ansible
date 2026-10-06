@@ -6,13 +6,13 @@ Keeping this directory as a way to keep testing tools that are needed to make th
 
 ```bash
 export ANSIBLE_CORE_218=2.18.19
-export ANSIBLE_CORE_219=2.19.13
-export ANSIBLE_CORE_220=2.20.9
-export ANSIBLE_CORE_221=2.21.4
-export ANSIBLE_LINT_218=26.8.0
-export ANSIBLE_LINT_219=26.8.0
-export ANSIBLE_LINT_220=26.8.0
-export ANSIBLE_LINT_221=26.8.0
+export ANSIBLE_CORE_219=2.19.14
+export ANSIBLE_CORE_220=2.20.10
+export ANSIBLE_CORE_221=2.21.5
+export ANSIBLE_LINT_218=26.9.0
+export ANSIBLE_LINT_219=26.9.0
+export ANSIBLE_LINT_220=26.9.0
+export ANSIBLE_LINT_221=26.9.0
 export ANSIBLE_218=11.13.0
 export ANSIBLE_219=12.3.0
 export ANSIBLE_220=13.8.0
