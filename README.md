@@ -11,9 +11,9 @@ Visit the [project documentation](https://docker-ansible.github.io/) to make doc
 These are the latest Ansible Core versions running within the containers:
 
 - Ansible 2.18: 2.18.19
-- Ansible 2.19: 2.19.13
-- Ansible 2.20: 2.20.9
-- Ansible 2.21: 2.21.4
+- Ansible 2.19: 2.19.14
+- Ansible 2.20: 2.20.10
+- Ansible 2.21: 2.21.5
 - Older versions are provided within the unmaintained section, including 2.9, 2.10, 2.11, 2.12, 2.13, 2.14, 2.15, 2.16 and 2.17.
 - More availability on Ansible versions on [Ansible Release Documentation](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html) and [Ansible-core to Python compatibility](https://pypi.org/project/ansible-core/#history).
 

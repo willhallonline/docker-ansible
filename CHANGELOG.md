@@ -1,5 +1,11 @@
 # Changelog
 
+## v6.4.10
+
+- Bump `ansible-core` to 2.19.14, 2.20.10, and 2.21.5 for the 2.19, 2.20, and 2.21 branches
+- Bump `ansible-lint` to 26.9.0 for the 2.18, 2.19, 2.20, and 2.21 branches
+- Bump `docker/build-push-action` from 7.3.0 to 7.4.0 #186
+
 ## v6.4.9
 
 - Remove end-of-life `ansible-core` 2.16 and 2.17 from active image builds and documentation #184
