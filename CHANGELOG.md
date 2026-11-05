@@ -1,5 +1,10 @@
 # Changelog
 
+## v6.4.11
+
+- Add the Image Matrix Maintainer Copilot agent for keeping the Ansible Core image matrix consistent across Dockerfiles, workflows, tags, and documentation #192
+- Add the Build Failure Triager Copilot agent for diagnosing Docker image matrix failures and recommending evidence-based next steps #193
+
 ## v6.4.10
 
 - Bump `ansible-core` to 2.19.14, 2.20.10, and 2.21.5 for the 2.19, 2.20, and 2.21 branches
