@@ -29,6 +29,7 @@ env:
   ANSIBLE_CORE_219: 2.19.14
   ANSIBLE_CORE_220: 2.20.10
   ANSIBLE_CORE_221: 2.21.5
+  ANSIBLE_CORE_222: 2.22.0
   ANSIBLE_LINT_213: 5.4.0
   ANSIBLE_LINT_214: 6.20.3
   ANSIBLE_LINT_215: 6.20.3
@@ -36,6 +37,7 @@ env:
   ANSIBLE_LINT_219: 26.9.0
   ANSIBLE_LINT_220: 26.9.0
   ANSIBLE_LINT_221: 26.9.0
+  ANSIBLE_LINT_222: 26.11.0
   ANSIBLE_213: 6.7.0
   ANSIBLE_214: 7.7.0
   ANSIBLE_215: 8.7.0
@@ -43,6 +45,7 @@ env:
   ANSIBLE_219: 12.3.0
   ANSIBLE_220: 13.8.0
   ANSIBLE_221: 14.4.0
+  ANSIBLE_222: 15.0.0b1
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -117,6 +120,9 @@ jobs:
           - os: alpine-3.24
             ansible-version: '221'
             tag-version: '2.21'
+          - os: alpine-3.24
+            ansible-version: '222'
+            tag-version: '2.22'
 
           # Debian bookworm
           - os: debian-bookworm
@@ -147,6 +153,9 @@ jobs:
           - os: debian-trixie
             ansible-version: '221'
             tag-version: '2.21'
+          - os: debian-trixie
+            ansible-version: '222'
+            tag-version: '2.22'
 
           # Debian Trixie Slim
           - os: debian-trixie-slim
@@ -161,6 +170,9 @@ jobs:
           - os: debian-trixie-slim
             ansible-version: '221'
             tag-version: '2.21'
+          - os: debian-trixie-slim
+            ansible-version: '222'
+            tag-version: '2.22'
 
           # Rocky Linux 10
           - os: rockylinux-10
@@ -199,6 +211,9 @@ jobs:
           - os: ubuntu-26.04
             ansible-version: '221'
             tag-version: '2.21'
+          - os: ubuntu-26.04
+            ansible-version: '222'
+            tag-version: '2.22'
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -247,8 +262,8 @@ jobs:
           tags: |
             type=raw,enable=true,value=${{ env.ANSIBLE_CORE_VERSION }}-${{ matrix.os }}
             type=raw,enable=true,value=${{ matrix.tag-version }}-${{ matrix.os }}
-            ${{ matrix.os == 'alpine-3.24' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=latest'  || '' }}
-            ${{ matrix.os == 'alpine-3.24' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=alpine'  || '' }}
+            ${{ matrix.os == 'alpine-3.24' && matrix.tag-version == '2.22' && 'type=raw,enable=true,value=latest'  || '' }}
+            ${{ matrix.os == 'alpine-3.24' && matrix.tag-version == '2.22' && 'type=raw,enable=true,value=alpine'  || '' }}
             ${{ matrix.os == 'ubuntu-24.04' && matrix.tag-version == '2.21' && 'type=raw,enable=true,value=ubuntu'  || '' }}
 
       - name: Build and push Docker image

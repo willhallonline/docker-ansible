@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Add Ansible Core 2.22.0 image variants for Alpine 3.24, Debian Trixie, Debian Trixie Slim, and Ubuntu 26.04; these require Python 3.13 or newer
+- Advance the `latest` and `alpine` tags to Ansible 2.22; keep the `ubuntu` tag on 2.21 because Ubuntu 24.04 provides Python 3.12
+- Use `ansible==15.0.0b1` only for draft validation; replace it with a stable Ansible 15 release before merging
+
 ## v6.4.10
 
 - Bump `ansible-core` to 2.19.14, 2.20.10, and 2.21.5 for the 2.19, 2.20, and 2.21 branches
