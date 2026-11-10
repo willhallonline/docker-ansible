@@ -5,10 +5,10 @@ Keeping this directory as a way to keep testing tools that are needed to make th
 ## Set Variables
 
 ```bash
-export ANSIBLE_CORE_218=2.18.19
-export ANSIBLE_CORE_219=2.19.14
-export ANSIBLE_CORE_220=2.20.10
-export ANSIBLE_CORE_221=2.21.5
+export ANSIBLE_CORE_218=2.18.20
+export ANSIBLE_CORE_219=2.19.15
+export ANSIBLE_CORE_220=2.20.11
+export ANSIBLE_CORE_221=2.21.6
 export ANSIBLE_LINT_218=26.9.0
 export ANSIBLE_LINT_219=26.9.0
 export ANSIBLE_LINT_220=26.9.0
