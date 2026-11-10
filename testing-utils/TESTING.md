@@ -22,7 +22,7 @@ export ANSIBLE_221=14.4.0
 export ANSIBLE_222=15.0.0b1
 ```
 
-`ANSIBLE_222` is a beta prerelease used only to validate this draft; replace it with a stable Ansible 15 release before merging.
+Ansible Core 2.22.0 is stable, but the compatible Ansible community package is still a beta prerelease. `ANSIBLE_222` is used only to validate this draft; replace it with a stable Ansible 15 release and rerun validation before merging.
 
 ## Run Docker Commands
 

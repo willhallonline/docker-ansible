@@ -6,6 +6,11 @@ Visit the [project documentation](https://docker-ansible.github.io/) to make doc
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/willhallonline/ansible "Docker Pulls")][hub] ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/willhallonline/ansible/latest)
 
+## Copilot Agents
+
+- [Image Matrix Maintainer](.github/agents/image-matrix-maintainer.agent.md) keeps the Ansible Core image matrix consistent across Dockerfiles, workflows, published tags, and documentation.
+- [Build Failure Triager](.github/agents/build-failure-triager.agent.md) diagnoses Docker image matrix failures and recommends evidence-based next steps.
+
 ## Current Ansible Core Versions
 
 These are the latest Ansible Core versions running within the containers:
