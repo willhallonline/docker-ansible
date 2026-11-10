@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.4.12
+
+- Bump `ansible-core` to 2.18.20, 2.19.15, 2.20.11, and 2.21.6
+
 ## v6.4.11
 
 - Add the Image Matrix Maintainer Copilot agent for keeping the Ansible Core image matrix consistent across Dockerfiles, workflows, tags, and documentation #192
