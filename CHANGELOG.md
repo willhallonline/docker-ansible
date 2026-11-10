@@ -6,6 +6,10 @@
 - Advance the `latest` and `alpine` tags to Ansible 2.22; keep the `ubuntu` tag on 2.21 because Ubuntu 24.04 provides Python 3.12
 - Ansible Core 2.22.0 is stable, but the compatible Ansible community package is still prerelease (`ansible==15.0.0b1`); use it only for draft validation and replace it with stable Ansible 15 before merging
 
+## v6.4.12
+
+- Bump `ansible-core` to 2.18.20, 2.19.15, 2.20.11, and 2.21.6
+
 ## v6.4.11
 
 - Add the Image Matrix Maintainer Copilot agent for keeping the Ansible Core image matrix consistent across Dockerfiles, workflows, tags, and documentation #192
