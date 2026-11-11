@@ -45,7 +45,7 @@ env:
   ANSIBLE_219: 12.3.0
   ANSIBLE_220: 13.8.0
   ANSIBLE_221: 14.4.0
-  ANSIBLE_222: 15.0.0b1
+  ANSIBLE_222: 15.0.0rc1
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

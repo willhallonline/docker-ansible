@@ -19,7 +19,7 @@ export ANSIBLE_218=11.13.0
 export ANSIBLE_219=12.3.0
 export ANSIBLE_220=13.8.0
 export ANSIBLE_221=14.4.0
-export ANSIBLE_222=15.0.0b1
+export ANSIBLE_222=15.0.0rc1
 ```
 
 Ansible Core 2.22.0 is stable, but the compatible Ansible community package is still a beta prerelease. `ANSIBLE_222` is used only to validate this draft; replace it with a stable Ansible 15 release and rerun validation before merging.
