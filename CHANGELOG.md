@@ -1,5 +1,9 @@
 # Changelog
 
+## v6.4.13
+
+- Remove the duplicate package installation layer from the Debian Trixie Slim image #198
+
 ## v6.4.12
 
 - Bump `ansible-core` to 2.18.20, 2.19.15, 2.20.11, and 2.21.6
