@@ -5,6 +5,10 @@
 - Add Ansible Core 2.22.0 images with Ansible 15.0.0 for Alpine 3.24, Debian Trixie, Debian Trixie Slim, and Ubuntu 26.04; these require Python 3.13 or newer
 - Advance the `latest` and `alpine` tags to Ansible 2.22; keep the `ubuntu` tag on 2.21 because Ubuntu 24.04 provides Python 3.12 #194
 
+## v6.4.13
+
+- Remove the duplicate package installation layer from the Debian Trixie Slim image #198
+
 ## v6.4.12
 
 - Bump `ansible-core` to 2.18.20, 2.19.15, 2.20.11, and 2.21.6

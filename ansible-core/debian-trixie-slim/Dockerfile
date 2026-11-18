@@ -26,11 +26,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
   rm -rf /var/lib/apt/lists/* && \
   apt-get clean
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-  apt-get install -y python3 sshpass git openssh-client libhdf5-dev libssl-dev libffi-dev && \
-  rm -rf /var/lib/apt/lists/* && \
-  apt-get clean
-
 RUN uv pip install --system --break-system-packages --no-cache --upgrade cffi && \
   uv pip install --system --break-system-packages --no-cache ansible-core==${ANSIBLE_CORE_VERSION} ansible==${ANSIBLE_VERSION} ansible-lint==${ANSIBLE_LINT} && \
   uv pip install --system --break-system-packages --no-cache mitogen jmespath && \
