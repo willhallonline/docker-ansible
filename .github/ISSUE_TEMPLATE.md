@@ -63,6 +63,6 @@ Add any other context about the issue or feature request here.
 
 Please confirm the following by marking with an `X`:
 
-- [ ] I have read the [README](https://github.com/willhallonline/docker-ansible/blob/master/README.md) and documentation to ensure this is not a configuration issue.
+- [ ] I have read the [README](https://github.com/willhallonline/docker-ansible/blob/main/README.md) and documentation to ensure this is not a configuration issue.
 - [ ] I have searched existing issues for duplicates.
 - [ ] I have provided sufficient detail for the maintainers to reproduce the problem.
