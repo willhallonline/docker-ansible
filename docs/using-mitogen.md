@@ -4,11 +4,11 @@
 
 > Mitogen for Ansible is a completely redesigned UNIX connection layer and module runtime for Ansible. Requiring minimal configuration changes, it updates Ansible’s slow and wasteful shell-centric implementation with pure-Python equivalents, invoked via highly efficient remote procedure calls to persistent interpreters tunnelled over SSH. No changes are required to target hosts.
 
-Overall, I have used Mitogen to significantly accelerate the rollout of Ansible playbooks. This is a reference for how to use it.
+Overall, I have used Mitogen to significantly accelerate the rollout of Ansible playbooks. This is a reference for how to use it. Mitogen is not an upstream package installed by every image in this repository; verify whether the selected image contains `ansible_mitogen` before configuring it.
 
 ### Using Mitogen
 
-All installs include Mitogen mainly due to the performance improvements that Mitogen awards you. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html). To leverage *Mitogen- to accelerate your playbook runs, add this to your ```ansible.cfg```:
+Some older image builds included Mitogen. You can read more about it inside the [Mitogen for Ansible documentation](https://mitogen.readthedocs.io/en/stable/ansible.html). To leverage Mitogen in an image that contains it, add this to your `ansible.cfg`:
 
 Please investigate in your container the location of `ansible_mitogen` (it is different per container). You can do this via:
 

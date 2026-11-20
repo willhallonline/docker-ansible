@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Fix archived Dockerfile links and branch references in the documentation
+- Clarify that Mitogen is only available in older image builds that include it
+
 ## v6.5.0
 
 - Add Ansible Core 2.22.0 images with Ansible 15.0.0 for Alpine 3.24, Debian Trixie, Debian Trixie Slim, and Ubuntu 26.04; these require Python 3.13 or newer
