@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v6.5.1
 
 - Fix archived Dockerfile links and branch references in the documentation
 - Clarify that Mitogen is only available in older image builds that include it
